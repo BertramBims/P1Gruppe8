@@ -24,6 +24,8 @@ public class ResourceManager : MonoBehaviour
 
     private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
 
+    public event Action<ResourceType, int> OnResourceChanged;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -48,7 +50,7 @@ public class ResourceManager : MonoBehaviour
     {
         resources[type] += amount;
         Debug.Log($"{amount} {type} added. Total: {resources[type]}");
-        //Trigger a UI update event here.
+        OnResourceChanged?.Invoke(type, resources[type]); //Notifies listeners
     }
 
     public bool TrySpend(params ResourceAmount[] costs)
@@ -63,6 +65,7 @@ public class ResourceManager : MonoBehaviour
         foreach (var cost in costs)
         {
             resources[cost.type] -= cost.amount;
+            OnResourceChanged?.Invoke(cost.type, resources[cost.type]); //Notifies listeners
         }
 
         Debug.Log("Resources spent successfully!");
