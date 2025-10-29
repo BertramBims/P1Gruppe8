@@ -6,21 +6,34 @@ using UnityEngine.UIElements;
 
 public class mouseInteract : MonoBehaviour
 {
-   SpriteRenderer sprite;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   
- void Start()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
-   
-    private void OnMouseEnter(){
 
-        sprite.color = new Color (1, 0, 0, 1); 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    void ApplyRedToChildren(){
+        SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer r in childRenderers)
+        {
+            r.color = new Color (255,0,0,255);
+        }
+    }
+    void ApplyBlackToChildren()
+    {
+        SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer i in childRenderers)
+        {
+            i.color = new Color(0, 0, 0, 255);
+        }
+    }
+    private void OnMouseEnter(){
+        ApplyRedToChildren();
     }
 
     private void OnMouseExit(){
-        sprite.color = new Color (255,255,255,1); 
+        ApplyBlackToChildren();
     }
     private void OnMouseDown(){
         Debug.Log("woof");
