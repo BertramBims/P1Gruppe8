@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CameraController : MonoBehaviour
+public class CameraMover : MonoBehaviour
 {
+    private Vector3 _origin;
+    private Vector3 _difference;
+
+    private Camera _mainCamera;
+
+    private bool _isDragging;
+
     private Vector3 CameraPosition;
 
     [Header("Camera Settings")]
