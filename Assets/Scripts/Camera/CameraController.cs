@@ -5,13 +5,6 @@ using UnityEngine.InputSystem;
 
 public class CameraMover : MonoBehaviour
 {
-    private Vector3 _origin;
-    private Vector3 _difference;
-
-    private Camera _mainCamera;
-
-    private bool _isDragging;
-
     private Vector3 CameraPosition;
 
     [Header("Camera Settings")]
