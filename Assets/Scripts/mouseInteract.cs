@@ -6,13 +6,6 @@ using UnityEngine.UIElements;
 
 public class mouseInteract : MonoBehaviour
 {
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     void ApplyRedToChildren(){
         SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer r in childRenderers)
