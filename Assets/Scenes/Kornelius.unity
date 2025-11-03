@@ -242,9 +242,8 @@ MonoBehaviour:
   panBorderThickness: 10
   xLimit: 100
   yLimit: 100
-  scrollSpeed: 2
-  minZ: -10
-  maxZ: -2000
+  scrollSpeed: 20
+  myCamera: {fileID: 0}
 --- !u!114 &932464061
 MonoBehaviour:
   m_ObjectHideFlags: 0
