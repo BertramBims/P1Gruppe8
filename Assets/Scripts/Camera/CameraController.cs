@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     public float panSpeed = 20f;
-    public float panBorderThickness = -1f;
+    public float panBorderThickness = 10f;
     public float xLimit, yLimit;
     public float scrollSpeed = 20f;
     //private float zoom;
