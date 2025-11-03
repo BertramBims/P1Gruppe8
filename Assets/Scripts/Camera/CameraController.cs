@@ -1,48 +1,77 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraMover : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    private Vector3 _origin;
-    private Vector3 _difference;
+    public float panSpeed = 20f;
+    public float panBorderThickness = -1f;
+    public float xLimit, yLimit;
+    public float scrollSpeed = 20f;
+    //private float zoom;
+    //private float zoomMultiplier = 4f;
+    private float minZ = -1f;
+    private float maxZ = -15f;
+    //private float velocity = 0f;
+    //private float smoothTime = 0.25f;
 
-    private Camera _mainCamera;
+    UnityEngine.Vector3 lastDragPosition;
 
-    private bool _isDragging;
 
-    private Vector3 CameraPosition;
+    [SerializeField] private Camera myCamera;
 
-    [Header("Camera Settings")]
-    public float CameraSpeed;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CameraPosition = this.transform.position;
+        myCamera = Camera.main;
+        //zoom = cam.ortographicSize;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKey(KeyCode.W))
+    {     
+        UnityEngine.Vector3 pos = transform.position;
+
+        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            CameraPosition.y += CameraSpeed / 10;
+            pos.y += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
         {
-            CameraPosition.y -= CameraSpeed / 10;
+            pos.y -= panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            CameraPosition.x -= CameraSpeed / 10;
+            pos.x += panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
         {
-            CameraPosition.x += CameraSpeed / 10;
+            pos.x -= panSpeed * Time.deltaTime;
         }
 
-        this.transform.position = CameraPosition;
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        pos.z += scroll * scrollSpeed * 100f * Time.deltaTime;
+
+        pos.x = Mathf.Clamp(pos.x, -xLimit, xLimit);
+        pos.y = Mathf.Clamp(pos.y, -yLimit, yLimit);
+        pos.z = Mathf.Clamp(pos.z, maxZ, minZ);
+
+        transform.position = pos;
+
+        UpdateDrag();    
     }
+
+    void UpdateDrag()
+    {
+        if (Input.GetMouseButtonDown(2))
+            lastDragPosition = Input.mousePosition;
+        if (Input.GetMouseButton(2))
+        {
+            var delta = lastDragPosition - Input.mousePosition;
+            transform.Translate(delta * Time.deltaTime * 0.50f);
+            lastDragPosition = Input.mousePosition;
+        }
+    }
+
+    private UnityEngine.Vector3 GetMousePosition => myCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 }
