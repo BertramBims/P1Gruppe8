@@ -5,7 +5,7 @@ public class BuildingType : ScriptableObject
 {
     [Header("Identity")]
     public string buildingName;
-    public Sprite icon;
+    public Sprite sprite;
     public GameObject prefab;
 
     [Header("Economy")]
