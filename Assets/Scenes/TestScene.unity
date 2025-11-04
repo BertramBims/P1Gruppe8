@@ -13126,6 +13126,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: FarmConstructionPlot
       objectReference: {fileID: 0}
+    - target: {fileID: 4525092377100458338, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374112326078160419, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
