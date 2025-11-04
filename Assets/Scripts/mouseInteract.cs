@@ -1,24 +1,34 @@
 using System;
+using System.Linq;
+using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class mouseInteract : MonoBehaviour
 {
+
     void ApplyRedToChildren(){
         SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer r in childRenderers)
+        for (int i = 0; i < childRenderers.Length; i++)
         {
-            r.color = new Color (255,0,0,255);
+            if (i == 0)
+                continue;
+
+                 childRenderers[i].color = new Color (255,0,0,255);
         }
     }
     void ApplyBlackToChildren()
     {
         SpriteRenderer[] childRenderers = GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer i in childRenderers)
+        for (int i = 0; i < childRenderers.Length; i++)
         {
-            i.color = new Color(0, 0, 0, 255);
+            if (i == 0)
+                continue;
+
+                 childRenderers[i].color = new Color (0, 0, 0, 255);
         }
     }
     private void OnMouseEnter(){
