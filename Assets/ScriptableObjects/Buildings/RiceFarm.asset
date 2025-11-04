@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: RiceFarm
   sprite: {fileID: 21300000, guid: a60a646b00d4b684f93c8c06ae3a7915, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8385769551180989103, guid: f59f5f449e1735541ae2adc4736094f8, type: 3}
   buildCost:
   - type: 0
     amount: 50

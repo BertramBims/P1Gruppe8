@@ -31,7 +31,8 @@ public class BuildManager : MonoBehaviour
         BuildingInstance instance = obj.GetComponent<BuildingInstance>();
         instance.data = selectedBuildingType;
 
-        plot.currentBuilding = instance;
+        //plot.currentBuilding = instance;
+        plot.gameObject.SetActive(false);
 
         Debug.Log($"Built {selectedBuildingType.buildingName} at {plot.name}");
     }

@@ -37,7 +37,7 @@ public class ResourceManager : MonoBehaviour
 
         foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
         {
-            resources[type] = 0;
+            resources[type] = 50;
         }
     }
 
