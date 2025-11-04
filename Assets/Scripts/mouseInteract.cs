@@ -38,7 +38,4 @@ public class mouseInteract : MonoBehaviour
     private void OnMouseExit(){
         ApplyBlackToChildren();
     }
-    private void OnMouseDown(){
-        Debug.Log("woof");
-    }
 }
