@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     UnityEngine.Vector3 lastDragPosition;
 
 
-    [SerializeField] private Camera myCamera;
+    private Camera myCamera;
 
     void Start()
     {
