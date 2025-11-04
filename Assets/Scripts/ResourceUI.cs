@@ -29,6 +29,6 @@ public class ResourceUI : MonoBehaviour
     private void UpdateDisplay(ResourceType changedType, int newAmount)
     {
         if (changedType == type)
-            amountText.text = $"{type}: {newAmount}";
+            amountText.text = $"{newAmount}";
     }
 }
