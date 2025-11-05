@@ -36,4 +36,14 @@ public class BuildManager : MonoBehaviour
 
         Debug.Log($"Built {selectedBuildingType.buildingName} at {plot.name}");
     }
+
+    public void CloseMenues()
+    {
+        var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
+
+        for (int i = 0; i < allMenues.Length; i++)
+        {
+            allMenues[i].gameObject.SetActive(false);
+        }
+    }
 }

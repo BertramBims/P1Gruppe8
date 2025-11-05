@@ -6,11 +6,24 @@ public class ConstructionPlot : MonoBehaviour
 
     public void OnMouseDown()
     {
-        //open ui here
-        if (buildUIPrefab.activeInHierarchy == true)
-            buildUIPrefab.SetActive(false);
-        if (buildUIPrefab.activeInHierarchy == false)
+        bool wasOpen = buildUIPrefab.activeSelf;
+
+        var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
+
+        for (int i = 0; i < allMenues.Length; i++)
+        {
+            allMenues[i].gameObject.SetActive(false);
+        }
+
+        if(!wasOpen)
+        {
+            Debug.Log("set true");
             buildUIPrefab.SetActive(true);
+        } else
+        {
+            Debug.Log("set false");
+            buildUIPrefab.SetActive(false);
+        }
     }
 
     public void SelectBuilding(BuildingType type)
@@ -21,5 +34,10 @@ public class ConstructionPlot : MonoBehaviour
     public void TryBuild()
     {
         BuildManager.Instance.TryBuildAt(this);
+    }
+
+    public void CloseMenu()
+    {
+        buildUIPrefab.SetActive(false);
     }
 }
