@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
@@ -9,6 +10,26 @@ public class BuildManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void ClickOnMap()
+    {
+        var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
+
+        if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log("Hej!");
+            for (int i = 0; i < allMenues.Length; i++)
+            {
+                if (allMenues[i].GetComponentInParent<ConstructionPlot>().immuneUI == true)
+                {
+                    allMenues[i].GetComponentInParent<ConstructionPlot>().immuneUI = false;
+                    continue;
+                }
+                allMenues[i].gameObject.SetActive(false);
+            }
+            return;
+        }
     }
 
     public void SelectBuildingType(BuildingType type)
@@ -35,5 +56,15 @@ public class BuildManager : MonoBehaviour
         plot.gameObject.SetActive(false);
 
         Debug.Log($"Built {selectedBuildingType.buildingName} at {plot.name}");
+    }
+
+    public void CloseMenues()
+    {
+        var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
+
+        for (int i = 0; i < allMenues.Length; i++)
+        {
+            allMenues[i].gameObject.SetActive(false);
+        }
     }
 }
