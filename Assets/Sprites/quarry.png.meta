@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a547b01558a86841aad7aca57041526
+guid: c6245d01f0f3fbd4aa4728992ca1116c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8344876994848711545
-    second: EmptyPlot_0
+      213: -892183819787830546
+    second: quarry_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyPlot_0
+      name: quarry_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 37
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973694ce965fec370800000000000000
-      internalID: 8344876994848711545
+      spriteID: eeaf13bfa835e93f0800000000000000
+      internalID: -892183819787830546
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyPlot_0: 8344876994848711545
+      quarry_0: -892183819787830546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a547b01558a86841aad7aca57041526
+guid: a4d8cf9ca4b913248bd3de14e4c4450b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8344876994848711545
-    second: EmptyPlot_0
+      213: 4176023772143854069
+    second: lumberyardplot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyPlot_0
+      name: lumberyardplot_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 37
+        width: 32
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973694ce965fec370800000000000000
-      internalID: 8344876994848711545
+      spriteID: 5f1a838ce7734f930800000000000000
+      internalID: 4176023772143854069
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyPlot_0: 8344876994848711545
+      lumberyardplot_0: 4176023772143854069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

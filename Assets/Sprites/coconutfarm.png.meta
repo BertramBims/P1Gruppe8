@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a547b01558a86841aad7aca57041526
+guid: 9860631f3d65bbc43803db23d97aeb76
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8344876994848711545
-    second: EmptyPlot_0
+      213: -496543601146245473
+    second: coconutfarm_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyPlot_0
+      name: coconutfarm_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 80
-        height: 37
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973694ce965fec370800000000000000
-      internalID: 8344876994848711545
+      spriteID: f9e4f2eb93ceb19f0800000000000000
+      internalID: -496543601146245473
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyPlot_0: 8344876994848711545
+      coconutfarm_0: -496543601146245473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a547b01558a86841aad7aca57041526
+guid: 00da5b18d4e34c6418348f05951dd8fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8344876994848711545
-    second: EmptyPlot_0
+      213: 4940030807930890454
+    second: hut3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EmptyPlot_0
+      name: hut3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 37
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 973694ce965fec370800000000000000
-      internalID: 8344876994848711545
+      spriteID: 6d8e43ea8d38e8440800000000000000
+      internalID: 4940030807930890454
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EmptyPlot_0: 8344876994848711545
+      hut3_0: 4940030807930890454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
