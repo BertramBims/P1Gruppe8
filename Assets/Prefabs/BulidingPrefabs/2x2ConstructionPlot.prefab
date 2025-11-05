@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4780045475160085460}
   - component: {fileID: 3562297694435058205}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4780045475160085460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &719952428496363480
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +518,7 @@ GameObject:
   - component: {fileID: 7245637427062152365}
   - component: {fileID: 8015953325211630037}
   m_Layer: 5
-  m_Name: Rice
+  m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,7 +631,7 @@ MonoBehaviour:
         m_MethodName: SelectBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 18886247c84a8eb4b9e1f0b087eaf27b, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: d595aca87069d734480128174f2da338, type: 2}
           m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -718,7 +742,7 @@ GameObject:
   - component: {fileID: 7725006820817887341}
   - component: {fileID: 5565682857567497596}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Quarry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,7 +765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 270, y: -50}
+  m_AnchoredPosition: {x: 160, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4270686692356589705
@@ -1113,7 +1137,7 @@ GameObject:
   - component: {fileID: 3649486784697274656}
   - component: {fileID: 1495790765170815449}
   m_Layer: 0
-  m_Name: FarmConstructionPlot
+  m_Name: 2x2ConstructionPlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1180,7 +1204,7 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4a547b01558a86841aad7aca57041526, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd87de358324b2f439acb23421ccb7f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1229,7 +1253,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 3}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 5, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1250,7 +1274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4525092377100458338}
-  immuneUI: 0
 --- !u!1 &3229897065927719265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,7 +1714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rice Farm
+  m_text: House
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
