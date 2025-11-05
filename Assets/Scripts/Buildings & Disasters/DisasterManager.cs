@@ -25,24 +25,23 @@ public class DisasterManager : MonoBehaviour
     public float checkIntervalDays = 30f; //check once a month
     public Vector2 worldBounds = new Vector2(1000f, 1000f);
 
+    private TimeManager timeManager;
     private DisasterInstance activeDisaster;
-    private float dayCounter = 0f;
 
     private void Awake()
     {
         Instance = this;
+        timeManager = GetComponent<TimeManager>();
     }
 
     private void Update()
     {
         //For simplicity right now, one second is one day in simulation
         float daysPassed = Time.deltaTime;
-        dayCounter += daysPassed;
 
         //Check for new disaster periodically
-        if (dayCounter >= checkIntervalDays)
+        if (timeManager.dayCounter == checkIntervalDays)
         {
-            dayCounter = 0f;
             TryTriggerDisaster();
         }
 
@@ -51,7 +50,7 @@ public class DisasterManager : MonoBehaviour
             TickActiveDisaster(daysPassed);
         }
 
-        TickBuildingEffects(daysPassed);
+        //TickBuildingEffects(daysPassed);
     }
 
     private void TryTriggerDisaster()
@@ -110,12 +109,12 @@ public class DisasterManager : MonoBehaviour
         }
     }
 
-    private void TickBuildingEffects(float daysPassed)
+    /*private void TickBuildingEffects(float daysPassed)
     {
         var buildings = Object.FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
         foreach (var b in buildings)
         {
             b.TickDay();
         }
-    }
+    }*/
 }
