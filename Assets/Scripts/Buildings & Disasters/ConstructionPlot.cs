@@ -13,14 +13,14 @@ public class ConstructionPlot : MonoBehaviour
             return;
         }
 
-        buildUIPrefab.SetActive(true);
+        //buildUIPrefab.SetActive(true);
         immuneUI = true;
 
-        /*bool wasOpen = buildUIPrefab.activeSelf;
+        bool wasOpen = buildUIPrefab.activeSelf;
 
         var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
 
-        if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject() && buildUIPrefab.activeSelf)
+        /*if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject() && buildUIPrefab.activeSelf)
         {
             Debug.Log("Hej!");
             for (int i = 0; i < allMenues.Length; i++)
@@ -28,7 +28,7 @@ public class ConstructionPlot : MonoBehaviour
                 allMenues[i].gameObject.SetActive(false);
             }
             return;
-        }
+        }*/
 
         for (int i = 0; i < allMenues.Length; i++)
         {
@@ -43,7 +43,7 @@ public class ConstructionPlot : MonoBehaviour
         {
             Debug.Log("set false");
             buildUIPrefab.SetActive(false);
-        }*/
+        }
     }
 
     public void SelectBuilding(BuildingType type)
