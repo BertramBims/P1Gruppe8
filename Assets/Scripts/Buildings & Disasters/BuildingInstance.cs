@@ -33,9 +33,6 @@ public class BuildingInstance : MonoBehaviour
     {
         if (!isActive)
             return;
-
-        ApplyUpkeep();
-        ProduceResources();
     }
 
     private void ApplyUpkeep()
@@ -82,6 +79,9 @@ public class BuildingInstance : MonoBehaviour
 
     public void TickDay()
     {
+        ApplyUpkeep();
+        ProduceResources();
+
         //Apply daily decay and update durations
         for (int i = activeEffects.Count - 1; i >= 0; i--)
         {

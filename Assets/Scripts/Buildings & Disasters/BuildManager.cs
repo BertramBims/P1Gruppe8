@@ -18,7 +18,6 @@ public class BuildManager : MonoBehaviour
 
         if (EventSystem.current != null && !EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("Hej!");
             for (int i = 0; i < allMenues.Length; i++)
             {
                 if (allMenues[i].GetComponentInParent<ConstructionPlot>().immuneUI == true)

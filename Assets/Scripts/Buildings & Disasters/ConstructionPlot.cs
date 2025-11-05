@@ -37,11 +37,9 @@ public class ConstructionPlot : MonoBehaviour
 
         if (!wasOpen)
         {
-            Debug.Log("set true");
             buildUIPrefab.SetActive(true);
         } else
         {
-            Debug.Log("set false");
             buildUIPrefab.SetActive(false);
         }
     }
