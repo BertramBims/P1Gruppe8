@@ -20,13 +20,17 @@ MonoBehaviour:
     amount: 25
   upkeepPerMonth:
   - type: 1
-    amount: 5
+    amount: 1
   productionPerMonth:
-  - type: 0
-    amount: 10
+  - type: 2
+    amount: 2
   maxPopulation: 3
   baseMoraleEffect: 4
   moraleSensitivity: 0
-  nextTier: {fileID: 0}
-  upgradeCost: []
+  nextTier: {fileID: 11400000, guid: 769d63e9ac9a0254cadb40d6922ccf18, type: 2}
+  upgradeCost:
+  - type: 0
+    amount: 80
+  - type: 2
+    amount: 10
   isInteractable: 1

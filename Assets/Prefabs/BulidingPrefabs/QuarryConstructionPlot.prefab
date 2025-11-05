@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 7245637427062152365}
   - component: {fileID: 8015953325211630037}
   m_Layer: 5
-  m_Name: Lumberyard
+  m_Name: Quarry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
         m_MethodName: SelectBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5e50b463c68079f4ea585ee637579614, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: e9b495e6f61658b4f825efd72020e578, type: 2}
           m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 3649486784697274656}
   - component: {fileID: 1495790765170815449}
   m_Layer: 0
-  m_Name: LumberyardConstructionPlot
+  m_Name: QuarryConstructionPlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1204,7 +1204,7 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4d8cf9ca4b913248bd3de14e4c4450b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5acf8e67864984a46a9a08f9d819e0fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1253,7 +1253,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 3, y: 3}
     newSize: {x: 5, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Building Name
+  m_text: Quarry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lumberyard
+  m_text: Quarry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

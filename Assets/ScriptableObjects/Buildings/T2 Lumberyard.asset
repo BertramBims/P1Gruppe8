@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: Hospital
+  m_Name: T2 Lumberyard
   m_EditorClassIdentifier: 
-  buildingName: School
-  sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: b71c0c5a3c4d1443b943c7d1eb960b8b, type: 3}
+  buildingName: Lumberyard
+  sprite: {fileID: 21300000, guid: d154ab38cc074394b8204df699154e98, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 450d86bbca67ca44cb785040be10a1f2, type: 3}
   buildCost:
   - type: 0
-    amount: 25
+    amount: 50
   upkeepPerMonth:
-  - type: 0
-    amount: 2
   - type: 1
-    amount: 1
-  productionPerMonth: []
+    amount: 2
+  productionPerMonth:
+  - type: 2
+    amount: 4
   maxPopulation: 5
-  baseMoraleEffect: 0
+  baseMoraleEffect: 6
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []

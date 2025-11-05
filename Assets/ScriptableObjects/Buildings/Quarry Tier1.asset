@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: Hospital
+  m_Name: Quarry Tier1
   m_EditorClassIdentifier: 
-  buildingName: School
-  sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: b71c0c5a3c4d1443b943c7d1eb960b8b, type: 3}
+  buildingName: Quarry
+  sprite: {fileID: 21300000, guid: c6245d01f0f3fbd4aa4728992ca1116c, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 99ba6d833b3c6c6439e0c72d2847bfbf, type: 3}
   buildCost:
   - type: 0
     amount: 25
   upkeepPerMonth:
-  - type: 0
-    amount: 2
   - type: 1
     amount: 1
-  productionPerMonth: []
-  maxPopulation: 5
-  baseMoraleEffect: 0
+  productionPerMonth:
+  - type: 3
+    amount: 2
+  maxPopulation: 3
+  baseMoraleEffect: 4
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []
