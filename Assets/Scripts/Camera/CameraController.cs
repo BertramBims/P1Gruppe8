@@ -11,8 +11,8 @@ public class CameraController : MonoBehaviour
     public float scrollSpeed = 20f;
     //private float zoom;
     //private float zoomMultiplier = 4f;
-    private float minZ = -1f;
-    private float maxZ = -300f;
+    private float minZ = -5f;
+    private float maxZ = -20f;
     //private float velocity = 0f;
     //private float smoothTime = 0.25f;
 

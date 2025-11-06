@@ -274,7 +274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1412013809809628816
 Transform:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4a547b01558a86841aad7aca57041526, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 303c6b677690be64fbf25fddc8d74373, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1112,6 +1112,7 @@ GameObject:
   - component: {fileID: 108196061195317327}
   - component: {fileID: 3649486784697274656}
   - component: {fileID: 1495790765170815449}
+  - component: {fileID: 3471958637668765380}
   m_Layer: 0
   m_Name: SchoolConstructionPlot
   m_TagString: Untagged
@@ -1250,6 +1251,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4525092377100458338}
+  immuneUI: 0
+--- !u!114 &3471958637668765380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979057111927445414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05afdc688a1011cbda30f852e62fc0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3229897065927719265
 GameObject:
   m_ObjectHideFlags: 0
