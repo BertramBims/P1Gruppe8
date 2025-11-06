@@ -5,9 +5,17 @@ public class TimeManager : MonoBehaviour
     public float dayCounter = 0f;
     public int currentDay;
     public int currentMonth;
+    public bool isTimePaused = true;
+    public GameObject pausedIndicator;
 
     private void Update()
     {
+        //time pause
+        if (isTimePaused)
+        {
+            return;
+        }
+
         float daysPassed = Time.deltaTime;
         dayCounter += daysPassed;
 
@@ -45,6 +53,19 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < buildings.Length; i++)
         {
             buildings[i].TickMonth();
+        }
+    }
+
+    public void PauseTime()
+    {
+        if (isTimePaused)
+        {
+            isTimePaused = false;
+            pausedIndicator.SetActive(false);
+        } else
+        {
+            isTimePaused = true;
+            pausedIndicator.SetActive(true);
         }
     }
 }
