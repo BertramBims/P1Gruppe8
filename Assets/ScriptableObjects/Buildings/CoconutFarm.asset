@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
   m_Name: CoconutFarm
   m_EditorClassIdentifier: 
-  buildingName: Rice Farm
+  buildingName: Coconut Farm
   sprite: {fileID: 21300000, guid: 9860631f3d65bbc43803db23d97aeb76, type: 3}
   prefab: {fileID: 8385769551180989103, guid: ced89efddadea964b90df4c637142e2d, type: 3}
   buildCost:

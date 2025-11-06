@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
   m_Name: BananaFarm
   m_EditorClassIdentifier: 
-  buildingName: BananaFarm
+  buildingName: Banana Farm
   sprite: {fileID: 285732468, guid: d013e103f70473543af17881553050c3, type: 3}
   prefab: {fileID: 8385769551180989103, guid: bc6d76f578d0eaaf69842357414f894e, type: 3}
   buildCost:
