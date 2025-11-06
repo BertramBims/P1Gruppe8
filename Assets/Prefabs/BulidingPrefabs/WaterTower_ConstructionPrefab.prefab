@@ -1710,7 +1710,7 @@ SpriteRenderer:
   m_SortingLayerID: -78908079
   m_SortingLayer: 7
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4f6fe4afb67b31f41abbbd6699953da5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 76d847ce41b7d5f41b02268877f0082b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2242,7 +2242,7 @@ GameObject:
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
   m_Layer: 0
-  m_Name: Antenna
+  m_Name: WaterTower_ConstructionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 498e8817132e92048bea4bb758230ca5, type: 2}
-  currentPopulation: 5
+  currentPopulation: 1
   currentMorale: 100
   isActive: 1
   activeEffects: []
