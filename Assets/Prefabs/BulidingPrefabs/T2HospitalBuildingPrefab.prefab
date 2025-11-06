@@ -121,25 +121,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5816330073737724429}
-        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
-        m_MethodName: SelectBuilding
-        m_Mode: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bf9d52746bcf4834f9d26cdd8cd48cd9, type: 2}
-          m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5816330073737724429}
-        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
-        m_MethodName: TryBuild
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2180,7 +2180,7 @@ GameObject:
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
   m_Layer: 0
-  m_Name: HospitalBuildingPrefab
+  m_Name: T2HospitalBuildingPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2246,7 +2246,7 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df7f0a4c3b13977468cba1db8d6d4c70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
