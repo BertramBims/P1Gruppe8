@@ -10,25 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: School
+  m_Name: T2 RiceFarm
   m_EditorClassIdentifier: 
-  buildingName: School
-  sprite: {fileID: 21300000, guid: 5afe82c58e8a8a64eb955ada5101cb2f, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: e73e81fff6909fc18bb6bafd7004b89b, type: 3}
+  buildingName: Rice Farm
+  sprite: {fileID: 21300000, guid: a60a646b00d4b684f93c8c06ae3a7915, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: ef052da504c8e624d8547e056c725eda, type: 3}
   buildCost:
   - type: 0
     amount: 50
   upkeepPerMonth:
   - type: 0
-    amount: 1
-  - type: 1
     amount: 2
-  productionPerMonth: []
-  maxPopulation: 5
+  productionPerMonth:
+  - type: 1
+    amount: 3
+  maxPopulation: 6
   baseMoraleEffect: 0
   moraleSensitivity: 0
-  nextTier: {fileID: 11400000}
-  upgradeCost:
-  - type: 0
-    amount: 50
+  nextTier: {fileID: 0}
+  upgradeCost: []
   isInteractable: 1
