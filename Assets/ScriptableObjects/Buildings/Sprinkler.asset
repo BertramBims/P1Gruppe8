@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: BananaFarm
+  m_Name: Sprinkler
   m_EditorClassIdentifier: 
-  buildingName: BananaFarm
-  sprite: {fileID: 285732468, guid: d013e103f70473543af17881553050c3, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: bc6d76f578d0eaaf69842357414f894e, type: 3}
+  buildingName: Sprinkler
+  sprite: {fileID: 21300000, guid: 6119a840923d26f44af00e7e48bc4ab6, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: b85aad94a6668f04d9cc311766480ff0, type: 3}
   buildCost:
   - type: 0
     amount: 50
@@ -24,8 +24,8 @@ MonoBehaviour:
   productionPerMonth:
   - type: 1
     amount: 20
-  maxPopulation: 5
-  baseMoraleEffect: 0
+  maxPopulation: 1
+  baseMoraleEffect: 10
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []

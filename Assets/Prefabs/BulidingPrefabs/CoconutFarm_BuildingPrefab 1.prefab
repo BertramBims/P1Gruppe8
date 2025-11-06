@@ -126,20 +126,20 @@ MonoBehaviour:
         m_MethodName: SelectBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bf9d52746bcf4834f9d26cdd8cd48cd9, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: b56a2011d889b754c9388f325cbc8539, type: 2}
           m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5816330073737724429}
-        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
-        m_MethodName: TryBuild
+      - m_Target: {fileID: 8385769551180989103}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -475,6 +475,7 @@ RectTransform:
   - {fileID: 6281947328821820659}
   - {fileID: 7891343796153175989}
   - {fileID: 2661945040509452828}
+  - {fileID: 8474726384483445935}
   m_Father: {fileID: 4715143944092345884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -585,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Construction plot
+  m_text: Coconut Farm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -721,7 +722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Add a sprinkler
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1689,7 +1690,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3670937730532361683}
-  - {fileID: 8474726384483445935}
   m_Father: {fileID: 7210150986086388883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1928,11 +1928,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5899238164448550450}
-  m_Father: {fileID: 4715143944092345884}
+  m_Father: {fileID: 3670937730532361683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -500, y: -740}
+  m_AnchoredPosition: {x: -20.000122, y: -19.543701}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6268691743176681508
@@ -2180,7 +2180,7 @@ GameObject:
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
   m_Layer: 0
-  m_Name: HospitalBuildingPrefab
+  m_Name: CoconutFarm_BuildingPrefab 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2246,7 +2246,7 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9860631f3d65bbc43803db23d97aeb76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2269,7 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f3f1f1fd7fbc543be5a41040980ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 8e6d383d945d263a7af98016aa5b8916, type: 2}
+  data: {fileID: 11400000, guid: 18886247c84a8eb4b9e1f0b087eaf27b, type: 2}
   currentPopulation: 5
   currentMorale: 100
   isActive: 1
@@ -2312,7 +2312,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
+    oldSize: {x: 5, y: 3}
     newSize: {x: 5, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
