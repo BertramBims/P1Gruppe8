@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
   m_Name: T2 HouseSingle 1
   m_EditorClassIdentifier: 
-  buildingName: House
+  buildingName: House Tier 2
   sprite: {fileID: 21300000, guid: e57735708230a2d49be8cd72abadfe2d, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 9dbd00a6d9f79e44a8caa9752f0c315e, type: 3}
   buildCost:

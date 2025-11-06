@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
   m_Name: T2 Lumberyard
   m_EditorClassIdentifier: 
-  buildingName: Lumberyard
+  buildingName: Lumberyard Tier 2
   sprite: {fileID: 21300000, guid: d154ab38cc074394b8204df699154e98, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 450d86bbca67ca44cb785040be10a1f2, type: 3}
   buildCost:
