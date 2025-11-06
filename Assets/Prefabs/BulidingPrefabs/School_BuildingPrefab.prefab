@@ -120,7 +120,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104448141269026797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5816330073737724429}
+        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
+        m_MethodName: SelectBuilding
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e2a0c00614a4458448e60b1ee9e56163, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5816330073737724429}
+        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
+        m_MethodName: TryBuild
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &940217744873346636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
+  immuneUI: 0
 --- !u!1 &8554208301233192334
 GameObject:
   m_ObjectHideFlags: 0

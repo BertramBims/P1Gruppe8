@@ -26,7 +26,7 @@ public class ResourceUI : MonoBehaviour
             ResourceManager.Instance.OnResourceChanged -= UpdateDisplay;
     }
 
-    private void UpdateDisplay(ResourceType changedType, int newAmount)
+    private void UpdateDisplay(ResourceType changedType, float newAmount)
     {
         if (changedType == type)
             amountText.text = $"{newAmount}";

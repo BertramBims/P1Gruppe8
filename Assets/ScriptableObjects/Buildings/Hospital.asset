@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
   m_Name: Hospital
   m_EditorClassIdentifier: 
-  buildingName: School
+  buildingName: Hospital
   sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
   prefab: {fileID: 8385769551180989103, guid: b71c0c5a3c4d1443b943c7d1eb960b8b, type: 3}
   buildCost:
   - type: 0
-    amount: 50
+    amount: 25
   upkeepPerMonth:
   - type: 0
-    amount: 10
-  productionPerMonth:
+    amount: 2
   - type: 1
-    amount: 20
+    amount: 1
+  productionPerMonth: []
   maxPopulation: 5
   baseMoraleEffect: 0
   moraleSensitivity: 0

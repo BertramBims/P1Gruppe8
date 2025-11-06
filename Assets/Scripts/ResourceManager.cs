@@ -15,16 +15,16 @@ public enum ResourceType
 public struct ResourceAmount
 {
     public ResourceType type;
-    public int amount;
+    public float amount;
 }
 
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
 
-    private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
+    private Dictionary<ResourceType, float> resources = new Dictionary<ResourceType, float>();
 
-    public event Action<ResourceType, int> OnResourceChanged;
+    public event Action<ResourceType, float> OnResourceChanged;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public int Get(ResourceType type)
+    public float Get(ResourceType type)
     {
         return resources[type];
     }
