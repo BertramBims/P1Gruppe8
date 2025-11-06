@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d154ab38cc074394b8204df699154e98
+guid: e57735708230a2d49be8cd72abadfe2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5546641406446311532
-    second: t3Lumber_0
+      213: -393777100489972085
+    second: tallhutgrn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: t3Lumber_0
+      name: tallhutgrn_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 32
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4976b48370f5603b0800000000000000
-      internalID: -5546641406446311532
+      spriteID: b86ac9c30d5098af0800000000000000
+      internalID: -393777100489972085
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      t3Lumber_0: -5546641406446311532
+      tallhutgrn_0: -393777100489972085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
