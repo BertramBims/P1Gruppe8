@@ -10,26 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: WaterTower
+  m_Name: Medical tent
   m_EditorClassIdentifier: 
-  buildingName: Water Tower
-  sprite: {fileID: 21300000, guid: 76d847ce41b7d5f41b02268877f0082b, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: 3d1f00d3bd4babe47b1befab1b99bf3c, type: 3}
+  buildingName: Medical tent
+  sprite: {fileID: 21300000, guid: 760d5da527ebed842b1f41155db9a3ef, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 3efdc369051310c469839d707a007718, type: 3}
   buildCost:
   - type: 0
-    amount: 50
-  - type: 2
-    amount: 30
-  - type: 0
-    amount: 20
-  upkeepPerMonth:
-  - type: 0
-    amount: 2
-  productionPerMonth:
-  - type: 1
-    amount: 3
-  maxPopulation: 1
-  baseMoraleEffect: 20
+    amount: 100
+  upkeepPerMonth: []
+  productionPerMonth: []
+  maxPopulation: 3
+  baseMoraleEffect: 50
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []

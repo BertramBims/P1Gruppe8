@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 7725006820817887341}
   - component: {fileID: 5565682857567497596}
   m_Layer: 5
-  m_Name: Quarry
+  m_Name: Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

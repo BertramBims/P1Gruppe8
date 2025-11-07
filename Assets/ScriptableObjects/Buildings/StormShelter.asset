@@ -10,24 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: WaterTower
+  m_Name: StormShelter
   m_EditorClassIdentifier: 
-  buildingName: Water Tower
-  sprite: {fileID: 21300000, guid: 76d847ce41b7d5f41b02268877f0082b, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: 3d1f00d3bd4babe47b1befab1b99bf3c, type: 3}
+  buildingName: Storm Shelter
+  sprite: {fileID: 21300000, guid: e9dfac22c6befd745bbc5da7ee134825, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 8990b788b3a644441a0a82bff2ccb742, type: 3}
   buildCost:
+  - type: 3
+    amount: 60
   - type: 0
-    amount: 50
-  - type: 2
-    amount: 30
-  - type: 0
-    amount: 20
+    amount: 40
   upkeepPerMonth:
   - type: 0
     amount: 2
-  productionPerMonth:
-  - type: 1
-    amount: 3
+  productionPerMonth: []
   maxPopulation: 1
   baseMoraleEffect: 20
   moraleSensitivity: 0

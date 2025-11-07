@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: WaterTower
+  m_Name: Basin
   m_EditorClassIdentifier: 
-  buildingName: Water Tower
-  sprite: {fileID: 21300000, guid: 76d847ce41b7d5f41b02268877f0082b, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: 3d1f00d3bd4babe47b1befab1b99bf3c, type: 3}
+  buildingName: Basin
+  sprite: {fileID: 21300000, guid: 1863ab0a9a2981747a1087ebabae1cbe, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 0e4923fe97688af4d8a3cf47d1c8b139, type: 3}
   buildCost:
   - type: 0
     amount: 50
-  - type: 2
-    amount: 30
+  - type: 3
+    amount: 50
   - type: 0
     amount: 20
   upkeepPerMonth:
