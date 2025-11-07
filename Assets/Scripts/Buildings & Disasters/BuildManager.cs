@@ -46,15 +46,13 @@ public class BuildManager : MonoBehaviour
             return;
         }
 
+        //Construction time:
+        plot.daysToFinishConstruction = 30;
+        plot.UnderConstruction();
+        GameObject.Find("GameManager").GetComponent<TimeManager>().plotsOngoingConstruction.Add(plot);
+
         //Build it:
-        GameObject obj = Instantiate(selectedBuildingType.prefab, plot.transform.position, Quaternion.identity);
-        BuildingInstance instance = obj.GetComponent<BuildingInstance>();
-        instance.data = selectedBuildingType;
-
-        //plot.currentBuilding = instance;
-        plot.gameObject.SetActive(false);
-
-        Debug.Log($"Built {selectedBuildingType.buildingName} at {plot.name}");
+        plot.selectedBuildingType = selectedBuildingType;
     }
 
     public void CloseMenues()

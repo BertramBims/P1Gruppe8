@@ -16,6 +16,7 @@ public class BuildingInstance : MonoBehaviour
     public int currentPopulation;
     public float currentMorale = 100f;
     public bool isActive = true;
+    public ConstructionPlot constructionPlot; //plot that this building was built on;
 
     private float productionMultiplier = 1f;
     public List<ActiveEffect> activeEffects = new();
@@ -149,5 +150,18 @@ public class BuildingInstance : MonoBehaviour
             data = data.nextTier;
             Debug.Log($"{name} upgraded to {data.buildingName}");
         }
+    }
+
+    public void Downgrade()
+    {
+        if (data.previousTier == null) return;
+        data = data.nextTier;
+        Debug.Log($"{name} downgraded to {data.buildingName}");
+    }
+
+    public void DestroyBuilding()
+    {
+        constructionPlot.gameObject.SetActive(true);
+        Destroy(gameObject);
     }
 }

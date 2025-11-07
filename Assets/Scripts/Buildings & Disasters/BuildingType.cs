@@ -20,6 +20,7 @@ public class BuildingType : ScriptableObject
 
     [Header("Upgrades")]
     public BuildingType nextTier; //optional: link to higher tier
+    public BuildingType previousTier; //optional: link to previous tier
     public ResourceAmount[] upgradeCost;
 
     [Header("UI / Interaction")]

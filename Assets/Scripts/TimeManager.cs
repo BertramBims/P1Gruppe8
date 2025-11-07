@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class TimeManager : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class TimeManager : MonoBehaviour
     public int currentMonth;
     public bool isTimePaused = true;
     public GameObject pausedIndicator;
+    public List<ConstructionPlot> plotsOngoingConstruction;
 
     private void Update()
     {
@@ -40,6 +43,21 @@ public class TimeManager : MonoBehaviour
 
     private void TickDay()
     {
+        if (plotsOngoingConstruction != null)
+        {
+            //do shit
+            for (int i = 0; i < plotsOngoingConstruction.Count; i++)
+            {
+                plotsOngoingConstruction[i].daysToFinishConstruction--;
+
+                if (plotsOngoingConstruction[i].daysToFinishConstruction < 0)
+                {
+                    plotsOngoingConstruction[i].FinishConstruction();
+                    plotsOngoingConstruction.RemoveAt(i);
+                }
+            }
+        }
+
         var buildings = GameObject.FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
         for (int i = 0; i < buildings.Length; i++)
         {

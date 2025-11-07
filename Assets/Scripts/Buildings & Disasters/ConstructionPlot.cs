@@ -4,7 +4,12 @@ using UnityEngine.EventSystems;
 public class ConstructionPlot : MonoBehaviour
 {
     public GameObject buildUIPrefab;
+    public Sprite underConstructionSprite;
+
+    [Header("Ignore...")]
     public bool immuneUI;
+    public int daysToFinishConstruction = 0;
+    public BuildingType selectedBuildingType;
 
     public void OnMouseDown()
     {
@@ -57,5 +62,24 @@ public class ConstructionPlot : MonoBehaviour
     public void CloseMenu()
     {
         buildUIPrefab.SetActive(false);
+    }
+
+    public void UnderConstruction()
+    {
+        //change sprite
+        gameObject.GetComponent<SpriteRenderer>().sprite = underConstructionSprite;
+    }
+
+    public void FinishConstruction()
+    {
+        GameObject obj = Instantiate(selectedBuildingType.prefab, this.transform.position, Quaternion.identity);
+        BuildingInstance instance = obj.GetComponent<BuildingInstance>();
+        instance.data = selectedBuildingType;
+
+        //plot.currentBuilding = instance;
+        obj.GetComponent<BuildingInstance>().constructionPlot = this;
+        this.gameObject.SetActive(false);
+
+        Debug.Log($"Built {selectedBuildingType.buildingName} at {this.name}");
     }
 }
