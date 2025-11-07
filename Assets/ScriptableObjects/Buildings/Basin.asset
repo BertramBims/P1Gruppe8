@@ -20,16 +20,16 @@ MonoBehaviour:
     amount: 50
   - type: 3
     amount: 50
+  upkeepPerDay:
   - type: 0
-    amount: 20
-  upkeepPerMonth:
-  - type: 0
-    amount: 2
-  productionPerMonth:
+    amount: 0
+  - type: 3
+    amount: 0.5
+  productionPerDay:
   - type: 1
-    amount: 3
+    amount: 1
   maxPopulation: 1
-  baseMoraleEffect: 20
+  baseMoraleEffect: 3
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []

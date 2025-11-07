@@ -18,8 +18,8 @@ MonoBehaviour:
   buildCost:
   - type: 0
     amount: 100
-  upkeepPerMonth: []
-  productionPerMonth: []
+  upkeepPerDay: []
+  productionPerDay: []
   maxPopulation: 3
   baseMoraleEffect: 50
   moraleSensitivity: 0
