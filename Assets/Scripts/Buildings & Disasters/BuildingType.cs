@@ -10,8 +10,8 @@ public class BuildingType : ScriptableObject
 
     [Header("Economy")]
     public ResourceAmount[] buildCost;
-    public ResourceAmount[] upkeepPerMonth;
-    public ResourceAmount[] productionPerMonth;
+    public ResourceAmount[] upkeepPerDay;
+    public ResourceAmount[] productionPerDay;
 
     [Header("Population & Morale")]
     public int maxPopulation;

@@ -45,6 +45,8 @@ public class TimeManager : MonoBehaviour
         {
             buildings[i].TickDay();
         }
+
+        ResourceManager.Instance.RecalculateDailyIncome();
     }
 
     private void TickMonth()

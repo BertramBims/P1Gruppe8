@@ -28,7 +28,12 @@ public class ResourceUI : MonoBehaviour
 
     private void UpdateDisplay(ResourceType changedType, float newAmount)
     {
-        if (changedType == type)
-            amountText.text = $"{newAmount}";
+        if (changedType != type)
+            return;
+
+        float income = ResourceManager.Instance.GetDailyIncome(type);
+        string incomeSign = income >= 0 ? "+" : "";
+        string color = income >= 0 ? "green" : "red";
+        amountText.text = $"{newAmount} (<color={color}>{incomeSign}{income}/day</color>)";
     }
 }

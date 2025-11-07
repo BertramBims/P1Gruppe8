@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -10,6 +11,7 @@ public class ActiveEffect
 
 public class BuildingInstance : MonoBehaviour
 {
+    public static List<BuildingInstance> AllBuildings = new List<BuildingInstance>();
     public BuildingType data;
     public int currentPopulation;
     public float currentMorale = 100f;
@@ -17,6 +19,35 @@ public class BuildingInstance : MonoBehaviour
 
     private float productionMultiplier = 1f;
     public List<ActiveEffect> activeEffects = new();
+
+    public Dictionary<ResourceType, float> GetDailyResourceChange()
+    {
+        Dictionary<ResourceType, float> change = new Dictionary<ResourceType, float>();
+
+        //subtract upkeep
+        foreach(var upkeep in data.upkeepPerDay)
+        {
+            if (!change.ContainsKey(upkeep.type))
+                change[upkeep.type] = 0;
+            change[upkeep.type] -= upkeep.amount;
+        }
+
+        //add production
+        foreach(var prod in data.productionPerDay)
+        {
+            if (!change.ContainsKey(prod.type))
+                change[prod.type] += prod.amount;
+        }
+
+        //scale by morale
+        float efficiency = currentMorale / 100f;
+        foreach (var key in change.Keys.ToList())
+        {
+            change[key] = Mathf.RoundToInt(change[key] * efficiency);
+        }
+
+        return change;
+    }
 
     private void Start()
     {
@@ -29,6 +60,16 @@ public class BuildingInstance : MonoBehaviour
         currentPopulation = data.maxPopulation;
     }
 
+    private void OnEnable()
+    {
+        AllBuildings.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        AllBuildings.Remove(this);
+    }
+
     public void TickMonth()
     {
         if (!isActive)
@@ -37,7 +78,7 @@ public class BuildingInstance : MonoBehaviour
 
     private void ApplyUpkeep()
     {
-        bool upkeepPaid = ResourceManager.Instance.TrySpend(data.upkeepPerMonth);
+        bool upkeepPaid = ResourceManager.Instance.TrySpend(data.upkeepPerDay);
         if (!upkeepPaid)
         {
             //ModifyMorale(-10f);
@@ -52,7 +93,7 @@ public class BuildingInstance : MonoBehaviour
         foreach (var active in activeEffects)
             totalMultiplier *= active.effect.productionMultiplier;
 
-        foreach(var resource in data.productionPerMonth)
+        foreach(var resource in data.productionPerDay)
         {
             int finalAmount = Mathf.RoundToInt(resource.amount * productionMultiplier * (currentMorale / 100f));
             ResourceManager.Instance.Add(resource.type, finalAmount);
