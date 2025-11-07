@@ -18,12 +18,12 @@ MonoBehaviour:
   buildCost:
   - type: 0
     amount: 50
-  upkeepPerMonth:
-  - type: 1
-    amount: 2
-  productionPerMonth:
+  upkeepPerDay:
+  - type: 0
+    amount: 1.5
+  productionPerDay:
   - type: 2
-    amount: 4
+    amount: 5
   maxPopulation: 5
   baseMoraleEffect: 6
   moraleSensitivity: 0

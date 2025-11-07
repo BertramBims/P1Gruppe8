@@ -18,14 +18,12 @@ MonoBehaviour:
   buildCost:
   - type: 0
     amount: 50
-  upkeepPerMonth:
+  upkeepPerDay:
   - type: 0
-    amount: 10
-  productionPerMonth:
-  - type: 1
-    amount: 20
+    amount: 2
+  productionPerDay: []
   maxPopulation: 2
-  baseMoraleEffect: 20
+  baseMoraleEffect: 3
   moraleSensitivity: 0
   nextTier: {fileID: 0}
   upgradeCost: []

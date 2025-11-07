@@ -20,12 +20,12 @@ MonoBehaviour:
     amount: 50
   - type: 1
     amount: 20
-  upkeepPerMonth:
+  upkeepPerDay:
   - type: 0
     amount: 1
-  productionPerMonth:
+  productionPerDay:
   - type: 1
-    amount: 3
+    amount: 2
   maxPopulation: 5
   baseMoraleEffect: 5
   moraleSensitivity: 0

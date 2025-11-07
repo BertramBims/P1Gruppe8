@@ -16,12 +16,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 87c5f55b579eb87459121ddf5a65d2a5, type: 3}
   prefab: {fileID: 8385769551180989103, guid: bbd7acb5f3a7eb84ab5621387c597de6, type: 3}
   buildCost: []
-  upkeepPerMonth:
-  - type: 0
-    amount: 1
+  upkeepPerDay:
+  - type: 3
+    amount: 0.1
   - type: 1
-    amount: 2
-  productionPerMonth: []
+    amount: 0.5
+  - type: 0
+    amount: 0.1
+  productionPerDay: []
   maxPopulation: 1
   baseMoraleEffect: 60
   moraleSensitivity: 0
