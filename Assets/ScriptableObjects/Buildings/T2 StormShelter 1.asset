@@ -10,29 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: StormShelter
+  m_Name: T2 StormShelter 1
   m_EditorClassIdentifier: 
-  buildingName: Storm Shelter
-  sprite: {fileID: 21300000, guid: e9dfac22c6befd745bbc5da7ee134825, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: 8990b788b3a644441a0a82bff2ccb742, type: 3}
-  buildCost:
-  - type: 3
-    amount: 60
-  - type: 0
-    amount: 40
+  buildingName: Storm Shelter Tier 2
+  sprite: {fileID: 21300000, guid: 87c5f55b579eb87459121ddf5a65d2a5, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: bbd7acb5f3a7eb84ab5621387c597de6, type: 3}
+  buildCost: []
   upkeepPerMonth:
   - type: 0
+    amount: 1
+  - type: 1
     amount: 2
   productionPerMonth: []
   maxPopulation: 1
-  baseMoraleEffect: 20
+  baseMoraleEffect: 60
   moraleSensitivity: 0
-  nextTier: {fileID: 11400000, guid: a36ffaf8dde85a84594f8ddaafead927, type: 2}
-  upgradeCost:
-  - type: 3
-    amount: 60
-  - type: 0
-    amount: 20
-  - type: 1
-    amount: 20
+  nextTier: {fileID: 0}
+  upgradeCost: []
   isInteractable: 1

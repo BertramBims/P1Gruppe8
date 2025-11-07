@@ -126,7 +126,7 @@ MonoBehaviour:
         m_MethodName: SelectBuilding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: a36ffaf8dde85a84594f8ddaafead927, type: 2}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2204,7 +2204,7 @@ GameObject:
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
   m_Layer: 0
-  m_Name: StormShelter_BuildingPrefab
+  m_Name: T2StormShelter_BuildingPrefab 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2270,7 +2270,7 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e9dfac22c6befd745bbc5da7ee134825, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87c5f55b579eb87459121ddf5a65d2a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
