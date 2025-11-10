@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: House
+  m_text: Storm shelter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2297,6 +2297,7 @@ MonoBehaviour:
   currentPopulation: 3
   currentMorale: 100
   isActive: 1
+  constructionPlot: {fileID: 0}
   activeEffects: []
 --- !u!61 &3972957104097198437
 BoxCollider2D:
@@ -2357,7 +2358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
+  underConstructionSprite: {fileID: 0}
   immuneUI: 0
+  daysToFinishConstruction: 0
+  selectedBuildingType: {fileID: 0}
 --- !u!1 &8554208301233192334
 GameObject:
   m_ObjectHideFlags: 0
