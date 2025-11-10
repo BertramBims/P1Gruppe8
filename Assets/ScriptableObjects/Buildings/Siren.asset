@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
+  m_Name: Siren
+  m_EditorClassIdentifier: 
+  buildingName: Antenna
+  sprite: {fileID: 21300000, guid: 4f6fe4afb67b31f41abbbd6699953da5, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: d57a65ea8a7d14e4fb8dc6b1239be73a, type: 3}
+  buildCost:
+  - type: 0
+    amount: 50
+  upkeepPerDay:
+  - type: 0
+    amount: 2
+  productionPerDay: []
+  maxPopulation: 2
+  baseMoraleEffect: 3
+  moraleSensitivity: 0
+  nextTier: {fileID: 0}
+  upgradeCost: []
+  isInteractable: 1
