@@ -2275,6 +2275,7 @@ MonoBehaviour:
   currentPopulation: 5
   currentMorale: 100
   isActive: 1
+  constructionPlot: {fileID: 0}
   activeEffects: []
 --- !u!61 &3972957104097198437
 BoxCollider2D:
@@ -2335,7 +2336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
+  underConstructionSprite: {fileID: 0}
   immuneUI: 0
+  daysToFinishConstruction: 0
+  selectedBuildingType: {fileID: 0}
 --- !u!1 &8554208301233192334
 GameObject:
   m_ObjectHideFlags: 0
