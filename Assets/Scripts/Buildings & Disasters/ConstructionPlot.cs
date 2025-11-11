@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ConstructionPlot : MonoBehaviour
 {
     public GameObject buildUIPrefab;
+
+    public GameObject PlotOutline;
     public Sprite underConstructionSprite;
 
     [Header("Ignore...")]
@@ -68,6 +71,7 @@ public class ConstructionPlot : MonoBehaviour
     {
         //change sprite
         gameObject.GetComponent<SpriteRenderer>().sprite = underConstructionSprite;
+        PlotOutline.SetActive(false);
     }
 
     public void FinishConstruction()
