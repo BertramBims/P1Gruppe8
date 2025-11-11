@@ -2358,7 +2358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
-  underConstructionSprite: {fileID: 0}
+  underConstructionSprite: {fileID: 21300000, guid: f50e72f6a98a2f544a5aa0ca1efcb13d, type: 3}
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}
