@@ -97,5 +97,6 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-.github/copilot-instructions.md
-copilot-instructions.md
+
+#Copilot instructions which I have been unable to add to my git exclude
+/.github/copilot-instructions.md*
