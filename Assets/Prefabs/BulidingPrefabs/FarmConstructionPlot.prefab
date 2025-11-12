@@ -1301,7 +1301,7 @@ MonoBehaviour:
   buildUIPrefab: {fileID: 4525092377100458338}
   PlotOutline: {fileID: 1347725701465966110}
   constructionOverlaySpriterenderer: {fileID: 0}
-  underConstructionSprite: {fileID: 0}
+  underConstructionSprite: {fileID: 21300000, guid: 3df5c187ad22797429509b7054ca4046, type: 3}
   constructionProgressPanel: {fileID: 0}
   constructionProgressSlider: {fileID: 0}
   immuneUI: 0
