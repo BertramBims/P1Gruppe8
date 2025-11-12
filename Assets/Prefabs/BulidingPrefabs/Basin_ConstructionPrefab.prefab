@@ -1645,7 +1645,7 @@ GameObject:
   - component: {fileID: 7563724417530178782}
   - component: {fileID: 4898573188997242413}
   m_Layer: 0
-  m_Name: AntennaSprite
+  m_Name: BasinSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2342,7 +2342,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
+  PlotOutline: {fileID: 0}
+  constructionOverlaySpriterenderer: {fileID: 0}
   underConstructionSprite: {fileID: 21300000, guid: c7e04efd41981c44cad4e76eb110acb6, type: 3}
+  constructionProgressPanel: {fileID: 0}
+  constructionProgressSlider: {fileID: 0}
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}

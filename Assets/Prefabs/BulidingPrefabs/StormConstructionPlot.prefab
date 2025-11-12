@@ -1213,7 +1213,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4525092377100458338}
   PlotOutline: {fileID: 0}
+  constructionOverlaySpriterenderer: {fileID: 0}
   underConstructionSprite: {fileID: 21300000, guid: c7e04efd41981c44cad4e76eb110acb6, type: 3}
+  constructionProgressPanel: {fileID: 0}
+  constructionProgressSlider: {fileID: 0}
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}
@@ -1241,7 +1244,7 @@ GameObject:
   - component: {fileID: 759622966749868332}
   m_Layer: 0
   m_Name: outline
-  m_TagString: Untagged
+  m_TagString: OutlineBlack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
