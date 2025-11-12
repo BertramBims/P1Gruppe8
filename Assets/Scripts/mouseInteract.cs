@@ -13,7 +13,7 @@ public class mouseInteract : MonoBehaviour
     void ApplyRedToChildren(){
         Transform tagRenderers = transform.Find("outline");
         SpriteRenderer spriteRenderer = tagRenderers.GetComponent<SpriteRenderer>();
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = new Color (255,0,0,255);
     }
     void ApplyBlackToChildren()
     {
