@@ -1594,7 +1594,7 @@ GameObject:
   - component: {fileID: 1804883148916395666}
   - component: {fileID: 2034507292049466896}
   m_Layer: 0
-  m_Name: Outline
+  m_Name: outline
   m_TagString: OutlineBlack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
