@@ -52,6 +52,7 @@ public class TimeManager : MonoBehaviour
             for (int i = 0; i < plotsOngoingConstruction.Count; i++)
             {
                 plotsOngoingConstruction[i].daysToFinishConstruction--;
+                plotsOngoingConstruction[i].UpdateConstructionSliderProgress();
 
                 if (plotsOngoingConstruction[i].daysToFinishConstruction < 0)
                 {

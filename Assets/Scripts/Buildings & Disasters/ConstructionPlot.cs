@@ -7,7 +7,10 @@ public class ConstructionPlot : MonoBehaviour
     public GameObject buildUIPrefab;
 
     public GameObject PlotOutline;
+    public SpriteRenderer constructionOverlaySpriterenderer;
     public Sprite underConstructionSprite;
+    public GameObject constructionProgressPanel;
+    public Slider constructionProgressSlider;
 
     [Header("Ignore...")]
     public bool immuneUI;
@@ -70,12 +73,21 @@ public class ConstructionPlot : MonoBehaviour
     public void UnderConstruction()
     {
         //change sprite
-        gameObject.GetComponent<SpriteRenderer>().sprite = underConstructionSprite;
+        constructionOverlaySpriterenderer.sprite = underConstructionSprite;
+        constructionProgressPanel.SetActive(true);
         PlotOutline.SetActive(false);
+    }
+
+    public void UpdateConstructionSliderProgress()
+    {
+        constructionProgressSlider.value = (30 - daysToFinishConstruction);
     }
 
     public void FinishConstruction()
     {
+        constructionProgressPanel.SetActive(false);
+        constructionProgressSlider.value = 0f;
+
         GameObject obj = Instantiate(selectedBuildingType.prefab, this.transform.position, Quaternion.identity);
         BuildingInstance instance = obj.GetComponent<BuildingInstance>();
         instance.data = selectedBuildingType;
