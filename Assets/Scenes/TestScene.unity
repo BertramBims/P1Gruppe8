@@ -11568,12 +11568,12 @@ SpriteRenderer:
   m_SortingLayerID: -102102765
   m_SortingLayer: 6
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -557203233371699437, guid: 08a2b6e4b5bf1b049b168725ec83654c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33, y: 0.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -15148,7 +15148,7 @@ PrefabInstance:
     - target: {fileID: 1495790765170815449, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
       propertyPath: underConstructionSprite
       value: 
-      objectReference: {fileID: 21300000, guid: c7e04efd41981c44cad4e76eb110acb6, type: 3}
+      objectReference: {fileID: 21300000, guid: 08a2b6e4b5bf1b049b168725ec83654c, type: 3}
     - target: {fileID: 1495790765170815449, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
       propertyPath: constructionProgressPanel
       value: 
