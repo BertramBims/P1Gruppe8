@@ -100,3 +100,4 @@ InitTestScene*.unity*
 
 #Copilot instructions which I have been unable to add to my git exclude
 /.github/copilot-instructions.md*
+.github/copilot-instructions.md
