@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class TimeManager : MonoBehaviour
     public int currentMonth;
     public bool isTimePaused = true;
     public GameObject pausedIndicator;
+    public TMP_Text timeText;
     public List<ConstructionPlot> plotsOngoingConstruction;
 
     private void Update()
@@ -64,6 +67,7 @@ public class TimeManager : MonoBehaviour
             buildings[i].TickDay();
         }
 
+        timeText.text = $"{currentDay} / {currentMonth}";
         ResourceManager.Instance.RecalculateDailyIncome();
     }
 
@@ -74,6 +78,7 @@ public class TimeManager : MonoBehaviour
         {
             buildings[i].TickMonth();
         }
+        timeText.text = $"{currentDay} / {currentMonth}";
     }
 
     public void PauseTime()
