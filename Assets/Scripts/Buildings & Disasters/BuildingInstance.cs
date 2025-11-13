@@ -37,15 +37,16 @@ public class BuildingInstance : MonoBehaviour
         foreach(var prod in data.productionPerDay)
         {
             if (!change.ContainsKey(prod.type))
-                change[prod.type] += prod.amount;
+                change[prod.type] = 0;
+            change[prod.type] += prod.amount;
         }
 
         //scale by morale
-        float efficiency = currentMorale / 100f;
+        /*float efficiency = currentMorale / 100f;
         foreach (var key in change.Keys.ToList())
         {
             change[key] = Mathf.RoundToInt(change[key] * efficiency);
-        }
+        }*/
 
         return change;
     }
