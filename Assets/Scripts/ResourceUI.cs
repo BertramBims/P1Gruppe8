@@ -34,6 +34,6 @@ public class ResourceUI : MonoBehaviour
         float income = ResourceManager.Instance.GetDailyIncome(type);
         string incomeSign = income >= 0 ? "+" : "";
         string color = income >= 0 ? "green" : "red";
-        amountText.text = $"{newAmount} (<color={color}>{incomeSign}{income}/day</color>)";
+        amountText.text = $"{newAmount.ToString("f1")} (<color={color}>{incomeSign}{income}/day</color>)";
     }
 }
