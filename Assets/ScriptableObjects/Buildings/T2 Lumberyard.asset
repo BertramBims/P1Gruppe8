@@ -21,6 +21,8 @@ MonoBehaviour:
   upkeepPerDay:
   - type: 0
     amount: 1.5
+  - type: 1
+    amount: 1
   productionPerDay:
   - type: 2
     amount: 5
@@ -28,5 +30,6 @@ MonoBehaviour:
   baseMoraleEffect: 6
   moraleSensitivity: 0
   nextTier: {fileID: 0}
+  previousTier: {fileID: 11400000, guid: 5e50b463c68079f4ea585ee637579614, type: 2}
   upgradeCost: []
   isInteractable: 1
