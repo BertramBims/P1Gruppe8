@@ -22,12 +22,13 @@ MonoBehaviour:
   - type: 0
     amount: 1
   productionPerDay:
-  - type: 0
-    amount: 3
+  - type: 1
+    amount: 2
   maxPopulation: 5
   baseMoraleEffect: 0
   moraleSensitivity: 0
   nextTier: {fileID: 11400000, guid: 2fa7391b4a5d0c641912ac215a4737cd, type: 2}
+  previousTier: {fileID: 0}
   upgradeCost:
   - type: 0
     amount: 60
