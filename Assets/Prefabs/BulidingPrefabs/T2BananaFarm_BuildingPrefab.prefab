@@ -2357,11 +2357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f3f1f1fd7fbc543be5a41040980ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 24f8110e63a77ae66b45347f50f96b0c, type: 2}
+  data: {fileID: 11400000, guid: 4fc00fea6a9906840a07d293202d5b0b, type: 2}
   currentPopulation: 5
   currentMorale: 100
   isActive: 1
-  constructionPlot: {fileID: 0}
+  constructionPlot: {fileID: 5816330073737724429, guid: bc6d76f578d0eaaf69842357414f894e, type: 3}
   activeEffects: []
 --- !u!61 &3972957104097198437
 BoxCollider2D:
@@ -2422,7 +2422,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
+  PlotOutline: {fileID: 0}
+  constructionOverlaySpriterenderer: {fileID: 0}
   underConstructionSprite: {fileID: 0}
+  constructionProgressPanel: {fileID: 0}
+  constructionProgressSlider: {fileID: 0}
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}

@@ -28,5 +28,6 @@ MonoBehaviour:
   baseMoraleEffect: 5
   moraleSensitivity: 0
   nextTier: {fileID: 0}
+  previousTier: {fileID: 11400000, guid: 24f8110e63a77ae66b45347f50f96b0c, type: 2}
   upgradeCost: []
   isInteractable: 1
