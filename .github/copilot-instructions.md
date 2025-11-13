@@ -4,11 +4,11 @@
 - Active scene:
   - Name: TemplateTest
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, BuildMenu
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, BuildMenu, OutlineBlack
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
-  - Name: Main Camera
-  - Tag: MainCamera
-  - Layer: Default
+  - Name: GlobalCanvas
+  - Tag: Untagged
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
