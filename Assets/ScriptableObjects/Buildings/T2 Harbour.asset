@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
+  m_Name: T2 Harbour
+  m_EditorClassIdentifier: 
+  buildingName: Harbour
+  description: Your harbour, used for trade and international relations.
+  sprite: {fileID: 21300000, guid: f5b6000dd83c6f393961cf2a9929ff3d, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 9ac144197249f564eb117ec71dd63aa4, type: 3}
+  buildCost: []
+  upkeepPerDay: []
+  productionPerDay: []
+  maxPopulation: 12
+  baseMoraleEffect: 10
+  moraleSensitivity: 0
+  nextTier: {fileID: 0}
+  previousTier: {fileID: 11400000, guid: 0d8c786bc8dbd444ba6bc02811cbedcf, type: 2}
+  upgradeCost:
+  - type: 0
+    amount: 50
+  isInteractable: 1
