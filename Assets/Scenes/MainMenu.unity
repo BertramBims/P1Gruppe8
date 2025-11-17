@@ -330,8 +330,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Pan Up\t\t    W\n\nPan Left\t    A\n\nPan Down \t    S\n\nPan Right   
-    \t    D\n\nPause\t        Spacebar\n\nBuild\t       Left Click\n"
+  m_text: "Pan Up\t\t         W\n\nPan Left\t         A\n\nPan Down \t         S\n\nPan
+    Right    \t         D\n\nDrag         Middle mouse button  \n\nInteract         
+    Left click        \n\nPause               Spacebar"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7dc5e8d0b319b4d42b237e3132f773b8, type: 2}
   m_sharedMaterial: {fileID: 1553127030115577077, guid: 7dc5e8d0b319b4d42b237e3132f773b8, type: 2}
@@ -358,10 +359,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.95
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
