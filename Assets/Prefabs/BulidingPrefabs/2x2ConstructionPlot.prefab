@@ -716,18 +716,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1495790765170815449}
         m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
-        m_MethodName: UnderConstruction
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1495790765170815449}
-        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
         m_MethodName: TryBuild
         m_Mode: 1
         m_Arguments:
@@ -2310,7 +2298,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2144915930393782717}
   m_HandleRect: {fileID: 0}
@@ -2906,7 +2894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Radar
+  m_text: Antenna
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7dc5e8d0b319b4d42b237e3132f773b8, type: 2}
   m_sharedMaterial: {fileID: 1553127030115577077, guid: 7dc5e8d0b319b4d42b237e3132f773b8, type: 2}
