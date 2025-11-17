@@ -74,7 +74,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public void Add (ResourceType type, int amount)
+    public void Add (ResourceType type, float amount)
     {
         if (!resources.ContainsKey(type))
             resources[type] = 0;
