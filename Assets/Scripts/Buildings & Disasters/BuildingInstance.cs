@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class ActiveEffect
@@ -17,6 +18,7 @@ public class BuildingInstance : MonoBehaviour
     public float currentMorale = 100f;
     public bool isActive = true;
     public ConstructionPlot constructionPlot; //plot that this building was built on;
+    public TMP_Text buildingText;
 
     private float productionMultiplier = 1f;
     public List<ActiveEffect> activeEffects = new();
@@ -60,6 +62,9 @@ public class BuildingInstance : MonoBehaviour
         }
 
         currentPopulation = data.maxPopulation;
+
+        string buildText = BuildBuildingText(data);
+        buildingText.text = buildText;
     }
 
     private void OnEnable()
@@ -164,5 +169,30 @@ public class BuildingInstance : MonoBehaviour
     {
         constructionPlot.gameObject.SetActive(true);
         Destroy(gameObject);
+    }
+
+    private string BuildBuildingText(BuildingType data)
+    {
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        sb.AppendLine(data.description);
+        sb.AppendLine("");
+
+        if (data.upkeepPerDay.Length > 0)
+        {
+            sb.AppendLine("<b>Upkeep / Day:</b>");
+            foreach (var up in data.upkeepPerDay)
+                sb.AppendLine($"- {up.type}: {up.amount}");
+        }
+
+        if (data.productionPerDay.Length > 0)
+        {
+            sb.AppendLine("");
+            sb.AppendLine("<b>Production / Day:</b>");
+            foreach (var prod in data.productionPerDay)
+                sb.AppendLine($"+ {prod.type}: {prod.amount}");
+        }
+
+        return sb.ToString();
     }
 }
