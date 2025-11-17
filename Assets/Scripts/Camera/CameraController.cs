@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButton(2))
         {
             var delta = lastDragPosition - Input.mousePosition;
-            transform.Translate(delta * Time.deltaTime * 0.50f);
+            transform.Translate(delta * Time.deltaTime * 1f);
             lastDragPosition = Input.mousePosition;
         }
     }
