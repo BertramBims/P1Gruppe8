@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1061851463172990878}
   - component: {fileID: 104448141269026797}
   - component: {fileID: 1745438835501548689}
+  - component: {fileID: 851722612805312641}
   m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
@@ -145,6 +146,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &851722612805312641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299527653266570603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: 
+  buildingInfo: {fileID: 11400000, guid: 55ec7ca106735154384173e8e4fb4017, type: 2}
 --- !u!1 &914991396221156949
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +208,7 @@ GameObject:
   - component: {fileID: 5096263749450671435}
   - component: {fileID: 7314754750035201829}
   - component: {fileID: 1497370469688560172}
+  - component: {fileID: 8965982104020358599}
   m_Layer: 5
   m_Name: Downgrade
   m_TagString: Untagged
@@ -302,6 +318,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8965982104020358599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254983897086274585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: 
+  buildingInfo: {fileID: 11400000, guid: 55ec7ca106735154384173e8e4fb4017, type: 2}
 --- !u!1 &1375438908431453875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1234,7 @@ GameObject:
   - component: {fileID: 342866265381071356}
   - component: {fileID: 1141602845231457870}
   - component: {fileID: 6059249304271264596}
+  - component: {fileID: 968630955198177607}
   m_Layer: 5
   m_Name: Destroy
   m_TagString: Untagged
@@ -1325,6 +1356,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &968630955198177607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4061454853626332428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: 
+  buildingInfo: {fileID: 11400000, guid: 55ec7ca106735154384173e8e4fb4017, type: 2}
 --- !u!1 &4760661452418741953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,7 +2058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f3f1f1fd7fbc543be5a41040980ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 18886247c84a8eb4b9e1f0b087eaf27b, type: 2}
+  data: {fileID: 11400000, guid: 55ec7ca106735154384173e8e4fb4017, type: 2}
   currentPopulation: 5
   currentMorale: 100
   isActive: 1

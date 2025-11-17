@@ -1405,6 +1405,7 @@ GameObject:
   - component: {fileID: 4031630889995422674}
   - component: {fileID: 5911136243756656128}
   - component: {fileID: 8252577128994782069}
+  - component: {fileID: 1806452707447978418}
   m_Layer: 5
   m_Name: Trade
   m_TagString: Untagged
@@ -1526,6 +1527,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1806452707447978418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683885010211205068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: 
+  buildingInfo: {fileID: 0}
 --- !u!1 &4061454853626332428
 GameObject:
   m_ObjectHideFlags: 0
