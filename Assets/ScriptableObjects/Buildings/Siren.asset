@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Siren
   m_EditorClassIdentifier: 
   buildingName: Siren
+  description: Lowers effects of natural disasters for _ buildings.
   sprite: {fileID: 21300000, guid: e70f0408d8bb1b54aaa04709dd9e3eef, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 8c914b7128f009241a18f3a800945a34, type: 3}
   buildCost:

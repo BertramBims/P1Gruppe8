@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Medical tent
   m_EditorClassIdentifier: 
   buildingName: Medical tent
+  description: Lowers the percentage effects of natural disasters on island production.
   sprite: {fileID: 21300000, guid: 760d5da527ebed842b1f41155db9a3ef, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 3efdc369051310c469839d707a007718, type: 3}
   buildCost:
@@ -24,5 +25,6 @@ MonoBehaviour:
   baseMoraleEffect: 50
   moraleSensitivity: 0
   nextTier: {fileID: 0}
+  previousTier: {fileID: 0}
   upgradeCost: []
   isInteractable: 1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Hospital
   m_EditorClassIdentifier: 
   buildingName: Hospital
+  description: Used to increase happiness, and decrease effects of some disasters.
   sprite: {fileID: 21300000, guid: 323452a66f4f59a49a5eac9d248ab336, type: 3}
   prefab: {fileID: 8385769551180989103, guid: b71c0c5a3c4d1443b943c7d1eb960b8b, type: 3}
   buildCost:
@@ -28,6 +29,7 @@ MonoBehaviour:
   baseMoraleEffect: 5
   moraleSensitivity: 0
   nextTier: {fileID: 11400000, guid: bf9d52746bcf4834f9d26cdd8cd48cd9, type: 2}
+  previousTier: {fileID: 0}
   upgradeCost:
   - type: 0
     amount: 40

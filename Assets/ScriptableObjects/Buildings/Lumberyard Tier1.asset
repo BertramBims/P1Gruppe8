@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lumberyard Tier1
   m_EditorClassIdentifier: 
   buildingName: Lumberyard
+  description: Produces lumber for your island.
   sprite: {fileID: 21300000, guid: 6facaa60df5555e408a334ad80751572, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 68d3f470b4e97f14982ec26c6d510959, type: 3}
   buildCost:
@@ -28,6 +29,7 @@ MonoBehaviour:
   baseMoraleEffect: 4
   moraleSensitivity: 0
   nextTier: {fileID: 11400000, guid: 769d63e9ac9a0254cadb40d6922ccf18, type: 2}
+  previousTier: {fileID: 0}
   upgradeCost:
   - type: 0
     amount: 80

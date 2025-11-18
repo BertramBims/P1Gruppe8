@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 StormShelter 1
   m_EditorClassIdentifier: 
   buildingName: Storm Shelter Tier 2
+  description: Lowers effect of natural disasters on population.
   sprite: {fileID: 21300000, guid: 87c5f55b579eb87459121ddf5a65d2a5, type: 3}
   prefab: {fileID: 8385769551180989103, guid: bbd7acb5f3a7eb84ab5621387c597de6, type: 3}
   buildCost: []
