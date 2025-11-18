@@ -1060,7 +1060,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.009531021, y: -0.41930485}
+  m_Offset: {x: 0.00953114, y: -0.4062109}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1070,7 +1070,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.036892, y: 1.3609009}
+  m_Size: {x: 2.93214, y: 1.212502}
   m_EdgeRadius: 0
 --- !u!114 &1495790765170815449
 MonoBehaviour:
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4525092377100458338}
-  PlotOutline: {fileID: 0}
+  PlotOutline: {fileID: 3024151289199930358}
   constructionOverlaySpriterenderer: {fileID: 5116730703795644289}
   underConstructionSprite: {fileID: 21300000, guid: c7e04efd41981c44cad4e76eb110acb6, type: 3}
   constructionProgressPanel: {fileID: 6950721045310800823}

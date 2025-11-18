@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
+  m_Name: Library
+  m_EditorClassIdentifier: 
+  buildingName: Library
+  description: Your library, used for storage of articales and video clips you have
+    met in your research.
+  sprite: {fileID: 21300000, guid: 95c2d976c4d87be469010ba243a58cb0, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 8856c7f417fdb524e80023e8051bce99, type: 3}
+  buildCost: []
+  upkeepPerDay: []
+  productionPerDay: []
+  maxPopulation: 8
+  baseMoraleEffect: 10
+  moraleSensitivity: 0
+  nextTier: {fileID: 0}
+  previousTier: {fileID: 0}
+  upgradeCost:
+  - type: 3
+    amount: 200
+  - type: 0
+    amount: 100
+  isInteractable: 1
