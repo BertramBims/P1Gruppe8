@@ -2050,7 +2050,7 @@ MonoBehaviour:
   currentPopulation: 5
   currentMorale: 100
   isActive: 1
-  constructionPlot: {fileID: 0}
+  constructionPlot: {fileID: 1495790765170815449, guid: 35b43961e28f087f9b6fde528716b049, type: 3}
   buildingText: {fileID: 4416617337881780448}
   activeEffects: []
 --- !u!61 &3972957104097198437
