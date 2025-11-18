@@ -61,6 +61,9 @@ TagManager:
   - name: Terrain
     uniqueID: 4192864531
     locked: 0
+  - name: Trees
+    uniqueID: 2767944245
+    locked: 0
   - name: Collisions
     uniqueID: 4216059217
     locked: 0
