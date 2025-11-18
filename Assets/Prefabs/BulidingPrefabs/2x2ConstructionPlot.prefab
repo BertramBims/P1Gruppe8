@@ -872,7 +872,6 @@ GameObject:
   - component: {fileID: 3649486784697274656}
   - component: {fileID: 1495790765170815449}
   - component: {fileID: 6341298638290802865}
-  - component: {fileID: 6812193504400273019}
   m_Layer: 0
   m_Name: 2x2ConstructionPlot
   m_TagString: Untagged
@@ -1032,25 +1031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05afdc688a1011cbda30f852e62fc0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6812193504400273019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2979057111927445414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f3f1f1fd7fbc543be5a41040980ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  currentPopulation: 0
-  currentMorale: 100
-  isActive: 1
-  constructionPlot: {fileID: 0}
-  buildingText: {fileID: 8680767207201308834}
-  activeEffects: []
 --- !u!1 &3229897065927719265
 GameObject:
   m_ObjectHideFlags: 0
