@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FullBasin
   m_EditorClassIdentifier: 
   buildingName: Full Basin
+  description: Used to distribute water to the island.
   sprite: {fileID: 21300000, guid: 2603087927beef64aa684b994b6a8148, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 2d2bd85495a491141b272aa6bee52ac2, type: 3}
   buildCost: []
@@ -30,5 +31,6 @@ MonoBehaviour:
   baseMoraleEffect: 30
   moraleSensitivity: 0
   nextTier: {fileID: 0}
+  previousTier: {fileID: 0}
   upgradeCost: []
   isInteractable: 1

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 HouseSingle 1
   m_EditorClassIdentifier: 
   buildingName: House Tier 2
+  description: Increases population and taxes gathered.
   sprite: {fileID: 21300000, guid: e57735708230a2d49be8cd72abadfe2d, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 9dbd00a6d9f79e44a8caa9752f0c315e, type: 3}
   buildCost:

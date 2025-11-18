@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 BananaFarm
   m_EditorClassIdentifier: 
   buildingName: Banana Farm
+  description: Produces bananas for your island.
   sprite: {fileID: 21300000, guid: d013e103f70473543af17881553050c3, type: 3}
   prefab: {fileID: 8385769551180989103, guid: b1947418b5a05e6469608e51ef388e07, type: 3}
   buildCost:

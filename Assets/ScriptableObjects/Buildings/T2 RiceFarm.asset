@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 RiceFarm
   m_EditorClassIdentifier: 
   buildingName: Rice Farm
+  description: Produces rice for your island.
   sprite: {fileID: 21300000, guid: a60a646b00d4b684f93c8c06ae3a7915, type: 3}
   prefab: {fileID: 8385769551180989103, guid: ef052da504c8e624d8547e056c725eda, type: 3}
   buildCost:

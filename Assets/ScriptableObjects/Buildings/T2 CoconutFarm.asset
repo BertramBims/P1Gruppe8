@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 CoconutFarm
   m_EditorClassIdentifier: 
   buildingName: Coconut Farm
+  description: Produces coconuts for your island.
   sprite: {fileID: 21300000, guid: 9860631f3d65bbc43803db23d97aeb76, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 1ecc84460410dcd4086e224c08c90b7d, type: 3}
   buildCost:

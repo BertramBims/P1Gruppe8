@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StormShelter
   m_EditorClassIdentifier: 
   buildingName: Storm Shelter
+  description: Lowers effect of natural disasters on population.
   sprite: {fileID: 21300000, guid: e9dfac22c6befd745bbc5da7ee134825, type: 3}
   prefab: {fileID: 8385769551180989103, guid: 8990b788b3a644441a0a82bff2ccb742, type: 3}
   buildCost:
@@ -28,6 +29,7 @@ MonoBehaviour:
   baseMoraleEffect: 20
   moraleSensitivity: 0
   nextTier: {fileID: 11400000, guid: a36ffaf8dde85a84594f8ddaafead927, type: 2}
+  previousTier: {fileID: 0}
   upgradeCost:
   - type: 3
     amount: 60

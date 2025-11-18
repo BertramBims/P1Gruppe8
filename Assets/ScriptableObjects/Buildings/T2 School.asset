@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: T2 School
   m_EditorClassIdentifier: 
   buildingName: School Tier 2
+  description: Increases happiness and lowers effects of natural disasters on house
+    buildings.
   sprite: {fileID: 21300000, guid: fbf37e083a805b74a81abedef4ba07be, type: 3}
   prefab: {fileID: 8385769551180989103, guid: cca701c457c78b74dabe84538ca12c14, type: 3}
   buildCost:

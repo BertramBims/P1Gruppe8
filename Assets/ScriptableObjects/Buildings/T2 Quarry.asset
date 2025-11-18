@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: T2 Quarry
   m_EditorClassIdentifier: 
   buildingName: Quarry Tier 2
+  description: Produces stone for your island.
   sprite: {fileID: 21300000, guid: 92f58db8879b11244bb32be44a2673b5, type: 3}
   prefab: {fileID: 8385769551180989103, guid: f94c6293f0fab304490fa5299673ddb0, type: 3}
   buildCost:
