@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Antenna
   description: Used to detect time and type of future natural disasters.
-  sprite: {fileID: 21300000, guid: 4f6fe4afb67b31f41abbbd6699953da5, type: 3}
+  sprite: {fileID: 21300000, guid: a57795606e3d662469c358a109a33b57, type: 3}
   prefab: {fileID: 8385769551180989103, guid: d57a65ea8a7d14e4fb8dc6b1239be73a, type: 3}
   buildCost:
   - type: 0
