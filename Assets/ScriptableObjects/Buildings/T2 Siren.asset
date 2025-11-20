@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
-  m_Name: Siren
+  m_Name: T2 Siren
   m_EditorClassIdentifier: 
-  buildingName: Siren
-  description: Lowers effects of natural disasters for _ buildings.
-  sprite: {fileID: 21300000, guid: e70f0408d8bb1b54aaa04709dd9e3eef, type: 3}
-  prefab: {fileID: 8385769551180989103, guid: 8c914b7128f009241a18f3a800945a34, type: 3}
+  buildingName: Siren tier 2
+  description: Lowers effects of natural disasters for _higher_ buildings.
+  sprite: {fileID: 21300000, guid: 29b4d8ac66a2baf45aa933cf4bf9a04f, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 53eb91225d7367a4ca84b56e328274eb, type: 3}
   buildCost:
   - type: 0
     amount: 50
@@ -28,9 +28,7 @@ MonoBehaviour:
   maxPopulation: 2
   baseMoraleEffect: 10
   moraleSensitivity: 0
-  nextTier: {fileID: 11400000, guid: 16d69fb28ff2b4f45bdf9744d467e993, type: 2}
-  previousTier: {fileID: 0}
-  upgradeCost:
-  - type: 0
-    amount: 100
+  nextTier: {fileID: 0}
+  previousTier: {fileID: 11400000, guid: ece3412ce1f1d1c489771aedef5a5f0d, type: 2}
+  upgradeCost: []
   isInteractable: 1
