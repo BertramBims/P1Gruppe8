@@ -102,7 +102,7 @@ public class BuildingInstance : MonoBehaviour
 
         foreach(var resource in data.productionPerDay)
         {
-            int finalAmount = Mathf.RoundToInt(resource.amount * productionMultiplier * (currentMorale / 100f));
+            float finalAmount = Mathf.Round(resource.amount * productionMultiplier * (currentMorale / 100f));
             ResourceManager.Instance.Add(resource.type, finalAmount);
         }
     }

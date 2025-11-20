@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualText: 
-  buildingInfo: {fileID: 11400000, guid: 0d8c786bc8dbd444ba6bc02811cbedcf, type: 2}
+  buildingInfo: {fileID: 11400000, guid: f0d9fd65bddf94449b7646a07550eb28, type: 2}
 --- !u!1 &347286106712239488
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490233813599455895
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualText: 
+  manualText: Trade resources
   buildingInfo: {fileID: 0}
 --- !u!1 &4061454853626332428
 GameObject:
@@ -1560,7 +1560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6310441657409164903
 RectTransform:
   m_ObjectHideFlags: 0

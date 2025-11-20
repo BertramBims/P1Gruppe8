@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0514cf72aaa0c874c81d6d7db129c789, type: 3}
+  m_Name: T2 Siren
+  m_EditorClassIdentifier: 
+  buildingName: Siren tier 2
+  description: Lowers effects of natural disasters for _higher_ buildings.
+  sprite: {fileID: 21300000, guid: 29b4d8ac66a2baf45aa933cf4bf9a04f, type: 3}
+  prefab: {fileID: 8385769551180989103, guid: 53eb91225d7367a4ca84b56e328274eb, type: 3}
+  buildCost:
+  - type: 0
+    amount: 50
+  - type: 3
+    amount: 20
+  upkeepPerDay:
+  - type: 0
+    amount: 2
+  productionPerDay: []
+  maxPopulation: 2
+  baseMoraleEffect: 10
+  moraleSensitivity: 0
+  nextTier: {fileID: 0}
+  previousTier: {fileID: 11400000, guid: ece3412ce1f1d1c489771aedef5a5f0d, type: 2}
+  upgradeCost: []
+  isInteractable: 1

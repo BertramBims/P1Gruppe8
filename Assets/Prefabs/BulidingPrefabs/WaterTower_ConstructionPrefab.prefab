@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualText: 
-  buildingInfo: {fileID: 11400000, guid: 4ff9b976d5f9b83408b0ead325c2c422, type: 2}
+  buildingInfo: {fileID: 0}
 --- !u!1 &1375438908431453875
 GameObject:
   m_ObjectHideFlags: 0
