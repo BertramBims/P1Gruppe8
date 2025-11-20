@@ -35,10 +35,10 @@ RectTransform:
   - {fileID: 7579077542407963174}
   m_Father: {fileID: 2661945040509452828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 165, y: -100}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1061851463172990878
 CanvasRenderer:
@@ -121,7 +121,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 104448141269026797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5816330073737724429}
+        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
+        m_MethodName: SelectBuilding
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 16d69fb28ff2b4f45bdf9744d467e993, type: 2}
+          m_ObjectArgumentAssemblyTypeName: BuildingType, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5816330073737724429}
+        m_TargetAssemblyTypeName: ConstructionPlot, Assembly-CSharp
+        m_MethodName: TryBuild
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4725291394295973105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,10 +1017,10 @@ RectTransform:
   - {fileID: 4960203006612719663}
   m_Father: {fileID: 2661945040509452828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -100}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &342866265381071356
 CanvasRenderer:
@@ -1211,7 +1235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4715143944092345884
 RectTransform:
   m_ObjectHideFlags: 0
