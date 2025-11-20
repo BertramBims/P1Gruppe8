@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualText: 
-  buildingInfo: {fileID: 11400000, guid: 498e8817132e92048bea4bb758230ca5, type: 2}
+  buildingInfo: {fileID: 0}
 --- !u!1 &1254983897086274585
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1490233813599455895
 RectTransform:
   m_ObjectHideFlags: 0
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualText: 
-  buildingInfo: {fileID: 11400000, guid: 498e8817132e92048bea4bb758230ca5, type: 2}
+  manualText: Reverts to construction plot.
+  buildingInfo: {fileID: 0}
 --- !u!1 &4140649264569029996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,7 +1182,7 @@ SpriteRenderer:
   m_SortingLayerID: -78908079
   m_SortingLayer: 8
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4f6fe4afb67b31f41abbbd6699953da5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bed7dcebf05711b4fb41a866063e1cd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

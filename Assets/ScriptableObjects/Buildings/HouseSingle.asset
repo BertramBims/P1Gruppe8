@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HouseSingle
   m_EditorClassIdentifier: 
   buildingName: House
-  description: Increases population and taxes gathered.
+  description: Provides housing and taxes your island.
   sprite: {fileID: 21300000, guid: 9bcb6bec996bf3746a24e5749eec5b74, type: 3}
   prefab: {fileID: 8385769551180989103, guid: c1b1c55d0008e274ca345e2184df9775, type: 3}
   buildCost:
