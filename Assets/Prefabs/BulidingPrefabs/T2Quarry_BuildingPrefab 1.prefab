@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualText: 
-  buildingInfo: {fileID: 11400000, guid: edb2708637a7e1d4ba601a81c74fff7a, type: 2}
+  buildingInfo: {fileID: 11400000, guid: e9b495e6f61658b4f825efd72020e578, type: 2}
 --- !u!1 &1375438908431453875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualText: 
+  manualText: Reverts to construction plot.
   buildingInfo: {fileID: 0}
 --- !u!1 &4760661452418741953
 GameObject:
