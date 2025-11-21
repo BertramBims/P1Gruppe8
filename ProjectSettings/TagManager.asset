@@ -67,5 +67,8 @@ TagManager:
   - name: Collisions
     uniqueID: 4216059217
     locked: 0
+  - name: Particles
+    uniqueID: 3033122237
+    locked: 0
   m_RenderingLayers:
   - Default
