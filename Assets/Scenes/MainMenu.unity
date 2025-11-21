@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 205821778}
   - component: {fileID: 205821780}
   - component: {fileID: 205821779}
+  - component: {fileID: 205821781}
   m_Layer: 0
   m_Name: Interact
   m_TagString: Untagged
@@ -526,6 +527,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205821777}
   m_CullTransparentMesh: 1
+--- !u!114 &205821781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205821777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Left Mouse Button
+  buildingInfo: {fileID: 0}
 --- !u!1 &293424010
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +839,7 @@ GameObject:
   - component: {fileID: 381623699}
   - component: {fileID: 381623698}
   m_Layer: 0
-  m_Name: S
+  m_Name: W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2090,6 +2105,7 @@ GameObject:
   - component: {fileID: 943627419}
   - component: {fileID: 943627421}
   - component: {fileID: 943627420}
+  - component: {fileID: 943627422}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -2215,6 +2231,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943627418}
   m_CullTransparentMesh: 1
+--- !u!114 &943627422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943627418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Spacebar
+  buildingInfo: {fileID: 0}
 --- !u!1 &970016881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +2901,7 @@ GameObject:
   - component: {fileID: 1343782253}
   - component: {fileID: 1343782255}
   - component: {fileID: 1343782254}
+  - component: {fileID: 1343782256}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -2996,6 +3027,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343782252}
   m_CullTransparentMesh: 1
+--- !u!114 &1343782256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343782252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Change volume of game sounds
+  buildingInfo: {fileID: 0}
 --- !u!1 &1449736872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,6 +3197,7 @@ GameObject:
   - component: {fileID: 1490482304}
   - component: {fileID: 1490482306}
   - component: {fileID: 1490482305}
+  - component: {fileID: 1490482307}
   m_Layer: 0
   m_Name: PanLeft
   m_TagString: Untagged
@@ -3277,6 +3323,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490482303}
   m_CullTransparentMesh: 1
+--- !u!114 &1490482307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490482303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Moves camera left
+  buildingInfo: {fileID: 0}
 --- !u!1 &1552112642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,6 +3417,7 @@ GameObject:
   - component: {fileID: 1595540747}
   - component: {fileID: 1595540749}
   - component: {fileID: 1595540748}
+  - component: {fileID: 1595540750}
   m_Layer: 0
   m_Name: PanRight
   m_TagString: Untagged
@@ -3482,6 +3543,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595540746}
   m_CullTransparentMesh: 1
+--- !u!114 &1595540750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595540746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Moves camera right
+  buildingInfo: {fileID: 0}
 --- !u!1 &1612198866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,6 +3643,7 @@ GameObject:
   - component: {fileID: 1616618365}
   - component: {fileID: 1616618367}
   - component: {fileID: 1616618366}
+  - component: {fileID: 1616618368}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
@@ -3693,6 +3769,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616618364}
   m_CullTransparentMesh: 1
+--- !u!114 &1616618368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616618364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Pauses the in-game time
+  buildingInfo: {fileID: 0}
 --- !u!1 &1620980172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,6 +3794,7 @@ GameObject:
   - component: {fileID: 1620980173}
   - component: {fileID: 1620980175}
   - component: {fileID: 1620980174}
+  - component: {fileID: 1620980176}
   m_Layer: 0
   m_Name: Drag
   m_TagString: Untagged
@@ -3829,6 +3920,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620980172}
   m_CullTransparentMesh: 1
+--- !u!114 &1620980176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620980172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Drags the camera
+  buildingInfo: {fileID: 0}
 --- !u!1 &1640193031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,6 +4587,7 @@ GameObject:
   - component: {fileID: 1824936920}
   - component: {fileID: 1824936922}
   - component: {fileID: 1824936921}
+  - component: {fileID: 1824936923}
   m_Layer: 0
   m_Name: Pan Down
   m_TagString: Untagged
@@ -4607,6 +4713,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824936919}
   m_CullTransparentMesh: 1
+--- !u!114 &1824936923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824936919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Moves camera down
+  buildingInfo: {fileID: 0}
 --- !u!1 &1829800823
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,6 +5303,7 @@ GameObject:
   - component: {fileID: 1924518866}
   - component: {fileID: 1924518868}
   - component: {fileID: 1924518867}
+  - component: {fileID: 1924518869}
   m_Layer: 0
   m_Name: Pan up
   m_TagString: Untagged
@@ -5308,6 +5429,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924518865}
   m_CullTransparentMesh: 1
+--- !u!114 &1924518869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924518865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Moves camera up
+  buildingInfo: {fileID: 0}
 --- !u!1 &1958376165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,6 +5454,7 @@ GameObject:
   - component: {fileID: 1958376166}
   - component: {fileID: 1958376168}
   - component: {fileID: 1958376167}
+  - component: {fileID: 1958376169}
   m_Layer: 0
   m_Name: Drag
   m_TagString: Untagged
@@ -5444,6 +5580,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958376165}
   m_CullTransparentMesh: 1
+--- !u!114 &1958376169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958376165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manualText: Middle Mouse Button
+  buildingInfo: {fileID: 0}
 --- !u!1 &2041277730
 GameObject:
   m_ObjectHideFlags: 0
