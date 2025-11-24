@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
     public int currentMonth = 1;
     public bool isTimePaused = true;
     public GameObject pausedIndicator;
-    private string monthString = "January";
+    private string monthString = "JANUARY";
     public TMP_Text dayText;
     public TMP_Text monthText;
     public List<ConstructionPlot> plotsOngoingConstruction;
@@ -72,7 +72,7 @@ public class TimeManager : MonoBehaviour
             buildings[i].TickDay();
         }
 
-        dayText.text = $"Day {currentDay}";
+        dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
         ResourceManager.Instance.RecalculateDailyIncome();
     }
@@ -86,7 +86,7 @@ public class TimeManager : MonoBehaviour
         {
             buildings[i].TickMonth();
         }
-        dayText.text = $"Day {currentDay}";
+        dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
     }
 
@@ -106,29 +106,29 @@ public class TimeManager : MonoBehaviour
     public void DecideCurrentMonth()
     {
         if (currentMonth == 1)
-            monthString = "January";
+            monthString = "JANUARY";
         if (currentMonth == 2)
-            monthString = "February";
+            monthString = "FEBRUARY";
         if (currentMonth == 3)
-            monthString = "March";
+            monthString = "MARCH";
         if (currentMonth == 4)
-            monthString = "April";
+            monthString = "APRIL";
         if (currentMonth == 5)
-            monthString = "May";
+            monthString = "MAY";
         if (currentMonth == 6)
-            monthString = "June";
+            monthString = "JUNE";
         if (currentMonth == 7)
-            monthString = "July";
+            monthString = "JULY";
         if (currentMonth == 8)
-            monthString = "August";
+            monthString = "AUGUST";
         if (currentMonth == 9)
-            monthString = "September";
+            monthString = "SEPTEMBER";
         if (currentMonth == 10)
-            monthString = "October";
+            monthString = "OCTOBER";
         if (currentMonth == 11)
-            monthString = "November";
+            monthString = "NOVEMBER";
         if (currentMonth == 12)
-            monthString = "December";
+            monthString = "DECEMBER";
 
     }
 }
