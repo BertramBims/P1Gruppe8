@@ -28,6 +28,8 @@ public class DisasterManager : MonoBehaviour
     private TimeManager timeManager;
     private DisasterInstance activeDisaster;
 
+    public bool debugCanTriggerDisasterBool;
+
     private void Awake()
     {
         Instance = this;
@@ -36,16 +38,17 @@ public class DisasterManager : MonoBehaviour
 
     private void Update()
     {
+
         //For simplicity right now, one second is one day in simulation
         float daysPassed = Time.deltaTime;
 
         //Check for new disaster periodically
-        if (timeManager.dayCounter == checkIntervalDays)
+        if (timeManager.currentDay == checkIntervalDays)
         {
             TryTriggerDisaster();
         }
 
-        if (activeDisaster  != null)
+        if (activeDisaster != null)
         {
             TickActiveDisaster(daysPassed);
         }
@@ -55,6 +58,9 @@ public class DisasterManager : MonoBehaviour
 
     private void TryTriggerDisaster()
     {
+        if (debugCanTriggerDisasterBool == false)
+            return;
+
         //Don't start a new disaster if one is active
         if (activeDisaster != null) return;
 
@@ -82,12 +88,15 @@ public class DisasterManager : MonoBehaviour
 
         //Find all buildings within range (for now, all)
         var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
+        Debug.Log(buildings.Length);
 
         foreach (var building in buildings)
         {
             float distance = Vector3.Distance(building.transform.position, pos);
             if (distance <= disaster.effectRadius)
             {
+                Debug.Log($"Should apply disastereffect to {building.name} now");
+
                 foreach (var effect in disaster.effects)
                     building.AddEffect(effect);
 

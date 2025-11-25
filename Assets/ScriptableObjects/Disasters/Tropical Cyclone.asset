@@ -15,6 +15,8 @@ MonoBehaviour:
   disasterName: Tropical Cyclone
   icon: {fileID: 0}
   durationDays: 300
-  spawnChance: 30
+  spawnChance: 100
   effectRadius: 9999
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 2b5c57e9334df224d842b224732a0f50, type: 2}
+  - {fileID: 11400000, guid: cef5ab150ca9f3745bc38fa38b1a6bde, type: 2}
