@@ -23,6 +23,10 @@ public class BuildingInstance : MonoBehaviour
     private float productionMultiplier = 1f;
     public List<ActiveEffect> activeEffects = new();
 
+    [Header("Disaster Effect States...")]
+    public GameObject floodedState;
+    public GameObject brokenWindowsState;
+
     public Dictionary<ResourceType, float> GetDailyResourceChange()
     {
         Dictionary<ResourceType, float> change = new Dictionary<ResourceType, float>();
@@ -114,7 +118,21 @@ public class BuildingInstance : MonoBehaviour
 
     public void AddEffect (DisasterEffect effect)
     {
+        bool canEffectThisBuilding = false;
+        for (int i = 0; i < effect.buildingsItCanEffect.Length; i++)
+        {
+            if (effect.buildingsItCanEffect[i] == data)
+                canEffectThisBuilding = true;
+        }
+        if (!canEffectThisBuilding)
+            return;
+
         effect.ApplyImmediate(this);
+
+        if (effect.effectName == "Flooding")
+            floodedState.SetActive(true);
+        if (effect.effectName == "Broken Windows")
+            brokenWindowsState.SetActive(true);
 
         activeEffects.Add(new ActiveEffect
         {
@@ -142,6 +160,11 @@ public class BuildingInstance : MonoBehaviour
 
             if(active.remainingDays <= 0)
             {
+                if (active.effect.effectName == "Flooding")
+                    floodedState.SetActive(false);
+                if (active.effect.effectName == "Broken Windows")
+                    brokenWindowsState.SetActive(false);
+
                 activeEffects.RemoveAt(i);
                 Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
             }
