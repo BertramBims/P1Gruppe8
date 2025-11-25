@@ -19,11 +19,11 @@ MonoBehaviour:
   buildCost: []
   upkeepPerDay:
   - type: 3
-    amount: 0.1
+    amount: 0.2
   - type: 1
     amount: 0.5
   - type: 0
-    amount: 0.1
+    amount: 0.2
   productionPerDay: []
   maxPopulation: 1
   baseMoraleEffect: 60
