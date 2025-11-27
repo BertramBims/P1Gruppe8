@@ -2233,7 +2233,7 @@ MonoBehaviour:
   buildingText: {fileID: 5824637795007846037}
   activeEffects: []
   floodedState: {fileID: 0}
-  brokenWindowsState: {fileID: 0}
+  brokenWindowsState: {fileID: 3351151895787957220}
 --- !u!61 &3972957104097198437
 BoxCollider2D:
   m_ObjectHideFlags: 0

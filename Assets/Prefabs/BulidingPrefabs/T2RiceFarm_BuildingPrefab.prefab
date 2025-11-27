@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7432490741649649320
 Transform:
   m_ObjectHideFlags: 0
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   constructionPlot: {fileID: 0}
   buildingText: {fileID: 530342366933614470}
   activeEffects: []
-  floodedState: {fileID: 0}
+  floodedState: {fileID: 2377866663436763129}
   brokenWindowsState: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:

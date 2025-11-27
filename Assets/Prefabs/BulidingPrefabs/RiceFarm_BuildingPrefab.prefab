@@ -2158,7 +2158,7 @@ MonoBehaviour:
   constructionPlot: {fileID: 1495790765170815449, guid: 9aee162d666970544b7eaca1fffbeb33, type: 3}
   buildingText: {fileID: 758734173748800162}
   activeEffects: []
-  floodedState: {fileID: 0}
+  floodedState: {fileID: 1714994264602816874}
   brokenWindowsState: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:

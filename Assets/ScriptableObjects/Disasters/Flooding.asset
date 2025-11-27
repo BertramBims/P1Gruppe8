@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: Flooding
   m_EditorClassIdentifier: 
   effectName: Flooding
-  moraleChange: 0
+  moraleChange: -40
   productionMultiplier: 1
   populationLoss: 0
-  durationDays: 3
-  buildingsItCanEffect: []
+  durationDays: 150
+  buildingsItCanEffect:
+  - {fileID: 11400000, guid: 24f8110e63a77ae66b45347f50f96b0c, type: 2}
+  - {fileID: 11400000, guid: 55ec7ca106735154384173e8e4fb4017, type: 2}
+  - {fileID: 11400000, guid: 5e50b463c68079f4ea585ee637579614, type: 2}
+  - {fileID: 11400000, guid: e9b495e6f61658b4f825efd72020e578, type: 2}
+  - {fileID: 11400000, guid: 18886247c84a8eb4b9e1f0b087eaf27b, type: 2}
+  - {fileID: 11400000, guid: 4fc00fea6a9906840a07d293202d5b0b, type: 2}
+  - {fileID: 11400000, guid: d727645b7e0b9fd4daab448e4dbba7c0, type: 2}
+  - {fileID: 11400000, guid: 769d63e9ac9a0254cadb40d6922ccf18, type: 2}
+  - {fileID: 11400000, guid: edb2708637a7e1d4ba601a81c74fff7a, type: 2}
+  - {fileID: 11400000, guid: 2fa7391b4a5d0c641912ac215a4737cd, type: 2}
   dailyMoraleDecay: 0
   dailyPopulationLoss: 0
