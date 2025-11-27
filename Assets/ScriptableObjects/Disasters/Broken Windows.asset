@@ -13,10 +13,16 @@ MonoBehaviour:
   m_Name: Broken Windows
   m_EditorClassIdentifier: 
   effectName: Broken Windows
-  moraleChange: 0
+  moraleChange: -40
   productionMultiplier: 1
   populationLoss: 0
-  durationDays: 3
-  buildingsItCanEffect: []
+  durationDays: 150
+  buildingsItCanEffect:
+  - {fileID: 11400000, guid: 8e6d383d945d263a7af98016aa5b8916, type: 2}
+  - {fileID: 11400000, guid: d595aca87069d734480128174f2da338, type: 2}
+  - {fileID: 11400000, guid: 2118ec48ed92b40188c1e1e83964f4a6, type: 2}
+  - {fileID: 11400000, guid: bf9d52746bcf4834f9d26cdd8cd48cd9, type: 2}
+  - {fileID: 11400000, guid: f09ae49ad81ac004d9c5c181dad3a819, type: 2}
+  - {fileID: 11400000, guid: e2a0c00614a4458448e60b1ee9e56163, type: 2}
   dailyMoraleDecay: 0
   dailyPopulationLoss: 0
