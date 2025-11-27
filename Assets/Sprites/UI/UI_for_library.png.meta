@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e4f676982b74b9dde8d72988b656cefb
+guid: 9d02cc22dfeebd7968f28fcee5000d61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5181682066899514561
-    second: widebutton_0
+      213: -9151831138567413614
+    second: UI_for_library_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: widebutton_0
+      name: UI_for_library_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 65
-        height: 28
+        x: 3
+        y: 1
+        width: 152
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3b41772d97f618b0800000000000000
-      internalID: -5181682066899514561
+      spriteID: 290a455611a2ef080800000000000000
+      internalID: -9151831138567413614
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      widebutton_0: -5181682066899514561
+      UI_for_library_0: -9151831138567413614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
