@@ -2130,6 +2130,7 @@ GameObject:
   - component: {fileID: 5872795837350965789}
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
+  - component: {fileID: 1816469256434922406}
   m_Layer: 0
   m_Name: Antenna_ConstructionPrefab
   m_TagString: Untagged
@@ -2175,6 +2176,8 @@ MonoBehaviour:
   constructionPlot: {fileID: 1495790765170815449, guid: 6dabb885cd00585438aa55191d7f35b0, type: 3}
   buildingText: {fileID: 6314543697149679107}
   activeEffects: []
+  floodedState: {fileID: 0}
+  brokenWindowsState: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2242,6 +2245,18 @@ MonoBehaviour:
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}
+--- !u!114 &1816469256434922406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385769551180989103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05afdc688a1011cbda30f852e62fc0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &507422166351561374
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1516,6 +1516,7 @@ GameObject:
   - component: {fileID: 5872795837350965789}
   - component: {fileID: 3972957104097198437}
   - component: {fileID: 5816330073737724429}
+  - component: {fileID: 3032835608775777484}
   m_Layer: 0
   m_Name: T2House_BuildingPrefab 1
   m_TagString: Untagged
@@ -1684,6 +1685,18 @@ MonoBehaviour:
   immuneUI: 0
   daysToFinishConstruction: 0
   selectedBuildingType: {fileID: 0}
+--- !u!114 &3032835608775777484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385769551180989103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05afdc688a1011cbda30f852e62fc0f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &794844648807618062
 PrefabInstance:
   m_ObjectHideFlags: 0

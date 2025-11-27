@@ -22,8 +22,6 @@ MonoBehaviour:
   upkeepPerDay:
   - type: 2
     amount: 0.2
-  - type: 3
-    amount: 0.2
   - type: 1
     amount: 0.2
   productionPerDay:
