@@ -1488,6 +1488,8 @@ MonoBehaviour:
   constructionPlot: {fileID: 1495790765170815449, guid: 35b43961e28f087f9b6fde528716b049, type: 3}
   buildingText: {fileID: 2994193685103965853}
   activeEffects: []
+  floodedState: {fileID: 0}
+  brokenWindowsState: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1547,7 +1549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildUIPrefab: {fileID: 4760661452418741953}
-  PlotOutline: {fileID: 0}
+  PlotOutline: {fileID: 9073776610143589372}
   constructionOverlaySpriterenderer: {fileID: 0}
   underConstructionSprite: {fileID: 21300000, guid: 3df5c187ad22797429509b7054ca4046, type: 3}
   constructionProgressPanel: {fileID: 0}
