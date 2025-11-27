@@ -23,9 +23,11 @@ public class BuildingInstance : MonoBehaviour
     private float productionMultiplier = 1f;
     public List<ActiveEffect> activeEffects = new();
 
-    [Header("Disaster Effect States...")]
+    [Header("Disaster Effect States & UI Elements...")]
     public GameObject floodedState;
+    public GameObject floodedUIButton;
     public GameObject brokenWindowsState;
+    public GameObject brokenWindowsUIButton;
 
     public Dictionary<ResourceType, float> GetDailyResourceChange()
     {
@@ -130,9 +132,15 @@ public class BuildingInstance : MonoBehaviour
         effect.ApplyImmediate(this);
 
         if (effect.effectName == "Flooding")
+        {
             floodedState.SetActive(true);
+            floodedUIButton.SetActive(true);
+        }
         if (effect.effectName == "Broken Windows")
+        {
             brokenWindowsState.SetActive(true);
+            brokenWindowsUIButton.SetActive(true);
+        }
 
         activeEffects.Add(new ActiveEffect
         {
@@ -228,5 +236,40 @@ public class BuildingInstance : MonoBehaviour
         }
 
         return sb.ToString();
+    }
+
+    //deal with disastereffect
+    public void DealWithDisasterEffect(DisasterEffect effect)
+    {
+        if (!ResourceManager.Instance.TrySpend(effect.costToRemoveEffect))
+        {
+            Debug.Log("Not enough resources!");
+            return;
+        }
+
+        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        {
+            if (activeEffects[i].effect.effectName == effect.effectName)
+            {
+                activeEffects.RemoveAt(i);
+                UpdateDisasterEffects(activeEffects[i].effect);
+                return;
+            }
+        }
+    }
+
+    //update ui for disastereffects
+    public void UpdateDisasterEffects(DisasterEffect effect)
+    {
+        if (effect.effectName == "Flooding")
+        {
+            floodedState.SetActive(false);
+            floodedUIButton.SetActive(false);
+        }
+        if (effect.effectName == "Broken Windows")
+        {
+            brokenWindowsState.SetActive(false);
+            brokenWindowsUIButton.SetActive(false);
+        }
     }
 }

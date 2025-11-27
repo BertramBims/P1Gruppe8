@@ -9,6 +9,7 @@ public class DisasterEffect : ScriptableObject
     public int populationLoss;
     public float durationDays = 3f;
     public BuildingType[] buildingsItCanEffect;
+    public ResourceAmount[] costToRemoveEffect;
 
     //Optional ongoing damage each day
     public float dailyMoraleDecay;

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DisasterInstance
 {
@@ -29,6 +31,12 @@ public class DisasterManager : MonoBehaviour
     private DisasterInstance activeDisaster;
 
     public bool debugCanTriggerDisasterBool;
+
+    [Header("For Disaster Visuals")]
+    [SerializeField] private Volume baseVolume, cycloneVolume;
+    private bool currentlyDisasterVolume = true;
+
+    public GameObject cycloneDisasterVisual;
 
     private void Awake()
     {
@@ -89,6 +97,8 @@ public class DisasterManager : MonoBehaviour
         //Find all buildings within range (for now, all)
         var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
         Debug.Log(buildings.Length);
+        TriggerDisasterVisual(activeDisaster);
+        SwitchVolumes(.1f);
 
         foreach (var building in buildings)
         {
@@ -115,7 +125,51 @@ public class DisasterManager : MonoBehaviour
         {
             Debug.Log($"Disaster ended: {activeDisaster.disaster.disasterName}");
             activeDisaster = null;
+            StopDisasterVisual(activeDisaster);
+            SwitchVolumes(.1f);
         }
+    }
+
+    private void TriggerDisasterVisual(DisasterInstance activeDisaster)
+    {
+        if(activeDisaster.disaster.disasterName == "Tropical Cyclone")
+        {
+            cycloneDisasterVisual.SetActive(true);
+        }
+    }
+
+    private void StopDisasterVisual(DisasterInstance activeDisaster)
+    {
+        if (activeDisaster.disaster.disasterName == "Tropical Cyclone")
+        {
+            cycloneDisasterVisual.SetActive(false);
+        }
+    }
+
+    public void SwitchVolumes(float speed)
+    {
+        if (!currentlyDisasterVolume) return;
+
+        StartCoroutine(SwitchVolumes_(speed, baseVolume.weight <= 0));
+        currentlyDisasterVolume = false;
+    }
+
+    private IEnumerator SwitchVolumes_(float speed, bool switchFromDisasterVolume)
+    {
+        Volume selectedVol = switchFromDisasterVolume ? baseVolume : cycloneVolume;
+        Volume notSelectedVol = !switchFromDisasterVolume ? baseVolume : cycloneVolume;
+
+        while (selectedVol.weight < 1)
+        {
+            selectedVol.weight += Time.deltaTime * speed;
+            notSelectedVol.weight -= Time.deltaTime * speed;
+            yield return null;
+        }
+
+        selectedVol.weight = 1;
+        notSelectedVol.weight = 0;
+
+        currentlyDisasterVolume = true;
     }
 
     /*private void TickBuildingEffects(float daysPassed)
