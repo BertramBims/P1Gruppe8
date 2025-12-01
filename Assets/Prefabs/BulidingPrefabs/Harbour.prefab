@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.56078434, g: 0.5411765, b: 0.5137255, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3125,7 +3125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4715143944092345884
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4539,7 +4539,9 @@ MonoBehaviour:
   buildingText: {fileID: 917621414147890259}
   activeEffects: []
   floodedState: {fileID: 0}
+  floodedUIButton: {fileID: 0}
   brokenWindowsState: {fileID: 0}
+  brokenWindowsUIButton: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:
   m_ObjectHideFlags: 0
