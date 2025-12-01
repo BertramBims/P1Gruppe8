@@ -16222,8 +16222,8 @@ MonoBehaviour:
     You can move the camera with WASD, try it
     out'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f117bea953c87045ac5d906f01eff48, type: 2}
-  m_sharedMaterial: {fileID: 2265969620740108520, guid: 6f117bea953c87045ac5d906f01eff48, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb720092ec5e5064c81443f17467e9e5, type: 2}
+  m_sharedMaterial: {fileID: -5935501145374716087, guid: bb720092ec5e5064c81443f17467e9e5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16247,7 +16247,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66
+  m_fontSize: 57
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
