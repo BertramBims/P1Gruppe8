@@ -7,8 +7,10 @@ using UnityEngine.PlayerLoop;
 
 public class EscapeMenu : MonoBehaviour
 {
+    public GameObject pause;
     public void PressEscape(InputAction.CallbackContext ctx)
     {
+
         GameObject[] menus = GameObject.FindGameObjectsWithTag("BuildMenu");
         
         bool anyActive = false;
@@ -22,7 +24,6 @@ public class EscapeMenu : MonoBehaviour
         }
         if(ctx.performed && anyActive)
         {
-            Debug.Log("Woof");
              var allMenues = GameObject.FindGameObjectsWithTag("BuildMenu");
 
         for (int i = 0; i < allMenues.Length; i++)
@@ -32,9 +33,17 @@ public class EscapeMenu : MonoBehaviour
             return;
       
         }
-              else if(ctx.performed)
+        else if(ctx.performed && !pause.activeInHierarchy)
         {
+            Time.timeScale = 0;
+            pause.SetActive(true);
             Debug.Log("Meow");
+        }
+        else if (ctx.performed && pause.activeInHierarchy)
+        {
+            Time.timeScale = 1;
+            pause.SetActive(false);
+            Debug.Log("grrrr");
         }
     }
 }
