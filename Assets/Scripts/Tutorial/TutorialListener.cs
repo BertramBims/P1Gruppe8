@@ -1,3 +1,5 @@
+using System;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 public class TutorialListener : MonoBehaviour
@@ -6,6 +8,10 @@ public class TutorialListener : MonoBehaviour
     private bool StepDone;
   //public GameObject GameManager;
   //public TutorialManager ScriptSource;
+    private GameObject InstructionParent;
+    private GameObject CurrentInstruction;
+    private bool IsCoroutineRunning;
+    private Array AllInstructions;
 
     private void Start()
     {
@@ -13,6 +19,9 @@ public class TutorialListener : MonoBehaviour
         StepDone = false;
       //GameManager = GameObject.Find("GameManager");
       //ScriptSource = GameManager.GetComponent<TutorialManager>();
+        InstructionParent = GameObject.Find("TipScreen");
+        IsCoroutineRunning = false;
+        AllInstructions = Transform.GetComponentsInChildren<"Image">(true);
     }
 
     private void StepComplete()
@@ -26,7 +35,10 @@ public class TutorialListener : MonoBehaviour
         {
             if (!StepDone)
             {
-                StartCoroutine("MoveCheck");
+                if (!IsCoroutineRunning)
+                {
+                    StartCoroutine("MoveCheck");   
+                }
             }
             else if (StepDone)
             {
@@ -39,11 +51,15 @@ public class TutorialListener : MonoBehaviour
         {
             if (!StepDone)
             {
-                StartCoroutine("");
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = InstructionParent.FindChild("Instruction", TutorialStep);
+                    StartCoroutine("EconomyLook");   
+                }
             }
             else if (StepDone)
             {
-                StopCoroutine("");
+                StopCoroutine("EconomyLook");
                 TutorialManager.OnTutorialProgressed();
                 StepDone = false;
             }
@@ -56,6 +72,17 @@ public class TutorialListener : MonoBehaviour
         while (!StepDone)
         {
             if (Input.GetKey("W")||Input.GetKey("A")||Input.GetKey("S")||Input.GetKey("D"))
+            {
+                StepDone = true;
+            }
+        }
+    }
+    private void EconomyLook()
+    {
+        CurrentInstruction.SetActive();
+        while (!StepDone)
+        {
+            if (Input.GetKey(" W")||Input.GetKey("A")||Input.GetKey("S")||Input.GetKey("D"))
             {
                 StepDone = true;
             }
