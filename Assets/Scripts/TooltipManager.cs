@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class TooltipManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class TooltipManager : MonoBehaviour
     {
         tooltipText.text = text;
         tooltipObject.SetActive(true);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+
     }
 
     public void HideTooltip()
