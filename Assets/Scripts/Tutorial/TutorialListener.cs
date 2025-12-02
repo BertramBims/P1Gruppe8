@@ -19,6 +19,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject LumberyardB;
 
     //dumb list, but it works
+    public GameObject Instruction0;
     public GameObject Instruction1;
     public GameObject Instruction2;
     public GameObject Instruction3;
@@ -45,12 +46,33 @@ public class TutorialListener : MonoBehaviour
 
     private void Update()
     {
+        if (!StepDone)
+        {
+                if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction1;
+                    StartCoroutine("MoveCheck");   
+                    IsCoroutineRunning = true;
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("MoveCheck");
+                IsCoroutineRunning = false;
+                TutorialManager.OnTutorialProgressed();
+                StepDone = false;
+            }  
+    }
+
+    private void Update()
+    {
         if (TutorialStep == 0)
         {
             if (!StepDone)
             {
                 if (!IsCoroutineRunning)
                 {
+                    CurrentInstruction = Instruction1;
                     StartCoroutine("MoveCheck");   
                     IsCoroutineRunning = true;
                 }
@@ -236,7 +258,17 @@ public class TutorialListener : MonoBehaviour
     }
     private void Disaster1()
     {
-        //pause here
+        //Make newpaper pop up in this one
+        CurrentInstruction.SetActive(true);
+        while (!StepDone)
+        {
+            //pause here
+            StepDone = true;
+        }
+    }
+    private void Disaster2()
+    {
+        //
         CurrentInstruction.SetActive(true);
         while (!StepDone)
         {
