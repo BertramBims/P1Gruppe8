@@ -15,6 +15,8 @@ public class TutorialListener : MonoBehaviour
     private Array AllInstructions;
     public GameObject HouseScreen1;
     public GameObject HouseScreen2;
+    public GameObject FarmB;
+    public GameObject LumberyardB;
 
     //dumb list, but it works
     public GameObject Instruction1;
@@ -99,6 +101,82 @@ public class TutorialListener : MonoBehaviour
                 StepDone = false;
             }
         }
+        if (TutorialStep == 3)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction3;
+                    StartCoroutine("EconomyLook2");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("EconomyLook2");
+                IsCoroutineRunning = false;
+                TutorialManager.OnTutorialProgressed();
+                StepDone = false;
+            }
+        }
+        if (TutorialStep == 4)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction4;
+                    StartCoroutine("BuildFL");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("BuildFL");
+                IsCoroutineRunning = false;
+                TutorialManager.OnTutorialProgressed();
+                StepDone = false;
+            }
+        }
+        if (TutorialStep == 5)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction5;
+                    StartCoroutine("UnPause");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("UnPause");
+                IsCoroutineRunning = false;
+                TutorialManager.OnTutorialProgressed();
+                StepDone = false;
+            }
+        }
+        if (TutorialStep == 6)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction6;
+                    StartCoroutine("Disaster1");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("Disaster1");
+                IsCoroutineRunning = false;
+                TutorialManager.OnTutorialProgressed();
+                StepDone = false;
+            }
+        }
     }
 
     private void MoveCheck()
@@ -125,16 +203,46 @@ public class TutorialListener : MonoBehaviour
     }
     private void EconomyLook()
     {
+        CurrentInstruction.SetActive(true);
+        //pause here
+        StepDone = true;
+    }
+    private void EconomyLook2()
+    {
+        CurrentInstruction.SetActive(true);
+        //pause here
+        StepDone = true;
+    }
+    private void BuildFL()
+    {
         //Need pause here
         CurrentInstruction.SetActive(true);
-
-        
         while (!StepDone)
         {
-            if (HouseScreen1||HouseScreen2)
+            if (FarmB && LumberyardB)
             {
                 StepDone = true;
             }
         }
     }
+    private void UnPause()
+    {
+        CurrentInstruction.SetActive(true);
+        while (!StepDone)
+        {
+            //pause here
+            StepDone = true;
+        }
+    }
+    private void Disaster1()
+    {
+        //pause here
+        CurrentInstruction.SetActive(true);
+        while (!StepDone)
+        {
+            //pause here
+            StepDone = true;
+        }
+    }
+    
 }
