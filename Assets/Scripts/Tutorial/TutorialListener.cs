@@ -1,13 +1,20 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using Mono.Cecil.Cil;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialListener : MonoBehaviour
 {
     public int TutorialStep;
     private bool StepDone;
+    private bool ManualStep;
+    private bool CameraMoved;
+    public ResourceType TypeStone;
+    public ResourceType TypePesos;    
 
     private GameObject InstructionParent;
     private GameObject CurrentInstruction;
@@ -17,6 +24,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject HouseScreen2;
     public GameObject FarmB;
     public GameObject LumberyardB;
+    public GameObject StormShelterB;
 
     //dumb list, but it works
     public GameObject Instruction0;
@@ -29,6 +37,9 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction7;
     public GameObject Instruction8;
     public GameObject Instruction9;
+    public GameObject Instruction10;
+    public GameObject Instruction11;
+    public GameObject Instruction12;
 
     private void Start()
     {
@@ -38,30 +49,28 @@ public class TutorialListener : MonoBehaviour
         IsCoroutineRunning = false;
         //Find way to unpause then pause automatically
     }
-
     private void StepComplete()
     {
        TutorialStep ++;
+       StepDone = true;
     }
-
-    private void Update()
+    private void StartNext()
     {
-        if (!StepDone)
-        {
-                if (!IsCoroutineRunning)
-                {
-                    CurrentInstruction = Instruction1;
-                    StartCoroutine("MoveCheck");   
-                    IsCoroutineRunning = true;
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("MoveCheck");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
-            }  
+       ManualStep = false;
+       StepDone = false;
+       IsCoroutineRunning = false;
+    }
+    private void ShowScreen()
+    {
+        CurrentInstruction.SetActive(true);
+    }
+    public void ManualProgress()
+    {
+        ManualStep = true;
+    }
+    public void MovedCamera()
+    {
+        CameraMoved = true;
     }
 
     private void Update()
@@ -81,7 +90,6 @@ public class TutorialListener : MonoBehaviour
             {
                 StopCoroutine("MoveCheck");
                 IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
                 StepDone = false;
             }
         }
@@ -99,9 +107,7 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("HouseLook");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 2)
@@ -118,9 +124,7 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("EconomyLook");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 3)
@@ -137,9 +141,7 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("EconomyLook2");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 4)
@@ -156,9 +158,7 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("BuildFL");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 5)
@@ -175,9 +175,7 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("UnPause");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 6)
@@ -194,86 +192,192 @@ public class TutorialListener : MonoBehaviour
             else if (StepDone)
             {
                 StopCoroutine("Disaster1");
-                IsCoroutineRunning = false;
-                TutorialManager.OnTutorialProgressed();
-                StepDone = false;
+                StartNext();
+            }
+        }
+        if (TutorialStep == 7)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction7;
+                    StartCoroutine("Disaster2");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("Disaster2");
+                StartNext();
+            }
+        }
+        if (TutorialStep == 8)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction8;
+                    StartCoroutine("BuildSS");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("BuildSS");
+                StartNext();
+            }
+        }
+        if (TutorialStep == 9)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction8;
+                    StartCoroutine("ActualBuildSS");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("ActualBuildSS");
+                StartNext();
             }
         }
     }
 
     private void MoveCheck()
     {
+        ShowScreen();
         while (!StepDone)
         {
-            if (Input.GetKey("W")||Input.GetKey("A")||Input.GetKey("S")||Input.GetKey("D"))
+            if (CameraMoved)
             {
-                StepDone = true;
+                TutorialManager.OnTutorialProgressed();
             }
         }
     }
     private void HouseLook()
     {
-        //Need pause here
-        CurrentInstruction.SetActive(true);
-        while (!StepDone)
+        ShowScreen();
+        while (!StepDone && CurrentInstruction)
         {
             if (HouseScreen1||HouseScreen2)
             {
-                StepDone = true;
+                TutorialManager.OnTutorialProgressed();
             }
         }
     }
     private void EconomyLook()
     {
-        CurrentInstruction.SetActive(true);
         //pause here
-        StepDone = true;
+        ShowScreen();
+        TutorialManager.OnTutorialProgressed();
     }
     private void EconomyLook2()
     {
-        CurrentInstruction.SetActive(true);
         //pause here
-        StepDone = true;
+        ShowScreen();
+        TutorialManager.OnTutorialProgressed();
     }
     private void BuildFL()
     {
         //Need pause here
-        CurrentInstruction.SetActive(true);
+        ShowScreen();
         while (!StepDone)
         {
             if (FarmB && LumberyardB)
             {
-                StepDone = true;
+                TutorialManager.OnTutorialProgressed();
             }
         }
     }
     private void UnPause()
     {
-        CurrentInstruction.SetActive(true);
+        ShowScreen();
         while (!StepDone)
         {
             //pause here
-            StepDone = true;
+            TutorialManager.OnTutorialProgressed();
         }
     }
     private void Disaster1()
     {
         //Make newpaper pop up in this one
-        CurrentInstruction.SetActive(true);
+        ShowScreen();
         while (!StepDone)
         {
-            //pause here
-            StepDone = true;
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
         }
     }
     private void Disaster2()
     {
-        //
-        CurrentInstruction.SetActive(true);
+        ShowScreen();
         while (!StepDone)
         {
-            //pause here
-            StepDone = true;
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
+    }
+    private void BuildSS()
+    {
+        ShowScreen();
+        while (!StepDone)
+        {
+            //I gotta also make the divergent "Not enough stone!" and such here
+            if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
+    }
+    private void ActualBuildSS()
+    {
+        ShowScreen();
+        while (!StepDone)
+        {
+            if (StormShelterB)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
+    }
+    private void DisasterOccurs()
+    {
+        ShowScreen();
+        //Do disaster stuff here
+
+
+        TutorialManager.OnTutorialProgressed();
+    }
+    private void NotInTime()
+    {
+        //pause here
+        ShowScreen();
+        while (!StepDone)
+        {
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
+    }
+    private void TutorialDone()
+    {
+        ShowScreen();
+        while (!StepDone)
+        {
+            if (ManualStep)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+            }
         }
     }
     
