@@ -112,9 +112,11 @@ public class TutorialListener : MonoBehaviour
         if (!IsCoroutineRunning && !StepDone)
         {
             MergedInstruction = "Instruction" + TutorialStep;
+            Debug.Log(MergedInstruction);
             CurrentInstruction = Instructions[MergedInstruction];
+            Debug.Log(CurrentInstruction);
             CurrentRoutine = AllRoutines[MergedInstruction];
-
+            Debug.Log(CurrentRoutine);
             IsCoroutineRunning = true;
             this.Invoke(CurrentRoutine, 0f);
         }
@@ -155,44 +157,52 @@ public class TutorialListener : MonoBehaviour
     private void EconomyLook()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void EconomyLook2()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void BuildFL()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (FarmB && LumberyardB)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void UnPause()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (PauseScript.isTimePaused == false)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
@@ -200,45 +210,53 @@ public class TutorialListener : MonoBehaviour
     {
         //Make newpaper pop up in this one
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void Disaster2()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void BuildSS()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             //I gotta also make the divergent "Not enough stone!" and such here
             if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void ActualBuildSS()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (StormShelterB)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
@@ -253,22 +271,26 @@ public class TutorialListener : MonoBehaviour
     {
         //pause here
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void TutorialDone()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+                i++;
             }
         }
     }
