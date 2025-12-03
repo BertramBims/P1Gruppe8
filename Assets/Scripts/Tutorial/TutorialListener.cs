@@ -16,7 +16,7 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
-    private string CurrentRoutine;
+    //private string CurrentRoutine;
     private string MergedInstruction;
 
 
@@ -44,7 +44,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction11;
     public GameObject Instruction12;
 
-    Dictionary<string, string> AllRoutines = new Dictionary<string, string>();
+    Dictionary<string, System.Action> AllRoutines = new Dictionary<string, System.Action>();
     int i;
 
     private void Start()
@@ -69,19 +69,19 @@ public class TutorialListener : MonoBehaviour
         Instructions.Add("Instruction11", Instruction11);
         Instructions.Add("Instruction12", Instruction12);
 
-        AllRoutines.Add("Instruction0", "MoveCheck");
-        AllRoutines.Add("Instruction1", "HouseLook");
-        AllRoutines.Add("Instruction2", "EconomyLook");
-        AllRoutines.Add("Instruction3", "EconomyLook2");
-        AllRoutines.Add("Instruction4", "BuildFL");
-        AllRoutines.Add("Instruction5", "UnPause");
-        AllRoutines.Add("Instruction6", "Disaster1");
-        AllRoutines.Add("Instruction7", "Disaster2");
-        AllRoutines.Add("Instruction8", "BuildSS");
-        AllRoutines.Add("Instruction9", "ActualBuildSS");
-        AllRoutines.Add("Instruction10", "DisasterOcurs");
-        AllRoutines.Add("Instruction11", "NotInTime");
-        AllRoutines.Add("Instruction12", "TutorialDone");
+        AllRoutines.Add("Instruction0", MoveCheck);
+        AllRoutines.Add("Instruction1", HouseLook);
+        AllRoutines.Add("Instruction2", EconomyLook);
+        AllRoutines.Add("Instruction3", EconomyLook2);
+        AllRoutines.Add("Instruction4", BuildFL);
+        AllRoutines.Add("Instruction5", UnPause);
+        AllRoutines.Add("Instruction6", Disaster1);
+        AllRoutines.Add("Instruction7", Disaster2);
+        AllRoutines.Add("Instruction8", BuildSS);
+        AllRoutines.Add("Instruction9", ActualBuildSS);
+        AllRoutines.Add("Instruction10", DisasterOccurs);
+        AllRoutines.Add("Instruction11", NotInTime);
+        AllRoutines.Add("Instruction12", TutorialDone);
     }
     private void StepComplete()
     {
@@ -115,10 +115,11 @@ public class TutorialListener : MonoBehaviour
             Debug.Log(MergedInstruction);
             CurrentInstruction = Instructions[MergedInstruction];
             Debug.Log(CurrentInstruction);
-            CurrentRoutine = AllRoutines[MergedInstruction];
-            Debug.Log(CurrentRoutine);
+            //CurrentRoutine = AllRoutines[MergedInstruction];
+            //Debug.Log(CurrentRoutine);
             IsCoroutineRunning = true;
-            this.Invoke(CurrentRoutine, 0f);
+            //this.Invoke(CurrentRoutine, 0f);
+            AllRoutines[MergedInstruction]();
         }
         else if (StepDone)
         {
