@@ -36,8 +36,8 @@ public class TooltipManager : MonoBehaviour
     public void ShowTooltip(string text)
     {
         tooltipText.text = text;
-        tooltipObject.SetActive(true);
         LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+        tooltipObject.SetActive(true);
 
     }
 
