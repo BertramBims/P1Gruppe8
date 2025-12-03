@@ -246,6 +246,57 @@ public class TutorialListener : MonoBehaviour
                 StartNext();
             }
         }
+        if (TutorialStep == 10)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction8;
+                    StartCoroutine("DisasterOccurs");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("DisasterOccurs");
+                StartNext();
+            }
+        }
+        if (TutorialStep == 11)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction8;
+                    StartCoroutine("NotInTime");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("NotInTime");
+                StartNext();
+            }
+        }
+        if (TutorialStep == 12)
+        {
+            if (!StepDone)
+            {
+                 if (!IsCoroutineRunning)
+                {
+                    CurrentInstruction = Instruction8;
+                    StartCoroutine("TutorialDone");  
+                    IsCoroutineRunning = true; 
+                }
+            }
+            else if (StepDone)
+            {
+                StopCoroutine("TutorialDone");
+                StartNext();
+            }
+        }
     }
 
     private void MoveCheck()
