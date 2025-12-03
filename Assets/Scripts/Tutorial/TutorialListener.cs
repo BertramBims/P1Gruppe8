@@ -15,11 +15,10 @@ public class TutorialListener : MonoBehaviour
     private bool CameraMoved;
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
+    private TimeManager PauseScript;
 
-    private GameObject InstructionParent;
     private GameObject CurrentInstruction;
     private bool IsCoroutineRunning;
-    private Array AllInstructions;
     public GameObject HouseScreen1;
     public GameObject HouseScreen2;
     public GameObject FarmB;
@@ -45,9 +44,8 @@ public class TutorialListener : MonoBehaviour
     {
         TutorialManager.TutorialProgressed += StepComplete;
         StepDone = false;
-        InstructionParent = GameObject.Find("TipScreen");
         IsCoroutineRunning = false;
-        //Find way to unpause then pause automatically
+        PauseScript = GetComponent<TimeManager>();
     }
     private void StepComplete()
     {
@@ -312,7 +310,7 @@ public class TutorialListener : MonoBehaviour
     }
     private void HouseLook()
     {
-        ShowScreen();
+        this.Invoke("ShowScreen", 3f);
         while (!StepDone && CurrentInstruction)
         {
             if (HouseScreen1||HouseScreen2)
@@ -323,19 +321,28 @@ public class TutorialListener : MonoBehaviour
     }
     private void EconomyLook()
     {
-        //pause here
         ShowScreen();
-        TutorialManager.OnTutorialProgressed();
+        while (!StepDone)
+        {
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
     }
     private void EconomyLook2()
     {
-        //pause here
         ShowScreen();
-        TutorialManager.OnTutorialProgressed();
+        while (!StepDone)
+        {
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
+        }
     }
     private void BuildFL()
     {
-        //Need pause here
         ShowScreen();
         while (!StepDone)
         {
@@ -350,8 +357,10 @@ public class TutorialListener : MonoBehaviour
         ShowScreen();
         while (!StepDone)
         {
-            //pause here
-            TutorialManager.OnTutorialProgressed();
+            if (PauseScript.isTimePaused == false)
+            {
+                TutorialManager.OnTutorialProgressed();
+            }
         }
     }
     private void Disaster1()
@@ -404,8 +413,7 @@ public class TutorialListener : MonoBehaviour
     {
         ShowScreen();
         //Do disaster stuff here
-        
-
+        //DisasterManager.TriggerDisaster(disaster);
         TutorialManager.OnTutorialProgressed();
     }
     private void NotInTime()

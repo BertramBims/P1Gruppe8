@@ -4063,7 +4063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &491344414
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4082,8 +4082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 378.6383, y: 101.00006}
-  m_SizeDelta: {x: 1054.2157, y: 516.08}
+  m_AnchoredPosition: {x: 378.6383, y: 50.697815}
+  m_SizeDelta: {x: 1054.2157, y: 616.6845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491344415
 MonoBehaviour:
@@ -5399,7 +5399,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 189.82532, y: 0, z: 197.03381, w: 16.819946}
+  m_margin: {x: 189.82532, y: -29.909363, z: 197.03381, w: 16.819946}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18227,7 +18227,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.55
+  m_fontSize: 66
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18265,7 +18265,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -9.61145, y: 0, z: -12.014282, w: 16.819946}
+  m_margin: {x: -9.61145, y: -65.2569, z: -12.014282, w: 16.819946}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18430,7 +18430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1451138314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18448,7 +18448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393, y: -169.99998}
+  m_AnchoredPosition: {x: 320, y: -173}
   m_SizeDelta: {x: 249.1456, y: 99.5334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451138315
@@ -18495,9 +18495,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 769330154}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: OnTutorialProgressed
+      - m_Target: {fileID: 1015643941}
+        m_TargetAssemblyTypeName: TutorialListener, Assembly-CSharp
+        m_MethodName: ManualProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20829,7 +20829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1638783872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20847,7 +20847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393, y: -169.99998}
+  m_AnchoredPosition: {x: 474, y: -228}
   m_SizeDelta: {x: 249.1456, y: 99.5334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1638783873
@@ -20894,9 +20894,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 769330154}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: OnTutorialProgressed
+      - m_Target: {fileID: 1015643941}
+        m_TargetAssemblyTypeName: TutorialListener, Assembly-CSharp
+        m_MethodName: ManualProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22369,8 +22369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.58301, y: 84.18005}
-  m_SizeDelta: {x: 1484.3263, y: 549.7204}
+  m_AnchoredPosition: {x: 163.58301, y: -5.5483}
+  m_SizeDelta: {x: 1484.3263, y: 729.1771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845047290
 MonoBehaviour:
