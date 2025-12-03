@@ -16,6 +16,9 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
+    private string CurrentRoutine;
+    private string MergedInstruction;
+
 
     private GameObject CurrentInstruction;
     private bool IsCoroutineRunning;
@@ -25,6 +28,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject LumberyardB;
     public GameObject StormShelterB;
 
+    Dictionary<string, GameObject> Instructions = new Dictionary<string, GameObject>();
     //dumb list, but it works
     public GameObject Instruction0;
     public GameObject Instruction1;
@@ -40,12 +44,42 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction11;
     public GameObject Instruction12;
 
+    Dictionary<string, string> AllRoutines = new Dictionary<string, string>();
+
     private void Start()
     {
         TutorialManager.TutorialProgressed += StepComplete;
         StepDone = false;
         IsCoroutineRunning = false;
         PauseScript = GetComponent<TimeManager>();
+
+        Instructions.Add("Instruction0", Instruction0);
+        Instructions.Add("Instruction1", Instruction1);
+        Instructions.Add("Instruction2", Instruction2);
+        Instructions.Add("Instruction3", Instruction3);
+        Instructions.Add("Instruction4", Instruction4);
+        Instructions.Add("Instruction5", Instruction5);
+        Instructions.Add("Instruction6", Instruction6);
+        Instructions.Add("Instruction7", Instruction7);
+        Instructions.Add("Instruction8", Instruction8);
+        Instructions.Add("Instruction9", Instruction9);
+        Instructions.Add("Instruction10", Instruction10);
+        Instructions.Add("Instruction11", Instruction11);
+        Instructions.Add("Instruction12", Instruction12);
+
+        AllRoutines.Add("Instruction0", "MoveCheck");
+        AllRoutines.Add("Instruction1", "HouseLook");
+        AllRoutines.Add("Instruction2", "EconomyLook");
+        AllRoutines.Add("Instruction3", "EconomyLook2");
+        AllRoutines.Add("Instruction4", "BuildFL");
+        AllRoutines.Add("Instruction5", "UnPause");
+        AllRoutines.Add("Instruction6", "Disaster1");
+        AllRoutines.Add("Instruction7", "Disaster2");
+        AllRoutines.Add("Instruction8", "BuildSS");
+        AllRoutines.Add("Instruction9", "ActualBuildSS");
+        AllRoutines.Add("Instruction10", "DisasterOcurs");
+        AllRoutines.Add("Instruction11", "NotInTime");
+        AllRoutines.Add("Instruction12", "TutorialDone");
     }
     private void StepComplete()
     {
@@ -73,31 +107,34 @@ public class TutorialListener : MonoBehaviour
 
     private void Update()
     {
+        if (!IsCoroutineRunning && !StepDone)
+        {
+            MergedInstruction = "Instruction" + TutorialStep;
+            CurrentInstruction = Instructions[MergedInstruction];
+            CurrentRoutine = AllRoutines[MergedInstruction];
+        }
         if (TutorialStep == 0)
         {
-            if (!StepDone)
+            CurrentInstruction = Instruction0;
+            CurrentRoutine = "MoveCheck";
+            if (!StepDone && !IsCoroutineRunning)
             {
-                if (!IsCoroutineRunning)
-                {
-                    CurrentInstruction = Instruction1;
-                    StartCoroutine("MoveCheck");   
-                    IsCoroutineRunning = true;
-                }
+                StartCoroutine("MoveCheck");   
+                IsCoroutineRunning = true;
             }
             else if (StepDone)
             {
                 StopCoroutine("MoveCheck");
-                IsCoroutineRunning = false;
-                StepDone = false;
+                StartNext();
             }
         }
         if (TutorialStep == 1)
         {
+            CurrentInstruction = Instruction1;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction1;
                     StartCoroutine("HouseLook");  
                     IsCoroutineRunning = true; 
                 }
@@ -110,11 +147,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 2)
         {
+            CurrentInstruction = Instruction2;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction2;
                     StartCoroutine("EconomyLook");  
                     IsCoroutineRunning = true; 
                 }
@@ -127,11 +164,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 3)
         {
+            CurrentInstruction = Instruction3;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction3;
                     StartCoroutine("EconomyLook2");  
                     IsCoroutineRunning = true; 
                 }
@@ -144,11 +181,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 4)
         {
+            CurrentInstruction = Instruction4;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction4;
                     StartCoroutine("BuildFL");  
                     IsCoroutineRunning = true; 
                 }
@@ -161,11 +198,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 5)
         {
+            CurrentInstruction = Instruction5;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction5;
                     StartCoroutine("UnPause");  
                     IsCoroutineRunning = true; 
                 }
@@ -178,11 +215,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 6)
         {
+            CurrentInstruction = Instruction6;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction6;
                     StartCoroutine("Disaster1");  
                     IsCoroutineRunning = true; 
                 }
@@ -195,11 +232,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 7)
         {
+            CurrentInstruction = Instruction7;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction7;
                     StartCoroutine("Disaster2");  
                     IsCoroutineRunning = true; 
                 }
@@ -212,11 +249,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 8)
         {
+            CurrentInstruction = Instruction8;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction8;
                     StartCoroutine("BuildSS");  
                     IsCoroutineRunning = true; 
                 }
@@ -229,11 +266,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 9)
         {
+            CurrentInstruction = Instruction9;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction8;
                     StartCoroutine("ActualBuildSS");  
                     IsCoroutineRunning = true; 
                 }
@@ -246,11 +283,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 10)
         {
+            CurrentInstruction = Instruction10;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction8;
                     StartCoroutine("DisasterOccurs");  
                     IsCoroutineRunning = true; 
                 }
@@ -263,11 +300,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 11)
         {
+            CurrentInstruction = Instruction11;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction8;
                     StartCoroutine("NotInTime");  
                     IsCoroutineRunning = true; 
                 }
@@ -280,11 +317,11 @@ public class TutorialListener : MonoBehaviour
         }
         if (TutorialStep == 12)
         {
+            CurrentInstruction = Instruction12;
             if (!StepDone)
             {
                  if (!IsCoroutineRunning)
                 {
-                    CurrentInstruction = Instruction8;
                     StartCoroutine("TutorialDone");  
                     IsCoroutineRunning = true; 
                 }
