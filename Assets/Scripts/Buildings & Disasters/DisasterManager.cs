@@ -135,6 +135,7 @@ public class DisasterManager : MonoBehaviour
         if(activeDisaster.disaster.disasterName == "Tropical Cyclone")
         {
             cycloneDisasterVisual.SetActive(true);
+            StartCoroutine(ShowDisasterInfoAfterDelay(2f));
         }
     }
 
@@ -170,6 +171,12 @@ public class DisasterManager : MonoBehaviour
         notSelectedVol.weight = 0;
 
         currentlyDisasterVolume = true;
+    }
+
+    public IEnumerator ShowDisasterInfoAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameObject.Find("NewsHolder").SetActive(true);
     }
 
     /*private void TickBuildingEffects(float daysPassed)
