@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class TutorialController : MonoBehaviour
 {
-    private GameObject CurrentObject;
-    
+    public GameObject MeNow;
+
     private void OnEnable()
     {
         TutorialManager.TutorialProgressed += TutorialManagerOnTutorialProgressed;
-        CurrentObject = GameObject.Find("Instruction");
     }
 
     private void OnDisable()
@@ -17,6 +16,6 @@ public class TutorialController : MonoBehaviour
 
     private void TutorialManagerOnTutorialProgressed()
     {
-        CurrentObject.SetActive(false);
+        MeNow.SetActive(false);
     }
 }

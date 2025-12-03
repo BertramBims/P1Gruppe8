@@ -45,9 +45,11 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction12;
 
     Dictionary<string, string> AllRoutines = new Dictionary<string, string>();
+    int i;
 
     private void Start()
     {
+        i = 0;
         TutorialManager.TutorialProgressed += StepComplete;
         StepDone = false;
         IsCoroutineRunning = false;
@@ -112,247 +114,41 @@ public class TutorialListener : MonoBehaviour
             MergedInstruction = "Instruction" + TutorialStep;
             CurrentInstruction = Instructions[MergedInstruction];
             CurrentRoutine = AllRoutines[MergedInstruction];
+
+            IsCoroutineRunning = true;
+            this.Invoke(CurrentRoutine, 0f);
         }
-        if (TutorialStep == 0)
+        else if (StepDone)
         {
-            CurrentInstruction = Instruction0;
-            CurrentRoutine = "MoveCheck";
-            if (!StepDone && !IsCoroutineRunning)
-            {
-                StartCoroutine("MoveCheck");   
-                IsCoroutineRunning = true;
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("MoveCheck");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 1)
-        {
-            CurrentInstruction = Instruction1;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("HouseLook");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("HouseLook");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 2)
-        {
-            CurrentInstruction = Instruction2;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("EconomyLook");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("EconomyLook");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 3)
-        {
-            CurrentInstruction = Instruction3;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("EconomyLook2");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("EconomyLook2");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 4)
-        {
-            CurrentInstruction = Instruction4;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("BuildFL");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("BuildFL");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 5)
-        {
-            CurrentInstruction = Instruction5;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("UnPause");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("UnPause");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 6)
-        {
-            CurrentInstruction = Instruction6;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("Disaster1");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("Disaster1");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 7)
-        {
-            CurrentInstruction = Instruction7;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("Disaster2");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("Disaster2");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 8)
-        {
-            CurrentInstruction = Instruction8;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("BuildSS");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("BuildSS");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 9)
-        {
-            CurrentInstruction = Instruction9;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("ActualBuildSS");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("ActualBuildSS");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 10)
-        {
-            CurrentInstruction = Instruction10;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("DisasterOccurs");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("DisasterOccurs");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 11)
-        {
-            CurrentInstruction = Instruction11;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("NotInTime");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("NotInTime");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 12)
-        {
-            CurrentInstruction = Instruction12;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("TutorialDone");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("TutorialDone");
-                StartNext();
-            }
+            StartNext();
         }
     }
 
     private void MoveCheck()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (CameraMoved)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
     private void HouseLook()
     {
-        this.Invoke("ShowScreen", 3f);
-        while (!StepDone && CurrentInstruction)
+        //pause needed here
+        //this.Invoke("ShowScreen", 3f);
+        ShowScreen();
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (HouseScreen1||HouseScreen2)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
             }
         }
     }
