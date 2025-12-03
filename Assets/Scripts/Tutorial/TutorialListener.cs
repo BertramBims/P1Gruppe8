@@ -404,7 +404,7 @@ public class TutorialListener : MonoBehaviour
     {
         ShowScreen();
         //Do disaster stuff here
-
+        
 
         TutorialManager.OnTutorialProgressed();
     }
