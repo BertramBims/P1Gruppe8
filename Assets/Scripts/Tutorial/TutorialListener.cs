@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using Mono.Cecil.Cil;
@@ -6,6 +7,7 @@ using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class TutorialListener : MonoBehaviour
 {
@@ -16,8 +18,7 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
-    private string CurrentRoutine;
-    private string MergedInstruction;
+    private string MergedInstruction = "Instruction";
 
 
     private GameObject CurrentInstruction;
@@ -44,14 +45,18 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction11;
     public GameObject Instruction12;
 
-    Dictionary<string, string> AllRoutines = new Dictionary<string, string>();
+    Dictionary<string, Func<IEnumerator>> AllRoutines = new Dictionary<string, Func<IEnumerator>>();
+    int i;
 
     private void Start()
     {
+        i = 0;
         TutorialManager.TutorialProgressed += StepComplete;
+        ManualStep = false;
         StepDone = false;
         IsCoroutineRunning = false;
         PauseScript = GetComponent<TimeManager>();
+        CameraMoved = false;
 
         Instructions.Add("Instruction0", Instruction0);
         Instructions.Add("Instruction1", Instruction1);
@@ -67,30 +72,50 @@ public class TutorialListener : MonoBehaviour
         Instructions.Add("Instruction11", Instruction11);
         Instructions.Add("Instruction12", Instruction12);
 
-        AllRoutines.Add("Instruction0", "MoveCheck");
-        AllRoutines.Add("Instruction1", "HouseLook");
-        AllRoutines.Add("Instruction2", "EconomyLook");
-        AllRoutines.Add("Instruction3", "EconomyLook2");
-        AllRoutines.Add("Instruction4", "BuildFL");
-        AllRoutines.Add("Instruction5", "UnPause");
-        AllRoutines.Add("Instruction6", "Disaster1");
-        AllRoutines.Add("Instruction7", "Disaster2");
-        AllRoutines.Add("Instruction8", "BuildSS");
-        AllRoutines.Add("Instruction9", "ActualBuildSS");
-        AllRoutines.Add("Instruction10", "DisasterOcurs");
-        AllRoutines.Add("Instruction11", "NotInTime");
-        AllRoutines.Add("Instruction12", "TutorialDone");
+        AllRoutines.Add("Instruction0", () => MoveCheck());
+        AllRoutines.Add("Instruction1", () => HouseLook());
+        AllRoutines.Add("Instruction2", () => EconomyLook());
+        AllRoutines.Add("Instruction3", () => EconomyLook2());
+        AllRoutines.Add("Instruction4", () => BuildFL());
+        AllRoutines.Add("Instruction5", () => UnPause());
+        AllRoutines.Add("Instruction6", () => Disaster1());
+        AllRoutines.Add("Instruction7", () => Disaster2());
+        AllRoutines.Add("Instruction8", () => BuildSS());
+        AllRoutines.Add("Instruction9", () => ActualBuildSS());
+        AllRoutines.Add("Instruction10", () => DisasterOccurs());
+        AllRoutines.Add("Instruction11", () => NotInTime());
+        AllRoutines.Add("Instruction12", () => TutorialDone());
     }
+
+    private void Update()
+    {
+        if (!IsCoroutineRunning && StepDone == false)
+        {
+            MergedInstruction = "Instruction" + TutorialStep;
+            Debug.Log(MergedInstruction);
+            CurrentInstruction = Instructions[MergedInstruction];
+            Debug.Log(CurrentInstruction);
+            StartCoroutine(AllRoutines[MergedInstruction]());
+            IsCoroutineRunning = true;
+        }
+        else if (StepDone)
+        {
+            StartNext();
+        }
+    }
+
     private void StepComplete()
     {
-       TutorialStep ++;
+       TutorialStep++;
        StepDone = true;
     }
     private void StartNext()
     {
        ManualStep = false;
        StepDone = false;
+       StopAllCoroutines();
        IsCoroutineRunning = false;
+       i = 0;
     }
     private void ShowScreen()
     {
@@ -100,381 +125,245 @@ public class TutorialListener : MonoBehaviour
     {
         ManualStep = true;
     }
-    public void MovedCamera()
+    public void MovedCamera(InputAction.CallbackContext ctx)
     {
         CameraMoved = true;
+        Debug.Log("Touch");
     }
 
-    private void Update()
+    private IEnumerator MoveCheck()
     {
-        if (!IsCoroutineRunning && !StepDone)
-        {
-            MergedInstruction = "Instruction" + TutorialStep;
-            CurrentInstruction = Instructions[MergedInstruction];
-            CurrentRoutine = AllRoutines[MergedInstruction];
-        }
-        if (TutorialStep == 0)
-        {
-            CurrentInstruction = Instruction0;
-            CurrentRoutine = "MoveCheck";
-            if (!StepDone && !IsCoroutineRunning)
-            {
-                StartCoroutine("MoveCheck");   
-                IsCoroutineRunning = true;
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("MoveCheck");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 1)
-        {
-            CurrentInstruction = Instruction1;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("HouseLook");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("HouseLook");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 2)
-        {
-            CurrentInstruction = Instruction2;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("EconomyLook");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("EconomyLook");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 3)
-        {
-            CurrentInstruction = Instruction3;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("EconomyLook2");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("EconomyLook2");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 4)
-        {
-            CurrentInstruction = Instruction4;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("BuildFL");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("BuildFL");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 5)
-        {
-            CurrentInstruction = Instruction5;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("UnPause");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("UnPause");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 6)
-        {
-            CurrentInstruction = Instruction6;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("Disaster1");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("Disaster1");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 7)
-        {
-            CurrentInstruction = Instruction7;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("Disaster2");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("Disaster2");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 8)
-        {
-            CurrentInstruction = Instruction8;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("BuildSS");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("BuildSS");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 9)
-        {
-            CurrentInstruction = Instruction9;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("ActualBuildSS");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("ActualBuildSS");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 10)
-        {
-            CurrentInstruction = Instruction10;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("DisasterOccurs");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("DisasterOccurs");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 11)
-        {
-            CurrentInstruction = Instruction11;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("NotInTime");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("NotInTime");
-                StartNext();
-            }
-        }
-        if (TutorialStep == 12)
-        {
-            CurrentInstruction = Instruction12;
-            if (!StepDone)
-            {
-                 if (!IsCoroutineRunning)
-                {
-                    StartCoroutine("TutorialDone");  
-                    IsCoroutineRunning = true; 
-                }
-            }
-            else if (StepDone)
-            {
-                StopCoroutine("TutorialDone");
-                StartNext();
-            }
-        }
-    }
-
-    private void MoveCheck()
-    {
-        ShowScreen();
+        Debug.Log("Started");
         while (!StepDone)
         {
+            if (i == 0)
+            {
+                ShowScreen();
+                i = 1;
+            }
             if (CameraMoved)
             {
                 TutorialManager.OnTutorialProgressed();
+                CurrentInstruction.SetActive(false);
+                Debug.Log("HalfProgress");
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void HouseLook()
+    private IEnumerator HouseLook()
     {
-        this.Invoke("ShowScreen", 3f);
+        Debug.Log("Progress");
+        yield return new WaitForSeconds(1.5f);
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction)
         {
-            if (HouseScreen1||HouseScreen2)
+            if (HouseScreen1.activeSelf||HouseScreen2.activeSelf)
             {
                 TutorialManager.OnTutorialProgressed();
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void EconomyLook()
+    private IEnumerator EconomyLook()
     {
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void EconomyLook2()
+    private IEnumerator EconomyLook2()
     {
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void BuildFL()
+    private IEnumerator BuildFL()
     {
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (FarmB && LumberyardB)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void UnPause()
+    private IEnumerator UnPause()
     {
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (PauseScript.isTimePaused == false)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void Disaster1()
+    private IEnumerator Disaster1()
     {
         //Make newpaper pop up in this one
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void Disaster2()
+    private IEnumerator Disaster2()
     {
-        ShowScreen();
-        while (!StepDone)
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void BuildSS()
+    private IEnumerator BuildSS()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             //I gotta also make the divergent "Not enough stone!" and such here
             if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void ActualBuildSS()
+    private IEnumerator ActualBuildSS()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (StormShelterB)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void DisasterOccurs()
+    private IEnumerator DisasterOccurs()
     {
         ShowScreen();
         //Do disaster stuff here
         //DisasterManager.TriggerDisaster(disaster);
         TutorialManager.OnTutorialProgressed();
+        yield return null;
     }
-    private void NotInTime()
+    private IEnumerator NotInTime()
     {
         //pause here
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void TutorialDone()
+    private IEnumerator TutorialDone()
     {
         ShowScreen();
-        while (!StepDone)
+        i = 0;
+        while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+                i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
     
 }
