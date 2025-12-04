@@ -45,7 +45,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction11;
     public GameObject Instruction12;
 
-    Dictionary<string, IEnumerator> AllRoutines = new Dictionary<string, IEnumerator>();
+    Dictionary<string, Func<IEnumerator>> AllRoutines = new Dictionary<string, Func<IEnumerator>>();
     int i;
 
     private void Start()
@@ -70,19 +70,19 @@ public class TutorialListener : MonoBehaviour
         Instructions.Add("Instruction11", Instruction11);
         Instructions.Add("Instruction12", Instruction12);
 
-        AllRoutines.Add("Instruction0", MoveCheck());
-        AllRoutines.Add("Instruction1", HouseLook());
-        AllRoutines.Add("Instruction2", EconomyLook());
-        AllRoutines.Add("Instruction3", EconomyLook2());
-        AllRoutines.Add("Instruction4", BuildFL());
-        AllRoutines.Add("Instruction5", UnPause());
-        AllRoutines.Add("Instruction6", Disaster1());
-        AllRoutines.Add("Instruction7", Disaster2());
-        AllRoutines.Add("Instruction8", BuildSS());
-        AllRoutines.Add("Instruction9", ActualBuildSS());
-        AllRoutines.Add("Instruction10", DisasterOccurs());
-        AllRoutines.Add("Instruction11", NotInTime());
-        AllRoutines.Add("Instruction12", TutorialDone());
+        AllRoutines.Add("Instruction0", () => MoveCheck());
+        AllRoutines.Add("Instruction1", () => HouseLook());
+        AllRoutines.Add("Instruction2", () => EconomyLook());
+        AllRoutines.Add("Instruction3", () => EconomyLook2());
+        AllRoutines.Add("Instruction4", () => BuildFL());
+        AllRoutines.Add("Instruction5", () => UnPause());
+        AllRoutines.Add("Instruction6", () => Disaster1());
+        AllRoutines.Add("Instruction7", () => Disaster2());
+        AllRoutines.Add("Instruction8", () => BuildSS());
+        AllRoutines.Add("Instruction9", () => ActualBuildSS());
+        AllRoutines.Add("Instruction10", () => DisasterOccurs());
+        AllRoutines.Add("Instruction11", () => NotInTime());
+        AllRoutines.Add("Instruction12", () => TutorialDone());
     }
 
     private void Update()
