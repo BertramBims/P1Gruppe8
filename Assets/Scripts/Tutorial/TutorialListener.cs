@@ -106,7 +106,7 @@ public class TutorialListener : MonoBehaviour
 
     private void StepComplete()
     {
-       TutorialStep ++;
+       TutorialStep++;
        StepDone = true;
     }
     private void StartNext()
@@ -154,16 +154,18 @@ public class TutorialListener : MonoBehaviour
     private IEnumerator HouseLook()
     {
         Debug.Log("Progress");
-        //pause needed here
-        //this.Invoke("ShowScreen", 3f);
-        ShowScreen();
+        yield return new WaitForSeconds(1.5f);
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        if (i == 0)
         {
-            if (HouseScreen1||HouseScreen2)
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
+        {
+            if (HouseScreen1.activeSelf||HouseScreen2.activeSelf)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -172,14 +174,17 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator EconomyLook()
     {
-        ShowScreen();
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -188,14 +193,17 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator EconomyLook2()
     {
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -204,8 +212,12 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator BuildFL()
     {
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction && i < 1)
         {
             if (FarmB && LumberyardB)
@@ -220,8 +232,12 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator UnPause()
     {
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction && i < 1)
         {
             if (PauseScript.isTimePaused == false)
@@ -237,8 +253,12 @@ public class TutorialListener : MonoBehaviour
     private IEnumerator Disaster1()
     {
         //Make newpaper pop up in this one
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
@@ -253,8 +273,12 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator Disaster2()
     {
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction && i < 1)
         {
             if (ManualStep)
