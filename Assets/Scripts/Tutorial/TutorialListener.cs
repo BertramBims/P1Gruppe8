@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using Mono.Cecil.Cil;
@@ -17,7 +18,7 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
     //private string CurrentRoutine;
-    private string MergedInstruction;
+    private string MergedInstruction = "Instruction";
 
 
     private GameObject CurrentInstruction;
@@ -44,7 +45,7 @@ public class TutorialListener : MonoBehaviour
     public GameObject Instruction11;
     public GameObject Instruction12;
 
-    Dictionary<string, System.Action> AllRoutines = new Dictionary<string, System.Action>();
+    Dictionary<string, IEnumerator> AllRoutines = new Dictionary<string, IEnumerator>();
     int i;
 
     private void Start()
@@ -69,20 +70,39 @@ public class TutorialListener : MonoBehaviour
         Instructions.Add("Instruction11", Instruction11);
         Instructions.Add("Instruction12", Instruction12);
 
-        AllRoutines.Add("Instruction0", MoveCheck);
-        AllRoutines.Add("Instruction1", HouseLook);
-        AllRoutines.Add("Instruction2", EconomyLook);
-        AllRoutines.Add("Instruction3", EconomyLook2);
-        AllRoutines.Add("Instruction4", BuildFL);
-        AllRoutines.Add("Instruction5", UnPause);
-        AllRoutines.Add("Instruction6", Disaster1);
-        AllRoutines.Add("Instruction7", Disaster2);
-        AllRoutines.Add("Instruction8", BuildSS);
-        AllRoutines.Add("Instruction9", ActualBuildSS);
-        AllRoutines.Add("Instruction10", DisasterOccurs);
-        AllRoutines.Add("Instruction11", NotInTime);
-        AllRoutines.Add("Instruction12", TutorialDone);
+        AllRoutines.Add("Instruction0", MoveCheck());
+        AllRoutines.Add("Instruction1", HouseLook());
+        AllRoutines.Add("Instruction2", EconomyLook());
+        AllRoutines.Add("Instruction3", EconomyLook2());
+        AllRoutines.Add("Instruction4", BuildFL());
+        AllRoutines.Add("Instruction5", UnPause());
+        AllRoutines.Add("Instruction6", Disaster1());
+        AllRoutines.Add("Instruction7", Disaster2());
+        AllRoutines.Add("Instruction8", BuildSS());
+        AllRoutines.Add("Instruction9", ActualBuildSS());
+        AllRoutines.Add("Instruction10", DisasterOccurs());
+        AllRoutines.Add("Instruction11", NotInTime());
+        AllRoutines.Add("Instruction12", TutorialDone());
     }
+
+    private void Update()
+    {
+        if (!IsCoroutineRunning && !StepDone)
+        {
+            MergedInstruction = TutorialStep.ToString();
+            Debug.Log(MergedInstruction);
+            CurrentInstruction = Instructions[MergedInstruction];
+            Debug.Log(CurrentInstruction);
+            //CurrentRoutine = AllRoutines[MergedInstruction]();
+            StartCoroutine(AllRoutines[MergedInstruction]());
+            IsCoroutineRunning = true;
+        }
+        else if (StepDone)
+        {
+            StartNext();
+        }
+    }
+
     private void StepComplete()
     {
        TutorialStep ++;
@@ -92,6 +112,7 @@ public class TutorialListener : MonoBehaviour
     {
        ManualStep = false;
        StepDone = false;
+       StopAllCoroutines();
        IsCoroutineRunning = false;
     }
     private void ShowScreen()
@@ -107,27 +128,7 @@ public class TutorialListener : MonoBehaviour
         CameraMoved = true;
     }
 
-    private void Update()
-    {
-        if (!IsCoroutineRunning && !StepDone)
-        {
-            MergedInstruction = "Instruction" + TutorialStep;
-            Debug.Log(MergedInstruction);
-            CurrentInstruction = Instructions[MergedInstruction];
-            Debug.Log(CurrentInstruction);
-            //CurrentRoutine = AllRoutines[MergedInstruction];
-            //Debug.Log(CurrentRoutine);
-            IsCoroutineRunning = true;
-            //this.Invoke(CurrentRoutine, 0f);
-            AllRoutines[MergedInstruction]();
-        }
-        else if (StepDone)
-        {
-            StartNext();
-        }
-    }
-
-    private void MoveCheck()
+    private IEnumerator MoveCheck()
     {
         ShowScreen();
         i = 0;
@@ -138,9 +139,11 @@ public class TutorialListener : MonoBehaviour
                 TutorialManager.OnTutorialProgressed();
                 i++;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void HouseLook()
+    private IEnumerator HouseLook()
     {
         //pause needed here
         //this.Invoke("ShowScreen", 3f);
@@ -152,10 +155,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void EconomyLook()
+    private IEnumerator EconomyLook()
     {
         ShowScreen();
         i = 0;
@@ -165,10 +171,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void EconomyLook2()
+    private IEnumerator EconomyLook2()
     {
         ShowScreen();
         i = 0;
@@ -178,10 +187,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void BuildFL()
+    private IEnumerator BuildFL()
     {
         ShowScreen();
         i = 0;
@@ -191,10 +203,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void UnPause()
+    private IEnumerator UnPause()
     {
         ShowScreen();
         i = 0;
@@ -204,10 +219,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void Disaster1()
+    private IEnumerator Disaster1()
     {
         //Make newpaper pop up in this one
         ShowScreen();
@@ -218,10 +236,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void Disaster2()
+    private IEnumerator Disaster2()
     {
         ShowScreen();
         i = 0;
@@ -231,10 +252,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void BuildSS()
+    private IEnumerator BuildSS()
     {
         ShowScreen();
         i = 0;
@@ -245,10 +269,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void ActualBuildSS()
+    private IEnumerator ActualBuildSS()
     {
         ShowScreen();
         i = 0;
@@ -258,17 +285,21 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void DisasterOccurs()
+    private IEnumerator DisasterOccurs()
     {
         ShowScreen();
         //Do disaster stuff here
         //DisasterManager.TriggerDisaster(disaster);
         TutorialManager.OnTutorialProgressed();
+        yield return null;
     }
-    private void NotInTime()
+    private IEnumerator NotInTime()
     {
         //pause here
         ShowScreen();
@@ -279,10 +310,13 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
-    private void TutorialDone()
+    private IEnumerator TutorialDone()
     {
         ShowScreen();
         i = 0;
@@ -292,8 +326,11 @@ public class TutorialListener : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
                 i++;
+                yield return null;
             }
+            yield return null;
         }
+        yield return null;
     }
     
 }
