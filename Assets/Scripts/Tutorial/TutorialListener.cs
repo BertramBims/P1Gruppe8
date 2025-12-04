@@ -220,10 +220,9 @@ public class TutorialListener : MonoBehaviour
         }
         while (!StepDone && CurrentInstruction)
         {
-            if (FarmB && LumberyardB)
+            if (FarmB.activeSelf && LumberyardB.activeSelf)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -243,7 +242,6 @@ public class TutorialListener : MonoBehaviour
             if (PauseScript.isTimePaused == false)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -264,7 +262,6 @@ public class TutorialListener : MonoBehaviour
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -284,7 +281,6 @@ public class TutorialListener : MonoBehaviour
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -301,7 +297,6 @@ public class TutorialListener : MonoBehaviour
             if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -317,7 +312,6 @@ public class TutorialListener : MonoBehaviour
             if (StormShelterB)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -342,7 +336,6 @@ public class TutorialListener : MonoBehaviour
             if (ManualStep)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
                 yield return null;
             }
             yield return null;
@@ -358,7 +351,6 @@ public class TutorialListener : MonoBehaviour
             if (ManualStep)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
-                i++;
                 yield return null;
             }
             yield return null;
