@@ -29,7 +29,7 @@ public class TooltipManager : MonoBehaviour
                 null,
                 out pos
                 );
-            rectTransform.anchoredPosition = pos + new Vector2(125, 165);
+            rectTransform.anchoredPosition = pos + new Vector2(125, 200);
         }
     }
 
