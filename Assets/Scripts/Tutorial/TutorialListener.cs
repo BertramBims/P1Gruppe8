@@ -199,7 +199,7 @@ public class TutorialListener : MonoBehaviour
             ShowScreen();
             i = 1;
         }
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
@@ -218,7 +218,7 @@ public class TutorialListener : MonoBehaviour
             ShowScreen();
             i = 1;
         }
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (FarmB && LumberyardB)
             {
@@ -238,7 +238,7 @@ public class TutorialListener : MonoBehaviour
             ShowScreen();
             i = 1;
         }
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (PauseScript.isTimePaused == false)
             {
@@ -259,7 +259,7 @@ public class TutorialListener : MonoBehaviour
             ShowScreen();
             i = 1;
         }
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
@@ -279,7 +279,7 @@ public class TutorialListener : MonoBehaviour
             ShowScreen();
             i = 1;
         }
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
@@ -295,7 +295,7 @@ public class TutorialListener : MonoBehaviour
     {
         ShowScreen();
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             //I gotta also make the divergent "Not enough stone!" and such here
             if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
@@ -312,7 +312,7 @@ public class TutorialListener : MonoBehaviour
     {
         ShowScreen();
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (StormShelterB)
             {
@@ -337,7 +337,7 @@ public class TutorialListener : MonoBehaviour
         //pause here
         ShowScreen();
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
@@ -353,7 +353,7 @@ public class TutorialListener : MonoBehaviour
     {
         ShowScreen();
         i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
             {
