@@ -7,6 +7,7 @@ using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class TutorialListener : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
-    //private string CurrentRoutine;
     private string MergedInstruction = "Instruction";
 
 
@@ -52,9 +52,11 @@ public class TutorialListener : MonoBehaviour
     {
         i = 0;
         TutorialManager.TutorialProgressed += StepComplete;
+        ManualStep = false;
         StepDone = false;
         IsCoroutineRunning = false;
         PauseScript = GetComponent<TimeManager>();
+        CameraMoved = false;
 
         Instructions.Add("Instruction0", Instruction0);
         Instructions.Add("Instruction1", Instruction1);
@@ -87,13 +89,12 @@ public class TutorialListener : MonoBehaviour
 
     private void Update()
     {
-        if (!IsCoroutineRunning && !StepDone)
+        if (!IsCoroutineRunning && StepDone == false)
         {
             MergedInstruction = "Instruction" + TutorialStep;
             Debug.Log(MergedInstruction);
             CurrentInstruction = Instructions[MergedInstruction];
             Debug.Log(CurrentInstruction);
-            //CurrentRoutine = AllRoutines[MergedInstruction]();
             StartCoroutine(AllRoutines[MergedInstruction]());
             IsCoroutineRunning = true;
         }
@@ -114,6 +115,7 @@ public class TutorialListener : MonoBehaviour
        StepDone = false;
        StopAllCoroutines();
        IsCoroutineRunning = false;
+       i = 0;
     }
     private void ShowScreen()
     {
@@ -123,28 +125,35 @@ public class TutorialListener : MonoBehaviour
     {
         ManualStep = true;
     }
-    public void MovedCamera()
+    public void MovedCamera(InputAction.CallbackContext ctx)
     {
         CameraMoved = true;
+        Debug.Log("Touch");
     }
 
     private IEnumerator MoveCheck()
     {
-        ShowScreen();
-        i = 0;
-        while (!StepDone && CurrentInstruction && i < 1)
+        Debug.Log("Started");
+        while (!StepDone)
         {
+            if (i == 0)
+            {
+                ShowScreen();
+                i = 1;
+            }
             if (CameraMoved)
             {
                 TutorialManager.OnTutorialProgressed();
-                i++;
-                yield return null;
+                CurrentInstruction.SetActive(false);
+                Debug.Log("HalfProgress");
             }
             yield return null;
         }
+        yield return null;
     }
     private IEnumerator HouseLook()
     {
+        Debug.Log("Progress");
         //pause needed here
         //this.Invoke("ShowScreen", 3f);
         ShowScreen();
