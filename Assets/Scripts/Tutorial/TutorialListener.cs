@@ -89,7 +89,7 @@ public class TutorialListener : MonoBehaviour
     {
         if (!IsCoroutineRunning && !StepDone)
         {
-            MergedInstruction = TutorialStep.ToString();
+            MergedInstruction = "Instruction" + TutorialStep;
             Debug.Log(MergedInstruction);
             CurrentInstruction = Instructions[MergedInstruction];
             Debug.Log(CurrentInstruction);
@@ -138,10 +138,10 @@ public class TutorialListener : MonoBehaviour
             {
                 TutorialManager.OnTutorialProgressed();
                 i++;
+                yield return null;
             }
             yield return null;
         }
-        yield return null;
     }
     private IEnumerator HouseLook()
     {
