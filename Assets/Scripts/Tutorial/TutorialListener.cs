@@ -15,6 +15,7 @@ public class TutorialListener : MonoBehaviour
     private bool StepDone;
     private bool ManualStep;
     private bool CameraMoved;
+    private bool PauseAction;
     public ResourceType TypeStone;
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
@@ -28,9 +29,10 @@ public class TutorialListener : MonoBehaviour
     public GameObject FarmB;
     public GameObject LumberyardB;
     public GameObject StormShelterB;
+    public GameObject House_BuildingPrefab1;
+    public GameObject House_BuildingPrefab2;
 
     Dictionary<string, GameObject> Instructions = new Dictionary<string, GameObject>();
-    //dumb list, but it works
     public GameObject Instruction0;
     public GameObject Instruction1;
     public GameObject Instruction2;
@@ -55,8 +57,11 @@ public class TutorialListener : MonoBehaviour
         ManualStep = false;
         StepDone = false;
         IsCoroutineRunning = false;
-        PauseScript = GetComponent<TimeManager>();
+        PauseScript = GameObject.Find("GameManager").GetComponent<TimeManager>();
         CameraMoved = false;
+        PauseAction = false;
+        House_BuildingPrefab1.SetActive(true);
+        House_BuildingPrefab2.SetActive(true);
 
         Instructions.Add("Instruction0", Instruction0);
         Instructions.Add("Instruction1", Instruction1);
@@ -92,9 +97,9 @@ public class TutorialListener : MonoBehaviour
         if (!IsCoroutineRunning && StepDone == false)
         {
             MergedInstruction = "Instruction" + TutorialStep;
-            Debug.Log(MergedInstruction);
+            //Debug.Log(MergedInstruction);
             CurrentInstruction = Instructions[MergedInstruction];
-            Debug.Log(CurrentInstruction);
+            //Debug.Log(CurrentInstruction);
             StartCoroutine(AllRoutines[MergedInstruction]());
             IsCoroutineRunning = true;
         }
@@ -128,23 +133,28 @@ public class TutorialListener : MonoBehaviour
     public void MovedCamera(InputAction.CallbackContext ctx)
     {
         CameraMoved = true;
-        Debug.Log("Touch");
     }
-
+    public void PauseTouch(InputAction.CallbackContext ctx)
+    {
+        PauseAction = true;
+        Debug.Log("TouchPause");
+    }
     private IEnumerator MoveCheck()
     {
         Debug.Log("Started");
+        PauseScript.PauseTime();
+        yield return new WaitForSeconds(2.5f);
+        PauseScript.PauseTime();
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone)
         {
-            if (i == 0)
-            {
-                ShowScreen();
-                i = 1;
-            }
             if (CameraMoved)
             {
                 TutorialManager.OnTutorialProgressed();
-                CurrentInstruction.SetActive(false);
                 Debug.Log("HalfProgress");
             }
             yield return null;
@@ -239,8 +249,10 @@ public class TutorialListener : MonoBehaviour
         }
         while (!StepDone && CurrentInstruction)
         {
-            if (PauseScript.isTimePaused == false)
+            Debug.Log("SearchingForPause");
+            if (PauseAction)
             {
+                Debug.Log("PauseFound");
                 TutorialManager.OnTutorialProgressed();
                 yield return null;
             }
@@ -250,7 +262,9 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator Disaster1()
     {
-        //Make newpaper pop up in this one
+        //Waits for construction to be done(If they don't pause again)
+        yield return new WaitForSeconds(32.5f);
+        //First newspaper pops up in this one
         i = 0;
         if (i == 0)
         {
@@ -270,6 +284,82 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator Disaster2()
     {
+        //Pauses game, and instructs player
+        i = 0;
+        if (i == 0)
+        {
+            PauseScript.PauseTime();
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
+        {
+            if (ManualStep)
+            {
+                TutorialManager.OnTutorialProgressed();
+                yield return null;
+            }
+            yield return null;
+        }
+        yield return null;
+    }
+    private IEnumerator BuildSS()
+    {
+        //Tells player to build
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
+        {
+            //I gotta also make the divergent "Not enough stone!" and such here
+            if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
+            {
+                TutorialManager.OnTutorialProgressed();
+                yield return null;
+            }
+            yield return null;
+        }
+        yield return null;
+    }
+    private IEnumerator ActualBuildSS()
+    {
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        while (!StepDone && CurrentInstruction)
+        {
+            if (StormShelterB)
+            {
+                TutorialManager.OnTutorialProgressed();
+                yield return null;
+            }
+            yield return null;
+        }
+        yield return null;
+    }
+    private IEnumerator DisasterOccurs()
+    {
+        yield return new WaitForSeconds(22.5f);
+        i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
+        //Do disaster stuff here
+        //DisasterManager.TriggerDisaster(disaster);
+        TutorialManager.OnTutorialProgressed();
+        yield return null;
+    }
+    private IEnumerator NotInTime()
+    {
+        //pause here
         i = 0;
         if (i == 0)
         {
@@ -287,65 +377,14 @@ public class TutorialListener : MonoBehaviour
         }
         yield return null;
     }
-    private IEnumerator BuildSS()
-    {
-        ShowScreen();
-        i = 0;
-        while (!StepDone && CurrentInstruction)
-        {
-            //I gotta also make the divergent "Not enough stone!" and such here
-            if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
-            {
-                TutorialManager.OnTutorialProgressed();
-                yield return null;
-            }
-            yield return null;
-        }
-        yield return null;
-    }
-    private IEnumerator ActualBuildSS()
-    {
-        ShowScreen();
-        i = 0;
-        while (!StepDone && CurrentInstruction)
-        {
-            if (StormShelterB)
-            {
-                TutorialManager.OnTutorialProgressed();
-                yield return null;
-            }
-            yield return null;
-        }
-        yield return null;
-    }
-    private IEnumerator DisasterOccurs()
-    {
-        ShowScreen();
-        //Do disaster stuff here
-        //DisasterManager.TriggerDisaster(disaster);
-        TutorialManager.OnTutorialProgressed();
-        yield return null;
-    }
-    private IEnumerator NotInTime()
-    {
-        //pause here
-        ShowScreen();
-        i = 0;
-        while (!StepDone && CurrentInstruction)
-        {
-            if (ManualStep)
-            {
-                TutorialManager.OnTutorialProgressed();
-                yield return null;
-            }
-            yield return null;
-        }
-        yield return null;
-    }
     private IEnumerator TutorialDone()
     {
-        ShowScreen();
         i = 0;
+        if (i == 0)
+        {
+            ShowScreen();
+            i = 1;
+        }
         while (!StepDone && CurrentInstruction)
         {
             if (ManualStep)
