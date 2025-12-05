@@ -60,8 +60,6 @@ public class TutorialListener : MonoBehaviour
         PauseScript = GameObject.Find("GameManager").GetComponent<TimeManager>();
         CameraMoved = false;
         PauseAction = false;
-        House_BuildingPrefab1.SetActive(true);
-        House_BuildingPrefab2.SetActive(true);
 
         Instructions.Add("Instruction0", Instruction0);
         Instructions.Add("Instruction1", Instruction1);
@@ -139,9 +137,12 @@ public class TutorialListener : MonoBehaviour
         PauseAction = true;
         Debug.Log("TouchPause");
     }
+    //public void ForceBuildHouse; { }
     private IEnumerator MoveCheck()
     {
-        Debug.Log("Started");
+        House_BuildingPrefab1.SetActive(true);
+        House_BuildingPrefab2.SetActive(true);
+        Debug.Log("Spawned");
         PauseScript.PauseTime();
         yield return new WaitForSeconds(2.5f);
         PauseScript.PauseTime();
