@@ -74,6 +74,17 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    public void DoTrade(ResourceAmount[] cost, ResourceAmount[] purchase)
+    {
+        if (ResourceManager.Instance.TrySpend(cost))
+        {
+            for (int i = 0; i < purchase.Length; i++)
+            {
+                ResourceManager.Instance.Add(purchase[i].type, purchase[i].amount);
+            }
+        }
+    }
+
     public void Add (ResourceType type, float amount)
     {
         if (!resources.ContainsKey(type))

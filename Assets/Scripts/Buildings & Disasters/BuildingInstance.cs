@@ -204,17 +204,6 @@ public class BuildingInstance : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void DoTrade(ResourceAmount[] cost, ResourceAmount[] purchase)
-    {
-        if (ResourceManager.Instance.TrySpend(cost))
-        {
-            for (int i = 0; i < purchase.Length; i++)
-            {
-                ResourceManager.Instance.Add(purchase[i].type, purchase[i].amount);
-            }
-        }
-    }
-
     private string BuildBuildingText(BuildingType data)
     {
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
