@@ -150,9 +150,9 @@ public class TutorialListener : MonoBehaviour
         //Possible fixes for the whole no counting unitl new building thing.
         //House_BuildingPrefab1.SetActive(true);
         //House_BuildingPrefab2.SetActive(true);
-        //PauseScript.PauseTime();
-        //yield return new WaitForSeconds(3.0f);
-        //PauseScript.PauseTime();
+        PauseScript.PauseTime();
+        yield return new WaitForSeconds(2.0f);
+        PauseScript.PauseTime();
         Debug.Log("Spawned");
         if (i == 0)
         {
