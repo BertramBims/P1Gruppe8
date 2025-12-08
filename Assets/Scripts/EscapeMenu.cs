@@ -8,6 +8,12 @@ using UnityEngine.PlayerLoop;
 public class EscapeMenu : MonoBehaviour
 {
     public GameObject pause;
+    public void PressReturn()
+    {
+        Time.timeScale = 1;
+        pause.SetActive(false);
+        Debug.Log("grrrr");
+    }
     public void PressEscape(InputAction.CallbackContext ctx)
     {
 
