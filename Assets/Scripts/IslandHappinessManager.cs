@@ -11,7 +11,7 @@ public class IslandHappinessManager : MonoBehaviour
     [SerializeField] private Slider happinessSlider;
     [SerializeField] private TMP_Text happinessText;
 
-    private List<BuildingInstance> buildings = new List<BuildingInstance>();
+    //private List<BuildingInstance> buildings = new List<BuildingInstance>();
 
     private void Awake()
     {
@@ -20,29 +20,29 @@ public class IslandHappinessManager : MonoBehaviour
     }
 
     //call this when building is constructed
-    public void RegisterBuilding(BuildingInstance building)
+    /*public void RegisterBuilding(BuildingInstance building)
     {
         if (!buildings.Contains(building))
         {
             buildings.Add(building);
             RecalculateHappiness();
         }
-    }
+    }*/
 
     //Call this when a building is destroyed or removed
-    public void UnregisterBuilding(BuildingInstance building)
+    /*public void UnregisterBuilding(BuildingInstance building)
     {
         if (buildings.Contains(building))
         {
             buildings.Remove(building);
             RecalculateHappiness();
         }
-    }
+    }*/
 
     //Calculates overall happiness morale and updates UI;
     public void RecalculateHappiness()
     {
-        if(buildings.Count == 0)
+        if(BuildingInstance.AllBuildings.Count == 0)
         {
             happinessSlider.value = 50;
             happinessText.text = "50%";
@@ -51,10 +51,10 @@ public class IslandHappinessManager : MonoBehaviour
 
         float total = 0;
 
-        foreach (var building in buildings)
+        foreach (var building in BuildingInstance.AllBuildings)
             total += building.currentMorale;
 
-        float average = total / buildings.Count;
+        float average = total / BuildingInstance.AllBuildings.Count;
 
         //UI Update
         happinessSlider.value = average;

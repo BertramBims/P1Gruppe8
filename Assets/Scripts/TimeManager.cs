@@ -75,6 +75,7 @@ public class TimeManager : MonoBehaviour
 
         dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
+        IslandHappinessManager.Instance.RecalculateHappiness();
         ResourceManager.Instance.RecalculateDailyIncome();
     }
 

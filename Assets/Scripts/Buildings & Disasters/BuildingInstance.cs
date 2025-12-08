@@ -78,13 +78,13 @@ public class BuildingInstance : MonoBehaviour
 
     private void OnEnable()
     {
-        IslandHappinessManager.Instance.RegisterBuilding(this);
+        //IslandHappinessManager.Instance.RegisterBuilding(this);
         AllBuildings.Add(this);
     }
 
     private void OnDisable()
     {
-        IslandHappinessManager.Instance.RegisterBuilding(this);
+        //IslandHappinessManager.Instance.RegisterBuilding(this);
         AllBuildings.Remove(this);
     }
 
