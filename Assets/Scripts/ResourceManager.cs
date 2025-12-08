@@ -100,7 +100,6 @@ public class ResourceManager : MonoBehaviour
         }
 
         Debug.Log("Resources spent successfully!");
-        GameObject.Find("Cash Register").GetComponent<AudioSource>().Play();
         return true;
     }
 }
