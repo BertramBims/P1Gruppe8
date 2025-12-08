@@ -29,8 +29,8 @@ public class TutorialListener : MonoBehaviour
     public GameObject FarmB;
     public GameObject LumberyardB;
     public GameObject StormShelterB;
-    public GameObject House_BuildingPrefab1;
-    public GameObject House_BuildingPrefab2;
+    //public GameObject House_BuildingPrefab1;
+    //public GameObject House_BuildingPrefab2;
 
     Dictionary<string, GameObject> Instructions = new Dictionary<string, GameObject>();
     public GameObject Instruction0;
@@ -140,17 +140,17 @@ public class TutorialListener : MonoBehaviour
     //public void ForceBuildHouse; { }
     private IEnumerator MoveCheck()
     {
-        House_BuildingPrefab1.SetActive(true);
-        House_BuildingPrefab2.SetActive(true);
+        //House_BuildingPrefab1.SetActive(true);
+        //House_BuildingPrefab2.SetActive(true);
         Debug.Log("Spawned");
-        PauseScript.PauseTime();
-        yield return new WaitForSeconds(2.5f);
-        PauseScript.PauseTime();
         if (i == 0)
         {
             ShowScreen();
             i = 1;
         }
+        PauseScript.PauseTime();
+        yield return new WaitForSeconds(3.0f);
+        PauseScript.PauseTime();
         while (!StepDone)
         {
             if (CameraMoved)
@@ -269,6 +269,10 @@ public class TutorialListener : MonoBehaviour
         i = 0;
         if (i == 0)
         {
+            if (PauseScript.isTimePaused == false)
+            {
+                PauseScript.PauseTime();   
+            }
             ShowScreen();
             i = 1;
         }
@@ -285,11 +289,10 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator Disaster2()
     {
-        //Pauses game, and instructs player
+        //tells player game is paused, and warns them
         i = 0;
         if (i == 0)
         {
-            PauseScript.PauseTime();
             ShowScreen();
             i = 1;
         }
@@ -306,7 +309,7 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator BuildSS()
     {
-        //Tells player to build
+        //Tells player to build a storm shelter
         i = 0;
         if (i == 0)
         {
