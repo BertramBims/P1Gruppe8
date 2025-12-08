@@ -21019,6 +21019,8 @@ MonoBehaviour:
   TutorialStep: 0
   TypeStone: 3
   TypePesos: 0
+  DisasterToDo: {fileID: 11400000, guid: f569884857f5cdd439d569b0fd2e4aef, type: 2}
+  GameManager: {fileID: 769330147}
   HouseScreen1: {fileID: 1140469744}
   HouseScreen2: {fileID: 1717517457}
   FarmB: {fileID: 1874300456}
@@ -27570,7 +27572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1902789791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27588,7 +27590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393, y: -169.99998}
+  m_AnchoredPosition: {x: 28, y: -157}
   m_SizeDelta: {x: 249.1456, y: 99.5334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902789792
@@ -27635,9 +27637,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 769330154}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: OnTutorialProgressed
+      - m_Target: {fileID: 1015643941}
+        m_TargetAssemblyTypeName: TutorialListener, Assembly-CSharp
+        m_MethodName: ManualProgress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

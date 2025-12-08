@@ -20,7 +20,9 @@ public class TutorialListener : MonoBehaviour
     public ResourceType TypePesos;    
     private TimeManager PauseScript;
     private string MergedInstruction = "Instruction";
-
+    [SerializeField] public Disaster DisasterToDo;
+    public GameObject GameManager;
+    //public Component DisasterManagerInScene;
 
     private GameObject CurrentInstruction;
     private bool IsCoroutineRunning;
@@ -33,6 +35,7 @@ public class TutorialListener : MonoBehaviour
     //public GameObject House_BuildingPrefab2;
 
     Dictionary<string, GameObject> Instructions = new Dictionary<string, GameObject>();
+    [Header("Steps")]
     public GameObject Instruction0;
     public GameObject Instruction1;
     public GameObject Instruction2;
@@ -60,6 +63,10 @@ public class TutorialListener : MonoBehaviour
         PauseScript = GameObject.Find("GameManager").GetComponent<TimeManager>();
         CameraMoved = false;
         PauseAction = false;
+        //DisasterManagerInScene = GameManager.GetComponent("DisasterManager");
+        //DisasterToDo
+        //(Disaster)AssetDatabase.LoadAssetAtPath("Assets/ScriptableObjects/Disasters/Tropical Cyclone.asset", typeof(Disaster));
+        //DisasterManagerInScene.possibleDisasters.Array.data[0];
 
         Instructions.Add("Instruction0", Instruction0);
         Instructions.Add("Instruction1", Instruction1);
@@ -140,17 +147,18 @@ public class TutorialListener : MonoBehaviour
     //public void ForceBuildHouse; { }
     private IEnumerator MoveCheck()
     {
+        //Possible fixes for the whole no counting unitl new building thing.
         //House_BuildingPrefab1.SetActive(true);
         //House_BuildingPrefab2.SetActive(true);
+        //PauseScript.PauseTime();
+        //yield return new WaitForSeconds(3.0f);
+        //PauseScript.PauseTime();
         Debug.Log("Spawned");
         if (i == 0)
         {
             ShowScreen();
             i = 1;
         }
-        PauseScript.PauseTime();
-        yield return new WaitForSeconds(3.0f);
-        PauseScript.PauseTime();
         while (!StepDone)
         {
             if (CameraMoved)
@@ -318,7 +326,7 @@ public class TutorialListener : MonoBehaviour
         }
         while (!StepDone && CurrentInstruction)
         {
-            //I gotta also make the divergent "Not enough stone!" and such here
+            //I gotta also make the divergent "Not enough stone!" and such here, nice to have for now though
             if (ResourceManager.Instance.Get(TypeStone) > 60 && ResourceManager.Instance.Get(TypePesos) > 40)
             {
                 TutorialManager.OnTutorialProgressed();
@@ -357,13 +365,14 @@ public class TutorialListener : MonoBehaviour
             i = 1;
         }
         //Do disaster stuff here
-        //DisasterManager.TriggerDisaster(disaster);
+        DisasterManager.Instance.TriggerDisaster(DisasterToDo);
         TutorialManager.OnTutorialProgressed();
         yield return null;
     }
     private IEnumerator NotInTime()
     {
         //pause here
+        yield return new WaitForSeconds(2.0f);
         i = 0;
         if (i == 0)
         {
