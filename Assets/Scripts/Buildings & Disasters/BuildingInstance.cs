@@ -31,6 +31,7 @@ public class BuildingInstance : MonoBehaviour
     public GameObject floodedUIButton;
     public GameObject brokenWindowsState;
     public GameObject brokenWindowsUIButton;
+    public GameObject sandbagState;
 
     public Dictionary<ResourceType, float> GetDailyResourceChange()
     {
@@ -166,6 +167,10 @@ public class BuildingInstance : MonoBehaviour
             brokenWindowsState.SetActive(true);
             brokenWindowsUIButton.SetActive(true);
         }
+        if (effect.effectName == "Sandbags")
+        {
+            sandbagState.SetActive(true);
+        }
 
         activeEffects.Add(new ActiveEffect
         {
@@ -197,6 +202,8 @@ public class BuildingInstance : MonoBehaviour
                     floodedState.SetActive(false);
                 if (active.effect.effectName == "Broken Windows")
                     brokenWindowsState.SetActive(false);
+                if (active.effect.effectName == "Sandbags")
+                    sandbagState.SetActive(false);
 
                 activeEffects.RemoveAt(i);
                 Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
@@ -284,6 +291,10 @@ public class BuildingInstance : MonoBehaviour
         {
             brokenWindowsState.SetActive(false);
             brokenWindowsUIButton.SetActive(false);
+        }
+        if (effect.effectName == "Sandbags")
+        {
+            sandbagState.SetActive(false);
         }
     }
 }
