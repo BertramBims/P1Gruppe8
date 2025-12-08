@@ -17,7 +17,7 @@ public class BuildingType : ScriptableObject
     [Header("Population & Morale")]
     public int maxPopulation;
     public float baseMoraleEffect; //how much the morale contributes
-    public float moraleSensitivity; //how much is the building affected by disastereffects
+    public float minimumMoraleEffect; //how much is the building affected by disastereffects
 
     [Header("Upgrades")]
     public BuildingType nextTier; //optional: link to higher tier

@@ -70,6 +70,7 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < buildings.Length; i++)
         {
             buildings[i].TickDay();
+            buildings[i].CalculateMoraleModifier();
         }
 
         dayText.text = $"DAY {currentDay}";

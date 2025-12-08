@@ -16,6 +16,9 @@ public class BuildingInstance : MonoBehaviour
     public BuildingType data;
     public int currentPopulation;
     public float currentMorale = 100f;
+    private float usedMorale = 100f;
+    private float moraleBonus;
+    private float minimumMorale;
     public bool isActive = true;
     public ConstructionPlot constructionPlot; //plot that this building was built on;
     public TMP_Text buildingText;
@@ -85,6 +88,23 @@ public class BuildingInstance : MonoBehaviour
         AllBuildings.Remove(this);
     }
 
+    public void CalculateMoraleModifier()
+    {
+        moraleBonus = 0;
+        minimumMorale = 0;
+        
+        foreach (var building in AllBuildings)
+        {
+            //hospitals, morale bonus
+            if (building.data.baseMoraleEffect != 0)
+                moraleBonus += building.data.baseMoraleEffect;
+
+            //stormshelter
+            if (building.data.minimumMoraleEffect != 0)
+                minimumMorale += building.data.minimumMoraleEffect;
+        }
+    }
+
     public void TickMonth()
     {
         if (!isActive)
@@ -96,13 +116,13 @@ public class BuildingInstance : MonoBehaviour
         bool upkeepPaid = ResourceManager.Instance.TrySpend(data.upkeepPerDay);
         if (!upkeepPaid)
         {
-            //ModifyMorale(-10f);
+            ModifyMorale(-2f);
         }
     }
 
     private void ProduceResources()
     {
-        if (currentMorale <= 0f) return;
+        if (usedMorale <= 0f) return;
 
         float totalMultiplier = productionMultiplier;
         foreach (var active in activeEffects)
@@ -110,14 +130,17 @@ public class BuildingInstance : MonoBehaviour
 
         foreach(var resource in data.productionPerDay)
         {
-            float finalAmount = Mathf.Round(resource.amount * productionMultiplier * (currentMorale / 100f));
+            float finalAmount = Mathf.Round(resource.amount * totalMultiplier * (usedMorale / 100f) * 10f) / 10f;
             ResourceManager.Instance.Add(resource.type, finalAmount);
         }
     }
 
     public void ModifyMorale(float change)
     {
-        currentMorale = Mathf.Clamp(currentMorale + change, 0f, 100f);
+        currentMorale = Mathf.Clamp(currentMorale + change, minimumMorale, 100f + moraleBonus);
+        usedMorale = currentMorale;
+        if (currentMorale > 100f)
+            usedMorale = 100;
     }
 
     public void AddEffect (DisasterEffect effect)

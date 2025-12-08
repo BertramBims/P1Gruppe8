@@ -32,8 +32,8 @@ MonoBehaviour:
   - type: 0
     amount: 2
   maxPopulation: 1
-  baseMoraleEffect: 20
-  moraleSensitivity: 0
+  baseMoraleEffect: 0
+  minimumMoraleEffect: 0
   nextTier: {fileID: 11400000, guid: 8848d821d50749b49abaef5475b46cbe, type: 2}
   previousTier: {fileID: 0}
   upgradeCost:
