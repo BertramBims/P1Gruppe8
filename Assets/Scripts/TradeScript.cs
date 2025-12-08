@@ -13,6 +13,8 @@ public class TradeScript : MonoBehaviour
             {
                 ResourceManager.Instance.Add(purchase[i].type, purchase[i].amount);
             }
+
+            GameObject.Find("Cash Register").GetComponent<AudioSource>().Play();
         }
     }
 }

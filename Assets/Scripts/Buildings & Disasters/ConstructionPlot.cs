@@ -76,6 +76,7 @@ public class ConstructionPlot : MonoBehaviour
         constructionOverlaySpriterenderer.sprite = underConstructionSprite;
         constructionProgressPanel.SetActive(true);
         PlotOutline.SetActive(false);
+        GameObject.Find("Cash Register").GetComponent<AudioSource>().Play();
     }
 
     public void UpdateConstructionSliderProgress()
