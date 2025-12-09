@@ -90,6 +90,7 @@ public class TimeManager : MonoBehaviour
         }
         dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
+        DisasterManager.Instance.radarUI.GetComponent<RadarScript>().UpdateRadar();
     }
 
     public void PauseTime()

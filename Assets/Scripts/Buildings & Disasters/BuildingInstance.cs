@@ -81,6 +81,11 @@ public class BuildingInstance : MonoBehaviour
     {
         //IslandHappinessManager.Instance.RegisterBuilding(this);
         AllBuildings.Add(this);
+        if (data.buildingName == "Antenna")
+        {
+            DisasterManager.Instance.radarUI.SetActive(true);
+            DisasterManager.Instance.radarUI.GetComponent<RadarScript>().UpdateRadar();
+        }
     }
 
     private void OnDisable()
