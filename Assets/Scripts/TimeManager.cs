@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
             if (currentMonth == 13)
                 currentMonth = 1;
             TickMonth();
-            Debug.Log("MonthTick");
+            //Debug.Log("MonthTick");
         }
 
         //ticks day
@@ -44,7 +44,7 @@ public class TimeManager : MonoBehaviour
         {
             currentDay++;
             TickDay();
-            Debug.Log("DayTick");
+            //Debug.Log("DayTick");
         }
     }
 

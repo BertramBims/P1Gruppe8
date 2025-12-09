@@ -34,6 +34,7 @@ public class DisasterManager : MonoBehaviour
     public float cumulativeSpawnChance = 0f;
 
     public GameObject radarUI;
+    private bool disasterWaitBool;
 
     [Header("For Disaster Visuals")]
     [SerializeField] private Volume baseVolume, cycloneVolume;
@@ -76,12 +77,17 @@ public class DisasterManager : MonoBehaviour
         if (debugCanTriggerDisasterBool == false)
             return;
 
+        if (disasterWaitBool == true)
+            return;
+
         //Don't start a new disaster if one is active
         if (activeDisaster != null) return;
 
         foreach (var disaster in possibleDisasters)
-        {   
-            if (Random.value <= disaster.spawnChance + cumulativeSpawnChance)
+        {
+            float rolledChance = Random.Range(0f, 100f);
+            Debug.Log(rolledChance);
+            if (rolledChance <= disaster.spawnChance + cumulativeSpawnChance)
             {
                 cumulativeSpawnChance = 0;
                 Debug.Log("1");
@@ -91,6 +97,9 @@ public class DisasterManager : MonoBehaviour
             {
                 Debug.Log("2");
                 cumulativeSpawnChance += disaster.spawnChance;
+                disasterWaitBool = true;
+                StartCoroutine(ReenableDisasterSpawning());
+                return;
             }
         }
     }
@@ -151,8 +160,8 @@ public class DisasterManager : MonoBehaviour
         if(activeDisaster.remainingDays <= 0)
         {
             Debug.Log($"Disaster ended: {activeDisaster.disaster.disasterName}");
-            activeDisaster = null;
             StopDisasterVisual(activeDisaster);
+            activeDisaster = null;
             SwitchVolumes(.1f);
         }
     }
@@ -171,6 +180,7 @@ public class DisasterManager : MonoBehaviour
         if (activeDisaster.disaster.disasterName == "Tropical Cyclone")
         {
             cycloneDisasterVisual.SetActive(false);
+            Debug.Log("Stops Cyclone");
 
             var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
             for (int i = 0; i < buildings.Length; i++)
@@ -221,4 +231,10 @@ public class DisasterManager : MonoBehaviour
             b.TickDay();
         }
     }*/
+
+    public IEnumerator ReenableDisasterSpawning()
+    {
+        yield return new WaitForSeconds(2f);
+        disasterWaitBool = false;
+    }
 }
