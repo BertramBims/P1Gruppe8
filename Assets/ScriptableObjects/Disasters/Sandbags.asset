@@ -16,7 +16,7 @@ MonoBehaviour:
   moraleChange: 30
   productionMultiplier: 1
   populationLoss: 0
-  durationDays: 1000
+  durationDays: 425
   buildingsItCanEffect: []
   costToRemoveEffect: []
   dailyMoraleDecay: 0

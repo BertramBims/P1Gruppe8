@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd142219cebbac40abc43bcd3c42be7, type: 3}
   m_Name: SandbagBuild
   m_EditorClassIdentifier: 
-  disasterName: 
+  disasterName: Build Sandbags
   icon: {fileID: 0}
-  durationDays: 0
-  spawnChance: 0.1
+  durationDays: 1
+  spawnChance: 0
   effectRadius: 9999
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: b67c05fcc3e5e5c4681c6922826224e9, type: 2}
