@@ -211,7 +211,7 @@ public class BuildingInstance : MonoBehaviour
                     sandbagState.SetActive(false);
 
                 activeEffects.RemoveAt(i);
-                Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
+                //Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
             }
         }
     }
@@ -277,8 +277,8 @@ public class BuildingInstance : MonoBehaviour
         {
             if (activeEffects[i].effect.effectName == effect.effectName)
             {
-                activeEffects.RemoveAt(i);
                 UpdateDisasterEffects(activeEffects[i].effect);
+                activeEffects.RemoveAt(i);
                 return;
             }
         }
