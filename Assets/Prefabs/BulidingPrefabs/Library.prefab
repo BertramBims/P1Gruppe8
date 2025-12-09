@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1745438835501548689}
   - component: {fileID: 2055622666560007889}
   m_Layer: 5
-  m_Name: Upgrade
+  m_Name: homebutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 8285108076572457477}
   - component: {fileID: 4223637234344153609}
   m_Layer: 5
-  m_Name: Upgrade (1)
+  m_Name: typhoonbutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2147,7 +2147,7 @@ GameObject:
   - component: {fileID: 6059249304271264596}
   - component: {fileID: 7961320660267885021}
   m_Layer: 5
-  m_Name: Destroy
+  m_Name: embut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2445,7 +2445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4715143944092345884
 RectTransform:
   m_ObjectHideFlags: 0
