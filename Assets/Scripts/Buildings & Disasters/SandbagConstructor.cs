@@ -5,13 +5,12 @@ using UnityEngine;
 public class SandbagConstructor : MonoBehaviour
 {
     public Disaster TriggerThis;
-    private float ResourceAmount.amount TestPrice = 425f;
-    private ResourceAmount[] PriceOfSand = ResourceType.Pesos, ResourceAmount. ; 
-
+    public BuildingType SandbagPricing; 
+ 
     public void BuildSandbags()
     {
         
-        if(!ResourceManager.Instance.TrySpend(PriceOfSand))
+        if(!ResourceManager.Instance.TrySpend(SandbagPricing.buildCost))
         {
             Debug.Log("Not enough resources!");
             return;

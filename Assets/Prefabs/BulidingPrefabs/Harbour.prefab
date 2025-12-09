@@ -3833,7 +3833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerThis: {fileID: 11400000, guid: 4dce246485569da48bc8e6f7d42204ee, type: 2}
-  PriceOfSand: []
+  SandbagPricing: {fileID: 11400000, guid: ec22f9e8171a19d4ea7a0aa2089a1db9, type: 2}
 --- !u!1 &3390681297793610150
 GameObject:
   m_ObjectHideFlags: 0
