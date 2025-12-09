@@ -38,6 +38,10 @@ public class DisasterManager : MonoBehaviour
 
     public GameObject cycloneDisasterVisual;
 
+    [Header("Basin Stuff...")]
+    public Sprite emptyBasin;
+    public Sprite fullBasin;
+
     private void Awake()
     {
         Instance = this;
@@ -108,7 +112,21 @@ public class DisasterManager : MonoBehaviour
                 Debug.Log($"Should apply disastereffect to {building.name} now");
 
                 foreach (var effect in disaster.effects)
+                {
+                    if (effect.effectName == "Flooding")
+                    {
+                        for (int i = 0; buildings.Length > i; i++)
+                        {
+                            if (buildings[i].data.buildingName == "Basin")
+                            {
+                                buildings[i].GetComponent<SpriteRenderer>().sprite = fullBasin;
+                                Debug.Log($"{buildings[i].name} stopped {building} from getting flooded");
+                                return;
+                            }
+                        }
+                    }
                     building.AddEffect(effect);
+                }
 
                 activeDisaster.affectedBuildings.Add(building);
             }
@@ -144,6 +162,13 @@ public class DisasterManager : MonoBehaviour
         if (activeDisaster.disaster.disasterName == "Tropical Cyclone")
         {
             cycloneDisasterVisual.SetActive(false);
+
+            var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                if (buildings[i].data.buildingName == "Basin" && buildings[i].GetComponent<SpriteRenderer>().sprite == fullBasin)
+                    buildings[i].GetComponent<SpriteRenderer>().sprite = emptyBasin;
+            }
         }
     }
 
