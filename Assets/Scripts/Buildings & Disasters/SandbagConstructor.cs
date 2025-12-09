@@ -9,13 +9,11 @@ public class SandbagConstructor : MonoBehaviour
  
     public void BuildSandbags()
     {
-        
         if(!ResourceManager.Instance.TrySpend(SandbagPricing.buildCost))
         {
             Debug.Log("Not enough resources!");
             return;
         }
-
         DisasterManager.Instance.TriggerDisaster(TriggerThis);
     } 
 }
