@@ -31,6 +31,7 @@ public class DisasterManager : MonoBehaviour
     private DisasterInstance activeDisaster;
 
     public bool debugCanTriggerDisasterBool;
+    private float cumulativeSpawnChance = 0f;
 
     [Header("For Disaster Visuals")]
     [SerializeField] private Volume baseVolume, cycloneVolume;
@@ -77,11 +78,15 @@ public class DisasterManager : MonoBehaviour
         if (activeDisaster != null) return;
 
         foreach (var disaster in possibleDisasters)
-        {
-            if (Random.value <= disaster.spawnChance)
+        {   
+            if (Random.value <= disaster.spawnChance + cumulativeSpawnChance)
             {
+                cumulativeSpawnChance = 0;
                 TriggerDisaster(disaster);
                 return; //only one disaster per check
+            } else
+            {
+                cumulativeSpawnChance += disaster.spawnChance;
             }
         }
     }
