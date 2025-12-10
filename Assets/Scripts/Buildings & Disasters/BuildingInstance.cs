@@ -35,32 +35,39 @@ public class BuildingInstance : MonoBehaviour
 
     public Dictionary<ResourceType, float> GetDailyResourceChange()
     {
-        Dictionary<ResourceType, float> change = new Dictionary<ResourceType, float>();
+        Dictionary<ResourceType, float> result = new Dictionary<ResourceType, float>();
 
-        //subtract upkeep
-        foreach(var upkeep in data.upkeepPerDay)
+        // If the building is not functioning, income is zero and upkeep is zero
+        if (usedMorale <= 0f)
+            return result;
+
+        float totalMultiplier = productionMultiplier;
+        foreach (var active in activeEffects)
+            totalMultiplier *= active.effect.productionMultiplier;
+
+        foreach (var resource in data.productionPerDay)
         {
-            if (!change.ContainsKey(upkeep.type))
-                change[upkeep.type] = 0;
-            change[upkeep.type] -= upkeep.amount;
+            float amount = resource.amount * totalMultiplier * (usedMorale / 100f);
+            amount = Mathf.Round(amount * 10f) / 10f; // keep 1 decimal
+
+            if (!result.ContainsKey(resource.type))
+                result[resource.type] = 0;
+
+            result[resource.type] += amount;
         }
 
-        //add production
-        foreach(var prod in data.productionPerDay)
+        foreach (var upkeep in data.upkeepPerDay)
         {
-            if (!change.ContainsKey(prod.type))
-                change[prod.type] = 0;
-            change[prod.type] += prod.amount;
+            float amount = upkeep.amount * (usedMorale / 100f);
+            amount = Mathf.Round(amount * 10f) / 10f;
+
+            if (!result.ContainsKey(upkeep.type))
+                result[upkeep.type] = 0;
+
+            result[upkeep.type] -= amount;  // subtract upkeep
         }
 
-        //scale by morale
-        /*float efficiency = currentMorale / 100f;
-        foreach (var key in change.Keys.ToList())
-        {
-            change[key] = Mathf.RoundToInt(change[key] * efficiency);
-        }*/
-
-        return change;
+        return result;
     }
 
     private void Start()
@@ -109,6 +116,9 @@ public class BuildingInstance : MonoBehaviour
             if (building.data.minimumMoraleEffect != 0)
                 minimumMorale += building.data.minimumMoraleEffect;
         }
+
+        ResourceManager.Instance.RecalculateDailyIncome();
+
     }
 
     public void TickMonth()
@@ -147,6 +157,9 @@ public class BuildingInstance : MonoBehaviour
         usedMorale = currentMorale;
         if (currentMorale > 100f)
             usedMorale = 100;
+
+        ResourceManager.Instance.RecalculateDailyIncome();
+
     }
 
     public void AddEffect (DisasterEffect effect)
