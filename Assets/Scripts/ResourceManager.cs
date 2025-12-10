@@ -36,10 +36,10 @@ public class ResourceManager : MonoBehaviour
         }
         Instance = this;
 
-        foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
-        {
-            resources[type] = 75;
-        }
+        resources[ResourceType.Pesos] = 75;
+        resources[ResourceType.Food] = 75;
+        resources[ResourceType.Lumber] = 75;
+        resources[ResourceType.Stone] = 75;
     }
 
     public float Get(ResourceType type) => resources.TryGetValue(type, out float value) ? value : 0;
