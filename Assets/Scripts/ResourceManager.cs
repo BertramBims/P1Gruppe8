@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour
         resources[ResourceType.Pesos] = 75;
         resources[ResourceType.Food] = 75;
         resources[ResourceType.Lumber] = 75;
-        resources[ResourceType.Stone] = 75;
+        resources[ResourceType.Stone] = 50;
     }
 
     public float Get(ResourceType type) => resources.TryGetValue(type, out float value) ? value : 0;
