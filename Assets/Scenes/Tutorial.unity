@@ -12465,11 +12465,15 @@ MonoBehaviour:
   checkIntervalDays: 200
   worldBounds: {x: 1000, y: 1000}
   debugCanTriggerDisasterBool: 1
+  cumulativeSpawnChance: 0
+  radarUI: {fileID: 0}
   baseVolume: {fileID: 602689028}
   cycloneVolume: {fileID: 602689028}
   cycloneDisasterVisual: {fileID: 2021514369}
   emptyBasin: {fileID: 0}
   fullBasin: {fileID: 0}
+  TyphoonInformation: {fileID: 0}
+  TyphoonNewspaper: {fileID: 1678566837}
 --- !u!114 &769330150
 MonoBehaviour:
   m_ObjectHideFlags: 0
