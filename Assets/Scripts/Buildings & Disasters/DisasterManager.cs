@@ -46,6 +46,10 @@ public class DisasterManager : MonoBehaviour
     public Sprite emptyBasin;
     public Sprite fullBasin;
 
+    [Header("Library")]
+    public GameObject TyphoonInformation;
+
+
     private void Awake()
     {
         Instance = this;
@@ -221,6 +225,7 @@ public class DisasterManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         GameObject.Find("NewsHolder").SetActive(true);
+        TyphoonInformation.SetActive(true);
     }
 
     /*private void TickBuildingEffects(float daysPassed)
