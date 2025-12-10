@@ -48,7 +48,7 @@ public class DisasterManager : MonoBehaviour
 
     [Header("Library")]
     public GameObject TyphoonInformation;
-
+    public GameObject TyphoonNewspaper;
 
     private void Awake()
     {
@@ -224,7 +224,7 @@ public class DisasterManager : MonoBehaviour
     public IEnumerator ShowDisasterInfoAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        GameObject.Find("NewsHolder").SetActive(true);
+        TyphoonNewspaper.SetActive(true);
         TyphoonInformation.SetActive(true);
     }
 
