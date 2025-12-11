@@ -357,7 +357,7 @@ public class TutorialListener : MonoBehaviour
     }
     private IEnumerator DisasterOccurs()
     {
-        yield return new WaitForSeconds(22.5f);
+        yield return new WaitForSeconds(17.5f);
         i = 0;
         if (i == 0)
         {
