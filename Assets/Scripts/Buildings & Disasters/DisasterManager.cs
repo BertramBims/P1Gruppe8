@@ -193,7 +193,7 @@ public class DisasterManager : MonoBehaviour
             var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
             for (int i = 0; i < buildings.Length; i++)
             {
-                if (buildings[i].data.buildingName == "Basin" && buildings[i].GetComponent<SpriteRenderer>().sprite == fullBasin)
+                if (buildings[i].data.buildingName == "Basin" && buildings[i].GetComponentInChildren<SpriteRenderer>().sprite == fullBasin)
                     buildings[i].GetComponent<SpriteRenderer>().sprite = emptyBasin;
             }
         }
