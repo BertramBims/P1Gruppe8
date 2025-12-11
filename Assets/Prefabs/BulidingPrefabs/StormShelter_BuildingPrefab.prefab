@@ -774,9 +774,9 @@ RectTransform:
   m_Children:
   - {fileID: 6281947328821820659}
   - {fileID: 2661945040509452828}
-  - {fileID: 4264735908930070407}
   - {fileID: 2673709214005265194}
   - {fileID: 4330016363756451739}
+  - {fileID: 4264735908930070407}
   m_Father: {fileID: 4715143944092345884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
