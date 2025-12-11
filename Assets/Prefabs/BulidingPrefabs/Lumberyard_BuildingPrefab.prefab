@@ -3087,7 +3087,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualText: Repairs the flooded plot.
+  manualText: 'Repairs the flooded plot.
+
+
+    Cost
+
+    25 Pesos
+
+    10 Lumber'
   buildingInfo: {fileID: 0}
 --- !u!1 &5658074293539267792
 GameObject:

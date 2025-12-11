@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a57c894dcf73d4abeec9dd187e7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualText: Repairs the flooded field.
+  manualText: "Repairs the flooded field. \n\n\nCost\n25 Pesos\n10 Lumber\n"
   buildingInfo: {fileID: 0}
 --- !u!1 &6923201894790515705
 GameObject:
