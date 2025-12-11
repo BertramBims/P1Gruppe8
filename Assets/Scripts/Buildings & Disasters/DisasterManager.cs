@@ -49,11 +49,15 @@ public class DisasterManager : MonoBehaviour
     [Header("Library")]
     public GameObject TyphoonInformation;
     public GameObject TyphoonNewspaper;
+    private TimeManager PauseScript;
+
 
     private void Awake()
     {
         Instance = this;
         timeManager = GetComponent<TimeManager>();
+        PauseScript = GameObject.Find("GameManager").GetComponent<TimeManager>();
+
     }
 
     private void Update()
@@ -226,7 +230,7 @@ public class DisasterManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         TyphoonNewspaper.SetActive(true);
         TyphoonInformation.SetActive(true);
-        TimeManager.PauseTime(); 
+        PauseScript.PauseTime(); 
     }
 
     /*private void TickBuildingEffects(float daysPassed)
