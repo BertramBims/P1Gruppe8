@@ -145,7 +145,7 @@ public class DisasterManager : MonoBehaviour
                         {
                             if (buildings[i].data.buildingName == "Basin")
                             {
-                                buildings[i].GetComponent<SpriteRenderer>().sprite = fullBasin;
+                                buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = fullBasin;
                                 Debug.Log($"{buildings[i].name} stopped {building} from getting flooded");
                                 return;
                             }
