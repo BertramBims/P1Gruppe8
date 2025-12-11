@@ -226,6 +226,7 @@ public class DisasterManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         TyphoonNewspaper.SetActive(true);
         TyphoonInformation.SetActive(true);
+        TimeManager.PauseTime(); 
     }
 
     /*private void TickBuildingEffects(float daysPassed)
