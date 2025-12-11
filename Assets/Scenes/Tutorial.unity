@@ -7376,7 +7376,6 @@ GameObject:
   - component: {fileID: 769330148}
   - component: {fileID: 769330154}
   - component: {fileID: 769330155}
-  - component: {fileID: 769330156}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7557,6 +7556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayCounter: 0
+  ultimateDayCounter: 0
   currentDay: 1
   currentMonth: 1
   isTimePaused: 1
@@ -7629,20 +7629,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 966220427}
-  ActiveScene:
-    m_Handle: 0
---- !u!114 &769330156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769330147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644b82d43d65ba5448a3376c5ac124d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &773693066
 GameObject:
   m_ObjectHideFlags: 0
@@ -20024,9 +20010,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 769330156}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ReturnMenu
+      - m_Target: {fileID: 769330155}
+        m_TargetAssemblyTypeName: EscapeMenu, Assembly-CSharp
+        m_MethodName: Returner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
