@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class EscapeMenu : MonoBehaviour
         Time.timeScale = 1;
         pause.SetActive(false);
         Debug.Log("grrrr");
+    }
+    public void Returner()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
     public void PressEscape(InputAction.CallbackContext ctx)
     {
