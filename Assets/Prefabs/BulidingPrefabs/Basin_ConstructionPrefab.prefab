@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9208602959855214925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1579,6 +1579,7 @@ MonoBehaviour:
   floodedUIButton: {fileID: 0}
   brokenWindowsState: {fileID: 0}
   brokenWindowsUIButton: {fileID: 0}
+  sandbagState: {fileID: 0}
 --- !u!61 &3972957104097198437
 BoxCollider2D:
   m_ObjectHideFlags: 0
