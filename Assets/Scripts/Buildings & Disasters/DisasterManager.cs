@@ -62,6 +62,9 @@ public class DisasterManager : MonoBehaviour
 
     private void Update()
     {
+        //time pause
+        if (timeManager.isTimePaused)
+            return;
 
         //For simplicity right now, one second is one day in simulation
         float daysPassed = Time.deltaTime;
@@ -145,13 +148,16 @@ public class DisasterManager : MonoBehaviour
                         {
                             if (buildings[i].data.buildingName == "Basin")
                             {
-                                buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = fullBasin;
-                                Debug.Log($"{buildings[i].name} stopped {building} from getting flooded");
-                                return;
+                                if (buildings[i].GetComponentInChildren<SpriteRenderer>().sprite != fullBasin)
+                                {
+                                    buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = fullBasin;
+                                    Debug.Log($"{buildings[i].name} stopped {building} from getting flooded");
+                                }
                             }
                         }
                     }
-                    building.AddEffect(effect);
+                    if (building.activeEffects == null)
+                        building.AddEffect(effect);
                 }
 
                 activeDisaster.affectedBuildings.Add(building);
@@ -194,7 +200,7 @@ public class DisasterManager : MonoBehaviour
             for (int i = 0; i < buildings.Length; i++)
             {
                 if (buildings[i].data.buildingName == "Basin" && buildings[i].GetComponentInChildren<SpriteRenderer>().sprite == fullBasin)
-                    buildings[i].GetComponent<SpriteRenderer>().sprite = emptyBasin;
+                    buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = emptyBasin;
             }
         }
     }

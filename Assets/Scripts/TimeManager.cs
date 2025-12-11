@@ -7,6 +7,7 @@ using TMPro;
 public class TimeManager : MonoBehaviour
 {
     public float dayCounter = 0f;
+    public float ultimateDayCounter = 0f;
     public int currentDay;
     public int currentMonth = 1;
     public bool isTimePaused = true;
@@ -20,12 +21,11 @@ public class TimeManager : MonoBehaviour
     {
         //time pause
         if (isTimePaused)
-        {
             return;
-        }
 
         float daysPassed = Time.deltaTime;
         dayCounter += daysPassed;
+        ultimateDayCounter += daysPassed;
 
         //ticks month
         if (currentDay > 30)
