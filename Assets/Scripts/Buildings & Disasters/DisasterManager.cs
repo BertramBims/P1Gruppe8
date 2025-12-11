@@ -128,7 +128,7 @@ public class DisasterManager : MonoBehaviour
         var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
         Debug.Log(buildings.Length);
         TriggerDisasterVisual(activeDisaster);
-        SwitchVolumes(.1f);
+        SwitchVolumes(.1f, false);
 
         foreach (var building in buildings)
         {
@@ -169,8 +169,8 @@ public class DisasterManager : MonoBehaviour
         {
             Debug.Log($"Disaster ended: {activeDisaster.disaster.disasterName}");
             StopDisasterVisual(activeDisaster);
+            SwitchVolumes(.1f, true);
             activeDisaster = null;
-            SwitchVolumes(.1f);
         }
     }
 
@@ -199,11 +199,11 @@ public class DisasterManager : MonoBehaviour
         }
     }
 
-    public void SwitchVolumes(float speed)
+    public void SwitchVolumes(float speed, bool switchFromDisasterVolume)
     {
         if (!currentlyDisasterVolume) return;
 
-        StartCoroutine(SwitchVolumes_(speed, baseVolume.weight <= 0));
+        StartCoroutine(SwitchVolumes_(speed, switchFromDisasterVolume));
         currentlyDisasterVolume = false;
     }
 
