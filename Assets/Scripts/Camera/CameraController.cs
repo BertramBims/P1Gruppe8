@@ -3,6 +3,7 @@ using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class CameraController : MonoBehaviour
 {
     public float panSpeed = 20f;
@@ -19,13 +20,12 @@ public class CameraController : MonoBehaviour
     UnityEngine.Vector3 lastDragPosition;
 
 
-    private Camera myCamera;
+    public Camera myCamera;
 
-    void Start()
-    {
-        myCamera = Camera.main;
-        //zoom = cam.ortographicSize;
-    }
+    //void Start()
+    //{
+        //myCamera = Camera.main;
+    //}
 
     // Update is called once per frame
     void Update()

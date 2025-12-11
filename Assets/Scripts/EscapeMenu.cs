@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class EscapeMenu : MonoBehaviour
 {
     public GameObject pause;
+    public Scene ActiveScene;
     public void PressReturn()
     {
         Time.timeScale = 1;
@@ -17,7 +18,18 @@ public class EscapeMenu : MonoBehaviour
     }
     public void Returner()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        ActiveScene = SceneManager.GetActiveScene();
+        if (ActiveScene.buildIndex == 4)
+        {
+            Time.timeScale = 1;
+            pause.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+        } else if (ActiveScene.buildIndex == 3)
+        {
+            Time.timeScale = 1;
+            pause.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        }
     }
     public void PressEscape(InputAction.CallbackContext ctx)
     {

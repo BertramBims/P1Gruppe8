@@ -6455,6 +6455,7 @@ MonoBehaviour:
   xLimit: 60
   yLimit: 60
   scrollSpeed: 20
+  myCamera: {fileID: 602689034}
 --- !u!114 &602689030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7628,6 +7629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: {fileID: 966220427}
+  ActiveScene:
+    m_Handle: 0
 --- !u!114 &769330156
 MonoBehaviour:
   m_ObjectHideFlags: 0
