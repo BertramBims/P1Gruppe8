@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -140,42 +141,56 @@ public class DisasterManager : MonoBehaviour
             {
                 Debug.Log($"Should apply disastereffect to {building.name} now");
 
+                bool floodingPrevented = false;
+
+                // SPECIAL HANDLING: Flooding prevention via Basins
                 foreach (var effect in disaster.effects)
                 {
                     if (effect.effectName == "Flooding")
                     {
-                        for (int i = 0; buildings.Length > i; i++)
+                        foreach (var b in buildings)
                         {
-                            if (buildings[i].data.buildingName == "Basin")
+                            if (b.data.buildingName == "Basin")
                             {
-                                if (buildings[i].GetComponentInChildren<SpriteRenderer>().sprite != fullBasin)
+                                var sr = b.GetComponentInChildren<SpriteRenderer>();
+                                if (sr.sprite != fullBasin)
                                 {
-                                    buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = fullBasin;
-                                    Debug.Log($"{buildings[i].name} stopped {building} from getting flooded");
+                                    sr.sprite = fullBasin;
+                                    floodingPrevented = true;
+                                    Debug.Log($"{b.name} stopped {building.name} from getting flooded");
                                 }
                             }
                         }
                     }
-
-                    /*bool buildingAlreadyAffected = false;
-                    for (int i = 0; activeDisaster.affectedBuildings.Count > i; i++)
-                    {
-                        if (activeDisaster.affectedBuildings[i] == building)
-                        {
-                            buildingAlreadyAffected = true;
-                        }
-                    }
-                    if (buildingAlreadyAffected == false)
-                    {
-                        building.AddEffect(effect);
-                        activeDisaster.affectedBuildings.Add(building);
-                    }*/
-                    building.AddEffect(effect);
                 }
 
-                activeDisaster.affectedBuildings.Add(building);
+                // Apply effects (with prevention)
+                foreach (var effect in disaster.effects)
+                {
+                    // Skip Flooding if prevented
+                    if (effect.effectName == "Flooding" && floodingPrevented)
+                        continue;
+
+                    bool alreadyHasEffect =
+                        building.activeEffects.Any(e => e.effect.effectName == effect.effectName);
+
+                    if (!alreadyHasEffect)
+                    {
+                        building.AddEffect(effect);
+                        Debug.Log($"{building.name} gained effect: {effect.effectName}");
+                    }
+                    else
+                    {
+                        Debug.Log($"{building.name} already has effect: {effect.effectName}, skipping.");
+                    }
+                }
+
+                // Add building once
+                if (!activeDisaster.affectedBuildings.Contains(building))
+                    activeDisaster.affectedBuildings.Add(building);
             }
         }
+
     }
 
     private void TickActiveDisaster(float daysPassed)
