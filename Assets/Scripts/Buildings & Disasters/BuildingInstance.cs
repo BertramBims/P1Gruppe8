@@ -291,6 +291,7 @@ public class BuildingInstance : MonoBehaviour
             if (activeEffects[i].effect.effectName == effect.effectName)
             {
                 UpdateDisasterEffects(activeEffects[i].effect);
+                effect.ReapplyImmediate(this);
                 activeEffects.RemoveAt(i);
                 return;
             }
