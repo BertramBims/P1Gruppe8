@@ -156,8 +156,21 @@ public class DisasterManager : MonoBehaviour
                             }
                         }
                     }
-                    if (building.activeEffects == null)
+
+                    /*bool buildingAlreadyAffected = false;
+                    for (int i = 0; activeDisaster.affectedBuildings.Count > i; i++)
+                    {
+                        if (activeDisaster.affectedBuildings[i] == building)
+                        {
+                            buildingAlreadyAffected = true;
+                        }
+                    }
+                    if (buildingAlreadyAffected == false)
+                    {
                         building.AddEffect(effect);
+                        activeDisaster.affectedBuildings.Add(building);
+                    }*/
+                    building.AddEffect(effect);
                 }
 
                 activeDisaster.affectedBuildings.Add(building);
