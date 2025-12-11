@@ -19,8 +19,6 @@ MonoBehaviour:
   buildCost:
   - type: 0
     amount: 50
-  - type: 1
-    amount: 20
   upkeepPerDay:
   - type: 0
     amount: 1
