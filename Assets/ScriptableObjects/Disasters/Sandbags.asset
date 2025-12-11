@@ -17,7 +17,21 @@ MonoBehaviour:
   productionMultiplier: 1
   populationLoss: 0
   durationDays: 425
-  buildingsItCanEffect: []
+  buildingsItCanEffect:
+  - {fileID: 11400000, guid: 8e6d383d945d263a7af98016aa5b8916, type: 2}
+  - {fileID: 11400000, guid: d595aca87069d734480128174f2da338, type: 2}
+  - {fileID: 11400000, guid: 9e0723f8f50a9844a8367d935efeb131, type: 2}
+  - {fileID: 11400000, guid: 5e50b463c68079f4ea585ee637579614, type: 2}
+  - {fileID: 11400000, guid: 7fa1c5d3b8ba85e40a9c2acb66b831ca, type: 2}
+  - {fileID: 11400000, guid: e9b495e6f61658b4f825efd72020e578, type: 2}
+  - {fileID: 11400000, guid: 2118ec48ed92b40188c1e1e83964f4a6, type: 2}
+  - {fileID: 11400000, guid: 687da8710eccc13449a191b20680aecb, type: 2}
+  - {fileID: 11400000, guid: bf9d52746bcf4834f9d26cdd8cd48cd9, type: 2}
+  - {fileID: 11400000, guid: f09ae49ad81ac004d9c5c181dad3a819, type: 2}
+  - {fileID: 11400000, guid: 769d63e9ac9a0254cadb40d6922ccf18, type: 2}
+  - {fileID: 11400000, guid: edb2708637a7e1d4ba601a81c74fff7a, type: 2}
+  - {fileID: 11400000, guid: e2a0c00614a4458448e60b1ee9e56163, type: 2}
+  - {fileID: 11400000, guid: a36ffaf8dde85a84594f8ddaafead927, type: 2}
   costToRemoveEffect: []
   dailyMoraleDecay: 0
   dailyPopulationLoss: 0
