@@ -402,7 +402,7 @@ public class TutorialListener : MonoBehaviour
         {
             if (ManualStep)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
                 yield return null;
             }
             yield return null;
