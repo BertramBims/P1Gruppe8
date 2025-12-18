@@ -1,12 +1,4 @@
-using System;
-using System.Linq;
-using Unity.Properties;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class mouseInteract : MonoBehaviour
 {

@@ -1,9 +1,5 @@
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
