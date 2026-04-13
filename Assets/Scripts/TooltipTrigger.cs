@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -45,6 +44,19 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             sb.AppendLine("<b>Production / Day:</b>");
             foreach (var prod in data.productionPerDay)
                 sb.AppendLine($"+ {prod.type}: {prod.amount}");
+        }
+
+        /*if (data.buildCost.Length > 0)
+            Debug.Log("true!!!");
+        else
+            Debug.Log("false!!!");*/
+
+        if (data.buildCost.Length > 0)
+        {
+            sb.AppendLine("");
+            sb.AppendLine("<b>Build Cost:</b>");
+            foreach (var bc in data.buildCost)
+                sb.AppendLine($"{bc.type}: {bc.amount}");
         }
 
         return sb.ToString();

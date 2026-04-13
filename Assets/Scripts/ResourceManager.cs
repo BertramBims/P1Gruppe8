@@ -36,10 +36,10 @@ public class ResourceManager : MonoBehaviour
         }
         Instance = this;
 
-        foreach (ResourceType type in Enum.GetValues(typeof(ResourceType)))
-        {
-            resources[type] = 500;
-        }
+        resources[ResourceType.Pesos] = 75;
+        resources[ResourceType.Food] = 75;
+        resources[ResourceType.Lumber] = 75;
+        resources[ResourceType.Stone] = 50;
     }
 
     public float Get(ResourceType type) => resources.TryGetValue(type, out float value) ? value : 0;
@@ -80,7 +80,7 @@ public class ResourceManager : MonoBehaviour
             resources[type] = 0;
 
         resources[type] += amount;
-        Debug.Log($"{amount} {type} added. Total: {resources[type]}");
+        //Debug.Log($"{amount} {type} added. Total: {resources[type]}");
         OnResourceChanged?.Invoke(type, resources[type]); //Notifies listeners
     }
 

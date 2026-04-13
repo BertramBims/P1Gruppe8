@@ -7,6 +7,7 @@ using TMPro;
 public class TimeManager : MonoBehaviour
 {
     public float dayCounter = 0f;
+    public float ultimateDayCounter = 0f;
     public int currentDay;
     public int currentMonth = 1;
     public bool isTimePaused = true;
@@ -20,12 +21,11 @@ public class TimeManager : MonoBehaviour
     {
         //time pause
         if (isTimePaused)
-        {
             return;
-        }
 
         float daysPassed = Time.deltaTime;
         dayCounter += daysPassed;
+        ultimateDayCounter += daysPassed;
 
         //ticks month
         if (currentDay > 30)
@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
             if (currentMonth == 13)
                 currentMonth = 1;
             TickMonth();
-            Debug.Log("MonthTick");
+            //Debug.Log("MonthTick");
         }
 
         //ticks day
@@ -44,7 +44,7 @@ public class TimeManager : MonoBehaviour
         {
             currentDay++;
             TickDay();
-            Debug.Log("DayTick");
+            //Debug.Log("DayTick");
         }
     }
 
@@ -70,10 +70,12 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < buildings.Length; i++)
         {
             buildings[i].TickDay();
+            buildings[i].CalculateMoraleModifier();
         }
 
         dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
+        IslandHappinessManager.Instance.RecalculateHappiness();
         ResourceManager.Instance.RecalculateDailyIncome();
     }
 
@@ -88,6 +90,7 @@ public class TimeManager : MonoBehaviour
         }
         dayText.text = $"DAY {currentDay}";
         monthText.text = $"{monthString}";
+        DisasterManager.Instance.radarUI.GetComponent<RadarScript>().UpdateRadar();
     }
 
     public void PauseTime()

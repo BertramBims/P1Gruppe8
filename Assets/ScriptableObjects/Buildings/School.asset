@@ -27,8 +27,8 @@ MonoBehaviour:
     amount: 1
   productionPerDay: []
   maxPopulation: 5
-  baseMoraleEffect: 10
-  moraleSensitivity: 0
+  baseMoraleEffect: 4
+  minimumMoraleEffect: 0
   nextTier: {fileID: 11400000, guid: e2a0c00614a4458448e60b1ee9e56163, type: 2}
   previousTier: {fileID: 0}
   upgradeCost:

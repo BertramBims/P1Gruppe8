@@ -1,5 +1,6 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class TooltipManager : MonoBehaviour
 {
@@ -28,14 +29,16 @@ public class TooltipManager : MonoBehaviour
                 null,
                 out pos
                 );
-            rectTransform.anchoredPosition = pos + new Vector2(125, 165);
+            rectTransform.anchoredPosition = pos + new Vector2(125, 200);
         }
     }
 
     public void ShowTooltip(string text)
     {
         tooltipText.text = text;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
         tooltipObject.SetActive(true);
+
     }
 
     public void HideTooltip()

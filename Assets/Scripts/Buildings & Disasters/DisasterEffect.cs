@@ -18,8 +18,16 @@ public class DisasterEffect : ScriptableObject
     public void ApplyImmediate(BuildingInstance building)
     {
         building.ModifyMorale(moraleChange);
-        building.currentPopulation = Mathf.Max(0, building.currentPopulation - populationLoss);
+        //building.currentPopulation = Mathf.Max(0, building.currentPopulation - populationLoss);
 
         Debug.Log($"{building.data.buildingName} affected by {effectName}");
+    }
+
+    public void ReapplyImmediate(BuildingInstance building)
+    {
+        building.ModifyMorale(moraleChange * -1);
+        //building.currentPopulation = Mathf.Max(0, building.currentPopulation - populationLoss);
+
+        Debug.Log($"{building.data.buildingName} recovered from {effectName}");
     }
 }

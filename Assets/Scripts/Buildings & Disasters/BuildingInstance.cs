@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using TMPro;
 
@@ -16,6 +15,9 @@ public class BuildingInstance : MonoBehaviour
     public BuildingType data;
     public int currentPopulation;
     public float currentMorale = 100f;
+    private float usedMorale = 100f;
+    private float moraleBonus;
+    private float minimumMorale;
     public bool isActive = true;
     public ConstructionPlot constructionPlot; //plot that this building was built on;
     public TMP_Text buildingText;
@@ -28,35 +30,43 @@ public class BuildingInstance : MonoBehaviour
     public GameObject floodedUIButton;
     public GameObject brokenWindowsState;
     public GameObject brokenWindowsUIButton;
+    public GameObject sandbagState;
 
     public Dictionary<ResourceType, float> GetDailyResourceChange()
     {
-        Dictionary<ResourceType, float> change = new Dictionary<ResourceType, float>();
+        Dictionary<ResourceType, float> result = new Dictionary<ResourceType, float>();
 
-        //subtract upkeep
-        foreach(var upkeep in data.upkeepPerDay)
+        // If the building is not functioning, income is zero and upkeep is zero
+        if (usedMorale <= 0f)
+            return result;
+
+        float totalMultiplier = productionMultiplier;
+        foreach (var active in activeEffects)
+            totalMultiplier *= active.effect.productionMultiplier;
+
+        foreach (var resource in data.productionPerDay)
         {
-            if (!change.ContainsKey(upkeep.type))
-                change[upkeep.type] = 0;
-            change[upkeep.type] -= upkeep.amount;
+            float amount = resource.amount * totalMultiplier * (usedMorale / 100f);
+            amount = Mathf.Round(amount * 10f) / 10f; // keep 1 decimal
+
+            if (!result.ContainsKey(resource.type))
+                result[resource.type] = 0;
+
+            result[resource.type] += amount;
         }
 
-        //add production
-        foreach(var prod in data.productionPerDay)
+        foreach (var upkeep in data.upkeepPerDay)
         {
-            if (!change.ContainsKey(prod.type))
-                change[prod.type] = 0;
-            change[prod.type] += prod.amount;
+            float amount = upkeep.amount * (usedMorale / 100f);
+            amount = Mathf.Round(amount * 10f) / 10f;
+
+            if (!result.ContainsKey(upkeep.type))
+                result[upkeep.type] = 0;
+
+            result[upkeep.type] -= amount;  // subtract upkeep
         }
 
-        //scale by morale
-        /*float efficiency = currentMorale / 100f;
-        foreach (var key in change.Keys.ToList())
-        {
-            change[key] = Mathf.RoundToInt(change[key] * efficiency);
-        }*/
-
-        return change;
+        return result;
     }
 
     private void Start()
@@ -75,12 +85,39 @@ public class BuildingInstance : MonoBehaviour
 
     private void OnEnable()
     {
+        //IslandHappinessManager.Instance.RegisterBuilding(this);
         AllBuildings.Add(this);
+        if (data.buildingName == "Antenna")
+        {
+            DisasterManager.Instance.radarUI.SetActive(true);
+            DisasterManager.Instance.radarUI.GetComponent<RadarScript>().UpdateRadar();
+        }
     }
 
     private void OnDisable()
     {
+        //IslandHappinessManager.Instance.RegisterBuilding(this);
         AllBuildings.Remove(this);
+    }
+
+    public void CalculateMoraleModifier()
+    {
+        moraleBonus = 0;
+        minimumMorale = 0;
+        
+        foreach (var building in AllBuildings)
+        {
+            //hospitals, morale bonus
+            if (building.data.baseMoraleEffect != 0)
+                moraleBonus += building.data.baseMoraleEffect;
+
+            //stormshelter
+            if (building.data.minimumMoraleEffect != 0)
+                minimumMorale += building.data.minimumMoraleEffect;
+        }
+
+        ResourceManager.Instance.RecalculateDailyIncome();
+
     }
 
     public void TickMonth()
@@ -94,13 +131,13 @@ public class BuildingInstance : MonoBehaviour
         bool upkeepPaid = ResourceManager.Instance.TrySpend(data.upkeepPerDay);
         if (!upkeepPaid)
         {
-            //ModifyMorale(-10f);
+            ModifyMorale(-2f);
         }
     }
 
     private void ProduceResources()
     {
-        if (currentMorale <= 0f) return;
+        if (usedMorale <= 0f) return;
 
         float totalMultiplier = productionMultiplier;
         foreach (var active in activeEffects)
@@ -108,14 +145,20 @@ public class BuildingInstance : MonoBehaviour
 
         foreach(var resource in data.productionPerDay)
         {
-            float finalAmount = Mathf.Round(resource.amount * productionMultiplier * (currentMorale / 100f));
+            float finalAmount = Mathf.Round(resource.amount * totalMultiplier * (usedMorale / 100f) * 10f) / 10f;
             ResourceManager.Instance.Add(resource.type, finalAmount);
         }
     }
 
     public void ModifyMorale(float change)
     {
-        currentMorale = Mathf.Clamp(currentMorale + change, 0f, 100f);
+        currentMorale = Mathf.Clamp(currentMorale + change, minimumMorale, 100f + moraleBonus);
+        usedMorale = currentMorale;
+        if (currentMorale > 100f)
+            usedMorale = 100;
+
+        ResourceManager.Instance.RecalculateDailyIncome();
+
     }
 
     public void AddEffect (DisasterEffect effect)
@@ -140,6 +183,10 @@ public class BuildingInstance : MonoBehaviour
         {
             brokenWindowsState.SetActive(true);
             brokenWindowsUIButton.SetActive(true);
+        }
+        if (effect.effectName == "Sandbags")
+        {
+            sandbagState.SetActive(true);
         }
 
         activeEffects.Add(new ActiveEffect
@@ -172,9 +219,11 @@ public class BuildingInstance : MonoBehaviour
                     floodedState.SetActive(false);
                 if (active.effect.effectName == "Broken Windows")
                     brokenWindowsState.SetActive(false);
+                if (active.effect.effectName == "Sandbags")
+                    sandbagState.SetActive(false);
 
                 activeEffects.RemoveAt(i);
-                Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
+                //Debug.Log($"{data.buildingName} recovered from {active.effect.effectName}");
             }
         }
     }
@@ -200,17 +249,6 @@ public class BuildingInstance : MonoBehaviour
     {
         constructionPlot.gameObject.SetActive(true);
         Destroy(gameObject);
-    }
-
-    public void DoTrade(ResourceAmount[] cost, ResourceAmount[] purchase)
-    {
-        if (ResourceManager.Instance.TrySpend(cost))
-        {
-            for (int i = 0; i < purchase.Length; i++)
-            {
-                ResourceManager.Instance.Add(purchase[i].type, purchase[i].amount);
-            }
-        }
     }
 
     private string BuildBuildingText(BuildingType data)
@@ -251,8 +289,9 @@ public class BuildingInstance : MonoBehaviour
         {
             if (activeEffects[i].effect.effectName == effect.effectName)
             {
-                activeEffects.RemoveAt(i);
                 UpdateDisasterEffects(activeEffects[i].effect);
+                effect.ReapplyImmediate(this);
+                activeEffects.RemoveAt(i);
                 return;
             }
         }
@@ -270,6 +309,10 @@ public class BuildingInstance : MonoBehaviour
         {
             brokenWindowsState.SetActive(false);
             brokenWindowsUIButton.SetActive(false);
+        }
+        if (effect.effectName == "Sandbags")
+        {
+            sandbagState.SetActive(false);
         }
     }
 }

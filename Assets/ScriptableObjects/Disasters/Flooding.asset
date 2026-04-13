@@ -28,5 +28,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 769d63e9ac9a0254cadb40d6922ccf18, type: 2}
   - {fileID: 11400000, guid: edb2708637a7e1d4ba601a81c74fff7a, type: 2}
   - {fileID: 11400000, guid: 2fa7391b4a5d0c641912ac215a4737cd, type: 2}
+  costToRemoveEffect:
+  - type: 0
+    amount: 25
+  - type: 2
+    amount: 10
   dailyMoraleDecay: 0
   dailyPopulationLoss: 0

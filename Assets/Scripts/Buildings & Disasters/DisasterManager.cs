@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -31,6 +32,10 @@ public class DisasterManager : MonoBehaviour
     private DisasterInstance activeDisaster;
 
     public bool debugCanTriggerDisasterBool;
+    public float cumulativeSpawnChance = 0f;
+
+    public GameObject radarUI;
+    private bool disasterWaitBool;
 
     [Header("For Disaster Visuals")]
     [SerializeField] private Volume baseVolume, cycloneVolume;
@@ -38,14 +43,29 @@ public class DisasterManager : MonoBehaviour
 
     public GameObject cycloneDisasterVisual;
 
+    [Header("Basin Stuff...")]
+    public Sprite emptyBasin;
+    public Sprite fullBasin;
+
+    [Header("Library")]
+    public GameObject TyphoonInformation;
+    public GameObject TyphoonNewspaper;
+    private TimeManager PauseScript;
+
+
     private void Awake()
     {
         Instance = this;
         timeManager = GetComponent<TimeManager>();
+        PauseScript = GameObject.Find("GameManager").GetComponent<TimeManager>();
+
     }
 
     private void Update()
     {
+        //time pause
+        if (timeManager.isTimePaused)
+            return;
 
         //For simplicity right now, one second is one day in simulation
         float daysPassed = Time.deltaTime;
@@ -69,15 +89,29 @@ public class DisasterManager : MonoBehaviour
         if (debugCanTriggerDisasterBool == false)
             return;
 
+        if (disasterWaitBool == true)
+            return;
+
         //Don't start a new disaster if one is active
         if (activeDisaster != null) return;
 
         foreach (var disaster in possibleDisasters)
         {
-            if (Random.value <= disaster.spawnChance)
+            float rolledChance = Random.Range(0f, 100f);
+            Debug.Log(rolledChance);
+            if (rolledChance <= disaster.spawnChance + cumulativeSpawnChance)
             {
+                cumulativeSpawnChance = 0;
+                Debug.Log("1");
                 TriggerDisaster(disaster);
                 return; //only one disaster per check
+            } else
+            {
+                Debug.Log("2");
+                cumulativeSpawnChance += disaster.spawnChance;
+                disasterWaitBool = true;
+                StartCoroutine(ReenableDisasterSpawning());
+                return;
             }
         }
     }
@@ -98,7 +132,7 @@ public class DisasterManager : MonoBehaviour
         var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
         Debug.Log(buildings.Length);
         TriggerDisasterVisual(activeDisaster);
-        SwitchVolumes(.1f);
+        SwitchVolumes(.1f, false);
 
         foreach (var building in buildings)
         {
@@ -107,12 +141,56 @@ public class DisasterManager : MonoBehaviour
             {
                 Debug.Log($"Should apply disastereffect to {building.name} now");
 
-                foreach (var effect in disaster.effects)
-                    building.AddEffect(effect);
+                bool floodingPrevented = false;
 
-                activeDisaster.affectedBuildings.Add(building);
+                // SPECIAL HANDLING: Flooding prevention via Basins
+                foreach (var effect in disaster.effects)
+                {
+                    if (effect.effectName == "Flooding")
+                    {
+                        foreach (var b in buildings)
+                        {
+                            if (b.data.buildingName == "Basin")
+                            {
+                                var sr = b.GetComponentInChildren<SpriteRenderer>();
+                                if (sr.sprite != fullBasin)
+                                {
+                                    sr.sprite = fullBasin;
+                                    floodingPrevented = true;
+                                    Debug.Log($"{b.name} stopped {building.name} from getting flooded");
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Apply effects (with prevention)
+                foreach (var effect in disaster.effects)
+                {
+                    // Skip Flooding if prevented
+                    if (effect.effectName == "Flooding" && floodingPrevented)
+                        continue;
+
+                    bool alreadyHasEffect =
+                        building.activeEffects.Any(e => e.effect.effectName == effect.effectName);
+
+                    if (!alreadyHasEffect)
+                    {
+                        building.AddEffect(effect);
+                        Debug.Log($"{building.name} gained effect: {effect.effectName}");
+                    }
+                    else
+                    {
+                        Debug.Log($"{building.name} already has effect: {effect.effectName}, skipping.");
+                    }
+                }
+
+                // Add building once
+                if (!activeDisaster.affectedBuildings.Contains(building))
+                    activeDisaster.affectedBuildings.Add(building);
             }
         }
+
     }
 
     private void TickActiveDisaster(float daysPassed)
@@ -124,9 +202,9 @@ public class DisasterManager : MonoBehaviour
         if(activeDisaster.remainingDays <= 0)
         {
             Debug.Log($"Disaster ended: {activeDisaster.disaster.disasterName}");
-            activeDisaster = null;
             StopDisasterVisual(activeDisaster);
-            SwitchVolumes(.1f);
+            SwitchVolumes(.1f, true);
+            activeDisaster = null;
         }
     }
 
@@ -135,6 +213,7 @@ public class DisasterManager : MonoBehaviour
         if(activeDisaster.disaster.disasterName == "Tropical Cyclone")
         {
             cycloneDisasterVisual.SetActive(true);
+            StartCoroutine(ShowDisasterInfoAfterDelay(2f));
         }
     }
 
@@ -143,14 +222,22 @@ public class DisasterManager : MonoBehaviour
         if (activeDisaster.disaster.disasterName == "Tropical Cyclone")
         {
             cycloneDisasterVisual.SetActive(false);
+            Debug.Log("Stops Cyclone");
+
+            var buildings = FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                if (buildings[i].data.buildingName == "Basin" && buildings[i].GetComponentInChildren<SpriteRenderer>().sprite == fullBasin)
+                    buildings[i].GetComponentInChildren<SpriteRenderer>().sprite = emptyBasin;
+            }
         }
     }
 
-    public void SwitchVolumes(float speed)
+    public void SwitchVolumes(float speed, bool switchFromDisasterVolume)
     {
         if (!currentlyDisasterVolume) return;
 
-        StartCoroutine(SwitchVolumes_(speed, baseVolume.weight <= 0));
+        StartCoroutine(SwitchVolumes_(speed, switchFromDisasterVolume));
         currentlyDisasterVolume = false;
     }
 
@@ -172,6 +259,14 @@ public class DisasterManager : MonoBehaviour
         currentlyDisasterVolume = true;
     }
 
+    public IEnumerator ShowDisasterInfoAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TyphoonNewspaper.SetActive(true);
+        TyphoonInformation.SetActive(true);
+        PauseScript.PauseTime(); 
+    }
+
     /*private void TickBuildingEffects(float daysPassed)
     {
         var buildings = Object.FindObjectsByType<BuildingInstance>(FindObjectsSortMode.None);
@@ -180,4 +275,10 @@ public class DisasterManager : MonoBehaviour
             b.TickDay();
         }
     }*/
+
+    public IEnumerator ReenableDisasterSpawning()
+    {
+        yield return new WaitForSeconds(2f);
+        disasterWaitBool = false;
+    }
 }
